@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Login;
 
 namespace GESTINV
 {
@@ -16,7 +17,28 @@ namespace GESTINV
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
+            Login l = new Login();
+            do
+            {
+                l.ShowDialog();
+                if (l.DialogResult == DialogResult.OK)
+                {
+                    Application.Run(new Form1());
+                }
+                else if (l.DialogResult == DialogResult.No)
+                {
+                    Application.Run(new Form1(1));
+                   
+                }
+                else if (l.DialogResult == DialogResult.Cancel)
+                {
+                    Application.Exit();
+                }
+                
+            } while (l.DialogResult == DialogResult.Retry);
+            l.Dispose();
+
         }
     }
 }

@@ -32,6 +32,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.materialSingleLineTextField6 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -53,10 +56,7 @@
             this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField6 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.Tab = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.materialTabControl2.SuspendLayout();
@@ -77,7 +77,7 @@
             this.materialTabControl1.Controls.Add(this.tabPage6);
             this.materialTabControl1.Controls.Add(this.tabPage7);
             this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.Location = new System.Drawing.Point(26, 139);
+            this.materialTabControl1.Location = new System.Drawing.Point(30, 139);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
@@ -127,7 +127,56 @@
             this.tabPage1.Size = new System.Drawing.Size(1113, 522);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Añadir producto";
-           
+            // 
+            // materialSingleLineTextField6
+            // 
+            this.materialSingleLineTextField6.Depth = 0;
+            this.materialSingleLineTextField6.Hint = "Categoría";
+            this.materialSingleLineTextField6.Location = new System.Drawing.Point(716, 315);
+            this.materialSingleLineTextField6.MaxLength = 32767;
+            this.materialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField6.Name = "materialSingleLineTextField6";
+            this.materialSingleLineTextField6.PasswordChar = '\0';
+            this.materialSingleLineTextField6.SelectedText = "";
+            this.materialSingleLineTextField6.SelectionLength = 0;
+            this.materialSingleLineTextField6.SelectionStart = 0;
+            this.materialSingleLineTextField6.Size = new System.Drawing.Size(316, 28);
+            this.materialSingleLineTextField6.TabIndex = 9;
+            this.materialSingleLineTextField6.TabStop = false;
+            this.materialSingleLineTextField6.UseSystemPasswordChar = false;
+            // 
+            // materialSingleLineTextField5
+            // 
+            this.materialSingleLineTextField5.Depth = 0;
+            this.materialSingleLineTextField5.Hint = "Cantidad Mínima";
+            this.materialSingleLineTextField5.Location = new System.Drawing.Point(208, 315);
+            this.materialSingleLineTextField5.MaxLength = 32767;
+            this.materialSingleLineTextField5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField5.Name = "materialSingleLineTextField5";
+            this.materialSingleLineTextField5.PasswordChar = '\0';
+            this.materialSingleLineTextField5.SelectedText = "";
+            this.materialSingleLineTextField5.SelectionLength = 0;
+            this.materialSingleLineTextField5.SelectionStart = 0;
+            this.materialSingleLineTextField5.Size = new System.Drawing.Size(316, 28);
+            this.materialSingleLineTextField5.TabIndex = 8;
+            this.materialSingleLineTextField5.TabStop = false;
+            this.materialSingleLineTextField5.UseSystemPasswordChar = false;
+            // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.AutoSize = true;
+            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Icon = null;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(485, 414);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(100, 36);
+            this.materialRaisedButton1.TabIndex = 7;
+            this.materialRaisedButton1.Text = "Guardar";
+            this.materialRaisedButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
             // 
             // materialSingleLineTextField4
             // 
@@ -213,7 +262,6 @@
             this.materialSingleLineTextField1.TabIndex = 0;
             this.materialSingleLineTextField1.TabStop = false;
             this.materialSingleLineTextField1.UseSystemPasswordChar = false;
-            
             // 
             // tabPage2
             // 
@@ -221,7 +269,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1207, 490);
+            this.tabPage2.Size = new System.Drawing.Size(1113, 522);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar producto";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -245,7 +293,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1207, 490);
+            this.tabPage4.Size = new System.Drawing.Size(1113, 522);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "Consultar inventario";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -269,7 +317,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1207, 490);
+            this.tabPage5.Size = new System.Drawing.Size(1113, 522);
             this.tabPage5.TabIndex = 3;
             this.tabPage5.Text = "Eliminar producto";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -305,7 +353,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1260, 643);
+            this.tabPage6.Size = new System.Drawing.Size(1154, 643);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Ordenes";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -387,7 +435,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1260, 643);
+            this.tabPage7.Size = new System.Drawing.Size(1154, 643);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Reportes";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -405,83 +453,34 @@
             this.materialLabel6.TabIndex = 0;
             this.materialLabel6.Text = "Reportes";
             // 
-            // materialTabSelector1
+            // Tab
             // 
-            this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
-            this.materialTabSelector1.Depth = 0;
-            this.materialTabSelector1.Location = new System.Drawing.Point(26, 93);
-            this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(1138, 40);
-            this.materialTabSelector1.TabIndex = 1;
-            this.materialTabSelector1.Text = "materialTabSelector1";
-            // 
-            // materialRaisedButton1
-            // 
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Icon = null;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(485, 414);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(178, 36);
-            this.materialRaisedButton1.TabIndex = 7;
-            this.materialRaisedButton1.Text = "Guardar";
-            this.materialRaisedButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
-          
-            // 
-            // materialSingleLineTextField5
-            // 
-            this.materialSingleLineTextField5.Depth = 0;
-            this.materialSingleLineTextField5.Hint = "Cantidad Mínima";
-            this.materialSingleLineTextField5.Location = new System.Drawing.Point(208, 315);
-            this.materialSingleLineTextField5.MaxLength = 32767;
-            this.materialSingleLineTextField5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField5.Name = "materialSingleLineTextField5";
-            this.materialSingleLineTextField5.PasswordChar = '\0';
-            this.materialSingleLineTextField5.SelectedText = "";
-            this.materialSingleLineTextField5.SelectionLength = 0;
-            this.materialSingleLineTextField5.SelectionStart = 0;
-            this.materialSingleLineTextField5.Size = new System.Drawing.Size(316, 28);
-            this.materialSingleLineTextField5.TabIndex = 8;
-            this.materialSingleLineTextField5.TabStop = false;
-            this.materialSingleLineTextField5.UseSystemPasswordChar = false;
-            // 
-            // materialSingleLineTextField6
-            // 
-            this.materialSingleLineTextField6.Depth = 0;
-            this.materialSingleLineTextField6.Hint = "Categoría";
-            this.materialSingleLineTextField6.Location = new System.Drawing.Point(716, 315);
-            this.materialSingleLineTextField6.MaxLength = 32767;
-            this.materialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField6.Name = "materialSingleLineTextField6";
-            this.materialSingleLineTextField6.PasswordChar = '\0';
-            this.materialSingleLineTextField6.SelectedText = "";
-            this.materialSingleLineTextField6.SelectionLength = 0;
-            this.materialSingleLineTextField6.SelectionStart = 0;
-            this.materialSingleLineTextField6.Size = new System.Drawing.Size(316, 28);
-            this.materialSingleLineTextField6.TabIndex = 9;
-            this.materialSingleLineTextField6.TabStop = false;
-            this.materialSingleLineTextField6.UseSystemPasswordChar = false;
+            this.Tab.BaseTabControl = this.materialTabControl1;
+            this.Tab.Depth = 0;
+            this.Tab.Location = new System.Drawing.Point(30, 93);
+            this.Tab.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Tab.Name = "Tab";
+            this.Tab.Size = new System.Drawing.Size(1138, 40);
+            this.Tab.TabIndex = 1;
+            this.Tab.Text = "materialTabSelector1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 845);
-            this.Controls.Add(this.materialTabSelector1);
+            this.Controls.Add(this.Tab);
             this.Controls.Add(this.materialTabControl1);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GESTINV";
-            
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.materialTabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -504,7 +503,7 @@
 
         private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
         private System.Windows.Forms.TabPage tabPage3;
-        private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
+        private MaterialSkin.Controls.MaterialTabSelector Tab;
         private MaterialSkin.Controls.MaterialTabControl materialTabControl2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
