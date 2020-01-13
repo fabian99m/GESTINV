@@ -1,11 +1,11 @@
-C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\bin\Debug\GESTINV.exe.config
-C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\bin\Debug\GESTINV.exe
-C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\bin\Debug\GESTINV.pdb
 C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\bin\Debug\MaterialSkin.dll
 C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\obj\Debug\GESTINV.csprojAssemblyReference.cache
 C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\obj\Debug\GESTINV.Form1.resources
 C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\obj\Debug\GESTINV.Properties.Resources.resources
 C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\obj\Debug\GESTINV.csproj.GenerateResource.cache
 C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\obj\Debug\GESTINV.csproj.CopyComplete
-C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\obj\Debug\GESTINV.exe
-C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\obj\Debug\GESTINV.pdb
+C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\bin\Debug\Vista.exe.config
+C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\bin\Debug\Vista.exe
+C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\bin\Debug\Vista.pdb
+C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\obj\Debug\Vista.exe
+C:\Users\Fabian Montes\source\repos\GESTINV\GESTINV\obj\Debug\Vista.pdb

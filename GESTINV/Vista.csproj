@@ -7,7 +7,7 @@
     <ProjectGuid>{D77E1884-73AD-4ED1-A096-3F295A462B75}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GESTINV</RootNamespace>
-    <AssemblyName>GESTINV</AssemblyName>
+    <AssemblyName>Vista</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
