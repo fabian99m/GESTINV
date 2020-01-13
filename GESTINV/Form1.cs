@@ -25,10 +25,13 @@ namespace GESTINV
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Blue400, Primary.Blue500,
                 Primary.Blue500, Accent.LightBlue200,
-                TextShade.WHITE
+                TextShade.BLACK
             );
         }
 
-        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
