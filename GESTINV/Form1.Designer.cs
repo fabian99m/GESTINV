@@ -345,7 +345,7 @@
             this.materialTabSelector2.Location = new System.Drawing.Point(-4, 6);
             this.materialTabSelector2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector2.Name = "materialTabSelector2";
-            this.materialTabSelector2.Size = new System.Drawing.Size(1142, 42);
+            this.materialTabSelector2.Size = new System.Drawing.Size(1138, 42);
             this.materialTabSelector2.TabIndex = 0;
             this.materialTabSelector2.Text = "materialTabSelector2";
             // 
@@ -425,10 +425,10 @@
             // 
             this.materialTabSelector3.BaseTabControl = this.materialTabControl3;
             this.materialTabSelector3.Depth = 0;
-            this.materialTabSelector3.Location = new System.Drawing.Point(25, 22);
+            this.materialTabSelector3.Location = new System.Drawing.Point(0, 22);
             this.materialTabSelector3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector3.Name = "materialTabSelector3";
-            this.materialTabSelector3.Size = new System.Drawing.Size(1148, 42);
+            this.materialTabSelector3.Size = new System.Drawing.Size(1134, 42);
             this.materialTabSelector3.TabIndex = 1;
             this.materialTabSelector3.Text = "materialTabSelector3";
             // 

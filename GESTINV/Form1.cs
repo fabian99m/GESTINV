@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using Modelo.Datos;
+
 using Controlador;
 
 namespace GESTINV
@@ -63,9 +63,6 @@ namespace GESTINV
         private void GuardarProductos_Click(object sender, EventArgs e)
         {
 
-        inv_controlador.GuardarProductos(Convert.ToInt32(id.Text), nombre.Text , float.Parse(precio.Text) , 
-         Convert.ToInt32(stock.Text) , Convert.ToInt32(stockMin.Text) ,categoria.Text);
-         LimpiarPantalla();
         }
 
         public void LimpiarPantalla()
