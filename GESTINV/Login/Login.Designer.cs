@@ -28,46 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.TextNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.TextContrasena = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
-            // materialSingleLineTextField1
+            // TextNombre
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "Usuario";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(165, 138);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(215, 28);
-            this.materialSingleLineTextField1.TabIndex = 0;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.TextNombre.Depth = 0;
+            this.TextNombre.Hint = "Usuario";
+            this.TextNombre.Location = new System.Drawing.Point(184, 131);
+            this.TextNombre.MaxLength = 32767;
+            this.TextNombre.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TextNombre.Name = "TextNombre";
+            this.TextNombre.PasswordChar = '\0';
+            this.TextNombre.SelectedText = "";
+            this.TextNombre.SelectionLength = 0;
+            this.TextNombre.SelectionStart = 0;
+            this.TextNombre.Size = new System.Drawing.Size(215, 28);
+            this.TextNombre.TabIndex = 0;
+            this.TextNombre.TabStop = false;
+            this.TextNombre.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField2
+            // TextContrasena
             // 
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "Contraseña";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(175, 229);
-            this.materialSingleLineTextField2.MaxLength = 32767;
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(215, 28);
-            this.materialSingleLineTextField2.TabIndex = 1;
-            this.materialSingleLineTextField2.TabStop = false;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.TextContrasena.Depth = 0;
+            this.TextContrasena.Hint = "Contraseña";
+            this.TextContrasena.Location = new System.Drawing.Point(184, 216);
+            this.TextContrasena.MaxLength = 32767;
+            this.TextContrasena.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TextContrasena.Name = "TextContrasena";
+            this.TextContrasena.PasswordChar = '\0';
+            this.TextContrasena.SelectedText = "";
+            this.TextContrasena.SelectionLength = 0;
+            this.TextContrasena.SelectionStart = 0;
+            this.TextContrasena.Size = new System.Drawing.Size(215, 28);
+            this.TextContrasena.TabIndex = 1;
+            this.TextContrasena.TabStop = false;
+            this.TextContrasena.UseSystemPasswordChar = false;
             // 
             // materialRaisedButton1
             // 
@@ -75,15 +74,15 @@
             this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
             this.materialRaisedButton1.Icon = null;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(165, 306);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(195, 302);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(205, 36);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(146, 36);
             this.materialRaisedButton1.TabIndex = 2;
-            this.materialRaisedButton1.Text = "Iniciar sesión admin";
+            this.materialRaisedButton1.Text = "Iniciar sesión";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
-            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            this.materialRaisedButton1.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // materialRaisedButton2
             // 
@@ -91,7 +90,7 @@
             this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton2.Depth = 0;
             this.materialRaisedButton2.Icon = null;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(227, 446);
+            this.materialRaisedButton2.Location = new System.Drawing.Point(238, 419);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
             this.materialRaisedButton2.Primary = true;
@@ -99,39 +98,22 @@
             this.materialRaisedButton2.TabIndex = 3;
             this.materialRaisedButton2.Text = "Salir";
             this.materialRaisedButton2.UseVisualStyleBackColor = true;
-            this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click);
-            // 
-            // materialRaisedButton3
-            // 
-            this.materialRaisedButton3.AutoSize = true;
-            this.materialRaisedButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Icon = null;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(165, 369);
-            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton3.Name = "materialRaisedButton3";
-            this.materialRaisedButton3.Primary = true;
-            this.materialRaisedButton3.Size = new System.Drawing.Size(225, 36);
-            this.materialRaisedButton3.TabIndex = 4;
-            this.materialRaisedButton3.Text = "Iniciar sesión auxiliar";
-            this.materialRaisedButton3.UseVisualStyleBackColor = true;
-            this.materialRaisedButton3.Click += new System.EventHandler(this.materialRaisedButton3_Click);
+            this.materialRaisedButton2.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 526);
-            this.Controls.Add(this.materialRaisedButton3);
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.materialRaisedButton1);
-            this.Controls.Add(this.materialSingleLineTextField2);
-            this.Controls.Add(this.materialSingleLineTextField1);
+            this.Controls.Add(this.TextContrasena);
+            this.Controls.Add(this.TextNombre);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "GESTINV - Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,10 +121,9 @@
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
+        private MaterialSkin.Controls.MaterialSingleLineTextField TextNombre;
+        private MaterialSkin.Controls.MaterialSingleLineTextField TextContrasena;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton3;
     }
 }

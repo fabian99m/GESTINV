@@ -62,7 +62,7 @@ namespace GESTINV
 
         private void GuardarProductos_Click(object sender, EventArgs e)
         {
-            string connectionString = "datasource=remotemysql.com;port=3306;username=pf7UNUfjqi;password=3Jq7lpo46I;database=pf7UNUfjqi;";
+           string connectionString = "datasource=remotemysql.com;port=3306;username=pf7UNUfjqi;password=3Jq7lpo46I;database=pf7UNUfjqi;";
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             string query = "INSERT INTO Producto(`id`, `nombre`) VALUES ('"+Convert.ToInt32(id.Text)+"','"+nombre.Text+"')";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -71,15 +71,16 @@ namespace GESTINV
             {
                 databaseConnection.Open();
  
-               MySqlDataReader myReader = commandDatabase.ExecuteReader();
+                MySqlDataReader myReader = commandDatabase.ExecuteReader();
 
-                MessageBox.Show("Producto insertado satisfactoriamente!");
+                MessageBox.Show("Producto insertado satisfactoriamente!","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                 databaseConnection.Close();
             }
             catch (Exception ex)
             {
-               MessageBox.Show(ex.Message);
+                MessageBox.Show("Producto insertado sin éxito","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                
             }
             LimpiarPantalla();
         }
