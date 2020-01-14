@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
-
+using MySql.Data.MySqlClient;
 using Controlador;
 
 namespace GESTINV
@@ -62,17 +62,38 @@ namespace GESTINV
 
         private void GuardarProductos_Click(object sender, EventArgs e)
         {
+            string connectionString = "datasource=remotemysql.com;port=3306;username=pf7UNUfjqi;password=3Jq7lpo46I;database=pf7UNUfjqi;";
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            string query = "INSERT INTO Producto(`id`, `nombre`) VALUES ('"+Convert.ToInt32(id.Text)+"','"+nombre.Text+"')";
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            try
+            {
+                databaseConnection.Open();
+ 
+               MySqlDataReader myReader = commandDatabase.ExecuteReader();
 
+                MessageBox.Show("Producto insertado satisfactoriamente!");
+
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            {
+               MessageBox.Show(ex.Message);
+            }
+            LimpiarPantalla();
         }
 
         public void LimpiarPantalla()
         { 
             id.Text = "";
             nombre.Text = "";
+            /*
             precio.Text = "";
             stockMin.Text = "";
             stock.Text = "";
             categoria.Text = "";
+            */
         }
     }
 }
