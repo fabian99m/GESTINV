@@ -39,7 +39,7 @@
             // 
             this.materialSingleLineTextField1.Depth = 0;
             this.materialSingleLineTextField1.Hint = "Usuario";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(165, 148);
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(165, 138);
             this.materialSingleLineTextField1.MaxLength = 32767;
             this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
@@ -56,7 +56,7 @@
             // 
             this.materialSingleLineTextField2.Depth = 0;
             this.materialSingleLineTextField2.Hint = "Contraseña";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(165, 258);
+            this.materialSingleLineTextField2.Location = new System.Drawing.Point(175, 229);
             this.materialSingleLineTextField2.MaxLength = 32767;
             this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
@@ -75,7 +75,7 @@
             this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
             this.materialRaisedButton1.Icon = null;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(165, 314);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(165, 306);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
@@ -107,7 +107,7 @@
             this.materialRaisedButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton3.Depth = 0;
             this.materialRaisedButton3.Icon = null;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(165, 373);
+            this.materialRaisedButton3.Location = new System.Drawing.Point(165, 369);
             this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton3.Name = "materialRaisedButton3";
             this.materialRaisedButton3.Primary = true;

@@ -38,8 +38,8 @@
             this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.nombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.id = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -57,6 +57,8 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.Tab = new MaterialSkin.Controls.MaterialTabSelector();
+            this.LabelUser = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.materialTabControl2.SuspendLayout();
@@ -119,8 +121,8 @@
             this.tabPage1.Controls.Add(this.materialSingleLineTextField4);
             this.tabPage1.Controls.Add(this.materialSingleLineTextField3);
             this.tabPage1.Controls.Add(this.materialLabel1);
-            this.tabPage1.Controls.Add(this.materialSingleLineTextField2);
-            this.tabPage1.Controls.Add(this.materialSingleLineTextField1);
+            this.tabPage1.Controls.Add(this.nombre);
+            this.tabPage1.Controls.Add(this.id);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -177,6 +179,7 @@
             this.materialRaisedButton1.Text = "Guardar";
             this.materialRaisedButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.GuardarProductos_Click);
             // 
             // materialSingleLineTextField4
             // 
@@ -226,42 +229,42 @@
             this.materialLabel1.TabIndex = 4;
             this.materialLabel1.Text = "Información de producto";
             // 
-            // materialSingleLineTextField2
+            // nombre
             // 
-            this.materialSingleLineTextField2.BackColor = System.Drawing.Color.White;
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "Nombre";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(716, 124);
-            this.materialSingleLineTextField2.MaxLength = 32767;
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(316, 28);
-            this.materialSingleLineTextField2.TabIndex = 3;
-            this.materialSingleLineTextField2.TabStop = false;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.nombre.BackColor = System.Drawing.Color.White;
+            this.nombre.Depth = 0;
+            this.nombre.Hint = "Nombre";
+            this.nombre.Location = new System.Drawing.Point(716, 124);
+            this.nombre.MaxLength = 32767;
+            this.nombre.MouseState = MaterialSkin.MouseState.HOVER;
+            this.nombre.Name = "nombre";
+            this.nombre.PasswordChar = '\0';
+            this.nombre.SelectedText = "";
+            this.nombre.SelectionLength = 0;
+            this.nombre.SelectionStart = 0;
+            this.nombre.Size = new System.Drawing.Size(316, 28);
+            this.nombre.TabIndex = 3;
+            this.nombre.TabStop = false;
+            this.nombre.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField1
+            // id
             // 
-            this.materialSingleLineTextField1.BackColor = System.Drawing.Color.White;
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.materialSingleLineTextField1.Hint = "Identificador";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(208, 137);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(316, 28);
-            this.materialSingleLineTextField1.TabIndex = 0;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.id.BackColor = System.Drawing.Color.White;
+            this.id.Depth = 0;
+            this.id.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.id.Hint = "Identificador";
+            this.id.Location = new System.Drawing.Point(208, 137);
+            this.id.MaxLength = 32767;
+            this.id.MouseState = MaterialSkin.MouseState.HOVER;
+            this.id.Name = "id";
+            this.id.PasswordChar = '\0';
+            this.id.SelectedText = "";
+            this.id.SelectionLength = 0;
+            this.id.SelectionStart = 0;
+            this.id.Size = new System.Drawing.Size(316, 28);
+            this.id.TabIndex = 0;
+            this.id.TabStop = false;
+            this.id.UseSystemPasswordChar = false;
             // 
             // tabPage2
             // 
@@ -464,11 +467,38 @@
             this.Tab.TabIndex = 1;
             this.Tab.Text = "materialTabSelector1";
             // 
+            // LabelUser
+            // 
+            this.LabelUser.AutoSize = true;
+            this.LabelUser.Depth = 0;
+            this.LabelUser.Font = new System.Drawing.Font("Roboto", 11F);
+            this.LabelUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LabelUser.Location = new System.Drawing.Point(1082, 39);
+            this.LabelUser.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelUser.Name = "LabelUser";
+            this.LabelUser.Size = new System.Drawing.Size(0, 24);
+            this.LabelUser.TabIndex = 2;
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel9.Location = new System.Drawing.Point(987, 39);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(89, 24);
+            this.materialLabel9.TabIndex = 3;
+            this.materialLabel9.Text = "Usuario : ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 845);
+            this.Controls.Add(this.materialLabel9);
+            this.Controls.Add(this.LabelUser);
             this.Controls.Add(this.Tab);
             this.Controls.Add(this.materialTabControl1);
             this.MaximizeBox = false;
@@ -496,6 +526,7 @@
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -522,14 +553,16 @@
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector3;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
+        private MaterialSkin.Controls.MaterialSingleLineTextField id;
+        private MaterialSkin.Controls.MaterialSingleLineTextField nombre;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField5;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField6;
+        private MaterialSkin.Controls.MaterialLabel LabelUser;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
     }
 }
 

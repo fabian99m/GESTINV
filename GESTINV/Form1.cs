@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Modelo.Datos;
+using Controlador;
 
 namespace GESTINV
 {
     public partial class Form1 : MaterialForm
     {
+        InventarioControlador inv_controlador = new InventarioControlador();
+
         public Form1()
         {
             //vista de admin
@@ -27,7 +31,9 @@ namespace GESTINV
                 Primary.Blue400, Primary.Blue500,
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.BLACK
-            );       
+                
+            );
+            this.LabelUser.Text = "Admin";
         }
 
 
@@ -51,6 +57,16 @@ namespace GESTINV
             materialTabControl2.Controls.Remove(tabPage2);
             materialTabControl2.Controls.Remove(tabPage5);
             materialTabControl1.Controls.Remove(tabPage6);
+            this.LabelUser.Text = "Auxiliar";
+        }
+
+        private void GuardarProductos_Click(object sender, EventArgs e)
+        {
+
+            inv_controlador.GuardarProductos(Convert.ToInt32(id.Text), nombre.Text);
+            id.Text = "";
+            nombre.Text = "";
+
         }
     }
 }
