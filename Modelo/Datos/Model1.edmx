@@ -11,6 +11,10 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="precio" Type="float" />
+          <Property Name="stock" Type="int" />
+          <Property Name="stockMin" Type="int" />
+          <Property Name="categoria" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="GESTINTModelStoreContainer">
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
@@ -26,8 +30,12 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Double" />
+          <Property Name="stock" Type="Int32" />
+          <Property Name="stockMin" Type="Int32" />
+          <Property Name="categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="GESTINTEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GESTINTEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Producto" EntityType="Self.Producto" />
         </EntityContainer>
       </Schema>
@@ -35,12 +43,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GESTINTModelStoreContainer" CdmEntityContainer="GESTINTEntities2">
+        <EntityContainerMapping StorageEntityContainer="GESTINTModelStoreContainer" CdmEntityContainer="GESTINTEntities5">
           <EntitySetMapping Name="Producto">
             <EntityTypeMapping TypeName="GESTINTModel.Producto">
               <MappingFragment StoreEntitySet="Producto">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="stockMin" ColumnName="stockMin" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

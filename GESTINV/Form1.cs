@@ -63,10 +63,19 @@ namespace GESTINV
         private void GuardarProductos_Click(object sender, EventArgs e)
         {
 
-            inv_controlador.GuardarProductos(Convert.ToInt32(id.Text), nombre.Text);
+        inv_controlador.GuardarProductos(Convert.ToInt32(id.Text), nombre.Text , float.Parse(precio.Text) , 
+         Convert.ToInt32(stock.Text) , Convert.ToInt32(stockMin.Text) ,categoria.Text);
+         LimpiarPantalla();
+        }
+
+        public void LimpiarPantalla()
+        { 
             id.Text = "";
             nombre.Text = "";
-
+            precio.Text = "";
+            stockMin.Text = "";
+            stock.Text = "";
+            categoria.Text = "";
         }
     }
 }

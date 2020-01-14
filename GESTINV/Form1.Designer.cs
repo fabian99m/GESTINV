@@ -32,11 +32,11 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.materialSingleLineTextField6 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.categoria = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.stockMin = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.stock = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.precio = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.nombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.id = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -115,11 +115,11 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.materialSingleLineTextField6);
-            this.tabPage1.Controls.Add(this.materialSingleLineTextField5);
+            this.tabPage1.Controls.Add(this.categoria);
+            this.tabPage1.Controls.Add(this.stockMin);
             this.tabPage1.Controls.Add(this.materialRaisedButton1);
-            this.tabPage1.Controls.Add(this.materialSingleLineTextField4);
-            this.tabPage1.Controls.Add(this.materialSingleLineTextField3);
+            this.tabPage1.Controls.Add(this.stock);
+            this.tabPage1.Controls.Add(this.precio);
             this.tabPage1.Controls.Add(this.materialLabel1);
             this.tabPage1.Controls.Add(this.nombre);
             this.tabPage1.Controls.Add(this.id);
@@ -130,39 +130,39 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Añadir producto";
             // 
-            // materialSingleLineTextField6
+            // categoria
             // 
-            this.materialSingleLineTextField6.Depth = 0;
-            this.materialSingleLineTextField6.Hint = "Categoría";
-            this.materialSingleLineTextField6.Location = new System.Drawing.Point(716, 315);
-            this.materialSingleLineTextField6.MaxLength = 32767;
-            this.materialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField6.Name = "materialSingleLineTextField6";
-            this.materialSingleLineTextField6.PasswordChar = '\0';
-            this.materialSingleLineTextField6.SelectedText = "";
-            this.materialSingleLineTextField6.SelectionLength = 0;
-            this.materialSingleLineTextField6.SelectionStart = 0;
-            this.materialSingleLineTextField6.Size = new System.Drawing.Size(316, 28);
-            this.materialSingleLineTextField6.TabIndex = 9;
-            this.materialSingleLineTextField6.TabStop = false;
-            this.materialSingleLineTextField6.UseSystemPasswordChar = false;
+            this.categoria.Depth = 0;
+            this.categoria.Hint = "Categoría";
+            this.categoria.Location = new System.Drawing.Point(716, 315);
+            this.categoria.MaxLength = 32767;
+            this.categoria.MouseState = MaterialSkin.MouseState.HOVER;
+            this.categoria.Name = "categoria";
+            this.categoria.PasswordChar = '\0';
+            this.categoria.SelectedText = "";
+            this.categoria.SelectionLength = 0;
+            this.categoria.SelectionStart = 0;
+            this.categoria.Size = new System.Drawing.Size(316, 28);
+            this.categoria.TabIndex = 9;
+            this.categoria.TabStop = false;
+            this.categoria.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField5
+            // stockMin
             // 
-            this.materialSingleLineTextField5.Depth = 0;
-            this.materialSingleLineTextField5.Hint = "Cantidad Mínima";
-            this.materialSingleLineTextField5.Location = new System.Drawing.Point(208, 315);
-            this.materialSingleLineTextField5.MaxLength = 32767;
-            this.materialSingleLineTextField5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField5.Name = "materialSingleLineTextField5";
-            this.materialSingleLineTextField5.PasswordChar = '\0';
-            this.materialSingleLineTextField5.SelectedText = "";
-            this.materialSingleLineTextField5.SelectionLength = 0;
-            this.materialSingleLineTextField5.SelectionStart = 0;
-            this.materialSingleLineTextField5.Size = new System.Drawing.Size(316, 28);
-            this.materialSingleLineTextField5.TabIndex = 8;
-            this.materialSingleLineTextField5.TabStop = false;
-            this.materialSingleLineTextField5.UseSystemPasswordChar = false;
+            this.stockMin.Depth = 0;
+            this.stockMin.Hint = "Cantidad Mínima";
+            this.stockMin.Location = new System.Drawing.Point(208, 315);
+            this.stockMin.MaxLength = 32767;
+            this.stockMin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.stockMin.Name = "stockMin";
+            this.stockMin.PasswordChar = '\0';
+            this.stockMin.SelectedText = "";
+            this.stockMin.SelectionLength = 0;
+            this.stockMin.SelectionStart = 0;
+            this.stockMin.Size = new System.Drawing.Size(316, 28);
+            this.stockMin.TabIndex = 8;
+            this.stockMin.TabStop = false;
+            this.stockMin.UseSystemPasswordChar = false;
             // 
             // materialRaisedButton1
             // 
@@ -181,39 +181,39 @@
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             this.materialRaisedButton1.Click += new System.EventHandler(this.GuardarProductos_Click);
             // 
-            // materialSingleLineTextField4
+            // stock
             // 
-            this.materialSingleLineTextField4.Depth = 0;
-            this.materialSingleLineTextField4.Hint = "Cantidad en stock";
-            this.materialSingleLineTextField4.Location = new System.Drawing.Point(716, 221);
-            this.materialSingleLineTextField4.MaxLength = 32767;
-            this.materialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField4.Name = "materialSingleLineTextField4";
-            this.materialSingleLineTextField4.PasswordChar = '\0';
-            this.materialSingleLineTextField4.SelectedText = "";
-            this.materialSingleLineTextField4.SelectionLength = 0;
-            this.materialSingleLineTextField4.SelectionStart = 0;
-            this.materialSingleLineTextField4.Size = new System.Drawing.Size(316, 28);
-            this.materialSingleLineTextField4.TabIndex = 6;
-            this.materialSingleLineTextField4.TabStop = false;
-            this.materialSingleLineTextField4.UseSystemPasswordChar = false;
+            this.stock.Depth = 0;
+            this.stock.Hint = "Cantidad en stock";
+            this.stock.Location = new System.Drawing.Point(716, 221);
+            this.stock.MaxLength = 32767;
+            this.stock.MouseState = MaterialSkin.MouseState.HOVER;
+            this.stock.Name = "stock";
+            this.stock.PasswordChar = '\0';
+            this.stock.SelectedText = "";
+            this.stock.SelectionLength = 0;
+            this.stock.SelectionStart = 0;
+            this.stock.Size = new System.Drawing.Size(316, 28);
+            this.stock.TabIndex = 6;
+            this.stock.TabStop = false;
+            this.stock.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField3
+            // precio
             // 
-            this.materialSingleLineTextField3.Depth = 0;
-            this.materialSingleLineTextField3.Hint = "Precio";
-            this.materialSingleLineTextField3.Location = new System.Drawing.Point(208, 221);
-            this.materialSingleLineTextField3.MaxLength = 32767;
-            this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
-            this.materialSingleLineTextField3.PasswordChar = '\0';
-            this.materialSingleLineTextField3.SelectedText = "";
-            this.materialSingleLineTextField3.SelectionLength = 0;
-            this.materialSingleLineTextField3.SelectionStart = 0;
-            this.materialSingleLineTextField3.Size = new System.Drawing.Size(316, 28);
-            this.materialSingleLineTextField3.TabIndex = 5;
-            this.materialSingleLineTextField3.TabStop = false;
-            this.materialSingleLineTextField3.UseSystemPasswordChar = false;
+            this.precio.Depth = 0;
+            this.precio.Hint = "Precio";
+            this.precio.Location = new System.Drawing.Point(208, 221);
+            this.precio.MaxLength = 32767;
+            this.precio.MouseState = MaterialSkin.MouseState.HOVER;
+            this.precio.Name = "precio";
+            this.precio.PasswordChar = '\0';
+            this.precio.SelectedText = "";
+            this.precio.SelectionLength = 0;
+            this.precio.SelectionStart = 0;
+            this.precio.Size = new System.Drawing.Size(316, 28);
+            this.precio.TabIndex = 5;
+            this.precio.TabStop = false;
+            this.precio.UseSystemPasswordChar = false;
             // 
             // materialLabel1
             // 
@@ -556,11 +556,11 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField id;
         private MaterialSkin.Controls.MaterialSingleLineTextField nombre;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
+        private MaterialSkin.Controls.MaterialSingleLineTextField stock;
+        private MaterialSkin.Controls.MaterialSingleLineTextField precio;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField5;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField6;
+        private MaterialSkin.Controls.MaterialSingleLineTextField stockMin;
+        private MaterialSkin.Controls.MaterialSingleLineTextField categoria;
         private MaterialSkin.Controls.MaterialLabel LabelUser;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
     }

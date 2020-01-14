@@ -13,10 +13,10 @@ namespace Modelo.Datos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EntidadesInv : DbContext
+    public partial class EntidadesInv  : DbContext
     {
         public EntidadesInv()
-            : base("name=GESTINTEntities2")
+            : base("name=GESTINTEntities5")
         {
         }
     

@@ -16,5 +16,9 @@ namespace Modelo.Datos
     {
         public int id { get; set; }
         public string nombre { get; set; }
+        public Nullable<double> precio { get; set; }
+        public Nullable<int> stock { get; set; }
+        public Nullable<int> stockMin { get; set; }
+        public string categoria { get; set; }
     }
 }

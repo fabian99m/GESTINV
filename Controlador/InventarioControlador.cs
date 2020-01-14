@@ -19,17 +19,23 @@ namespace Controlador
 
 
 
-        public void GuardarProductos(int id, String nombre)
+        public void GuardarProductos(int id, String nombre,float precio , int stock , int stockMin, String categoria)
         {
+            
             using (EntidadesInv db = new EntidadesInv())
             {
                 Producto p = new Producto();
                 p.id = id;
                 p.nombre = nombre;
+                p.precio = precio;
+                p.stock = stock;
+                p.stockMin = stockMin;
+                p.categoria = categoria;
                 db.Producto.Add(p);
                 db.SaveChanges();
               
             }
+            
         }
 
 
