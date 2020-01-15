@@ -10,10 +10,10 @@ namespace Modelo.DTO
     {
         String id;
         String nombre;
-        float precio { get; set; }
-        int stock { get; set; }
-        int stockMin { get; set; }
-        String categoria { get; set; }
+        float precio;
+        int stock;
+        int stockMin;
+        String categoria;
 
         public ProductoDTO(String id, string nombre, float precio, int stock, int stockMin, string categoria)
         {
@@ -24,8 +24,6 @@ namespace Modelo.DTO
             this.stockMin = stockMin;
             this.categoria = categoria;
         }
-
-       
 
         public String ID
         {
@@ -56,7 +54,6 @@ namespace Modelo.DTO
             get { return stockMin; }
             set { stockMin = value; }
         }
-
         public String Categoria
         {
             get { return categoria; }

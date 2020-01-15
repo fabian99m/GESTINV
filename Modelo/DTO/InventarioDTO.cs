@@ -8,5 +8,19 @@ namespace Modelo.DTO
 {
     class InventarioDTO
     {
+        List<ProductoDTO> productoList;
+
+        public InventarioDTO(List<ProductoDTO> productoList)
+        {
+            this.productoList = productoList;
+        }
+
+        public List<ProductoDTO> ProductoList
+        { 
+        
+            get { return productoList; }
+            set { productoList= value; }
+        }
+
     }
 }

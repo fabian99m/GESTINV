@@ -4,19 +4,19 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using MySql.Data.MySqlClient;
 using Controlador;
-
+using System.Drawing;
 
 namespace GESTINV
 {
     public partial class Form1 : MaterialForm
     {
         InventarioControlador inv_controlador = new InventarioControlador();
-        
+
         public Form1()
         {
             //vista de admin
 
-            InitializeComponent();      
+            InitializeComponent();
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -25,7 +25,7 @@ namespace GESTINV
                 Primary.Blue400, Primary.Blue500,
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.BLACK
-                
+
             );
             this.LabelUser.Text = "Admin";
             RbId.Select();
@@ -46,7 +46,7 @@ namespace GESTINV
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.BLACK
             );
-        
+
             materialTabControl2.Controls.Remove(tabPage1);
             materialTabControl1.Controls.Remove(tabPage6);
             this.LabelUser.Text = "Auxiliar";
@@ -81,7 +81,7 @@ namespace GESTINV
             TextCategoria.Text = "";
         }
 
-      
+
         private void Consulta_Click(object sender, EventArgs e)
         {
 
@@ -92,7 +92,8 @@ namespace GESTINV
             if (!String.IsNullOrEmpty(TextConsulta.Text))
             {
                 consulta();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Ingrese un dato para la consulta!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -105,79 +106,12 @@ namespace GESTINV
         }
         private void RefrescarTabla()
         {
-            string connectionString = "datasource=remotemysql.com;port=3306;username=pf7UNUfjqi;password=3Jq7lpo46I;database=pf7UNUfjqi;";
-            string query = "SELECT * FROM Producto";
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
-            MySqlDataReader reader;
-            try
-            {
-                databaseConnection.Open();
-                reader = commandDatabase.ExecuteReader();
-
-
-                // Si se encontraron datos
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-
-                        string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5) };
-                        var listViewItem = new ListViewItem(row);
-                        TablaDatos.Items.Add(listViewItem);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No hay productos en inventario!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                databaseConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            inv_controlador.ConsultarProductos(TablaDatos);
         }
 
-        private void RefrescarTabla(String atri , String valor)
+        private void RefrescarTabla(String atributo, String valor)
         {
-            string connectionString = "datasource=remotemysql.com;port=3306;username=pf7UNUfjqi;password=3Jq7lpo46I;database=pf7UNUfjqi;";
-            string query = "SELECT * FROM Producto WHERE "+atri+"='"+valor+"' ";
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
-            MySqlDataReader reader;
-            try
-            {
-                databaseConnection.Open();
-                reader = commandDatabase.ExecuteReader();
-
-
-                // Si se encontraron datos
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-
-                        string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5) };
-                        var listViewItem = new ListViewItem(row);
-                        TablaDatos.Items.Add(listViewItem);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No hay productos en inventario!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                databaseConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                TablaDatos.Items.Clear();
-                MessageBox.Show(ex.Message);
-            }
+            inv_controlador.ConsultarProductos(TablaDatos, atributo, valor);
         }
 
 
@@ -188,6 +122,7 @@ namespace GESTINV
 
         private void materialRaisedButton5_Click(object sender, EventArgs e)
         {
+            TablaDatos.Items.Clear();
             RefrescarTabla();
         }
 
@@ -229,7 +164,7 @@ namespace GESTINV
 
         private void TextConsulta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar==(char)13)
+            if (e.KeyChar == (char)13)
             {
                 consulta();
             }
@@ -253,6 +188,33 @@ namespace GESTINV
             {
                 TablaDatos.Items.Clear();
                 RefrescarTabla("categoria", TextConsulta.Text);
+            }
+        }
+
+        private void materialRaisedButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+            if (TablaDatos.SelectedItems.Count > 0)
+            {
+              String id = TablaDatos.SelectedItems[0].Text;
+              string message ="Quieres eliminar el producto con ID:"+id+"";
+              String caption = "Eliminar producto";
+              var resultado = MessageBox.Show(message, caption, MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+               if (resultado == DialogResult.Yes)
+                {
+                  inv_controlador.EliminarProductos(id);
+                  TablaDatos.Items.Clear();
+                  RefrescarTabla();
+                  MessageBox.Show("Producto eliminado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            } else
+            {
+                MessageBox.Show("Seleccione un producto para eliminar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
