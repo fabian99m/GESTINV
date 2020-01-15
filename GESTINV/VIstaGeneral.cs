@@ -59,7 +59,7 @@ namespace GESTINV
               && !String.IsNullOrEmpty(TextStock.Text) && !String.IsNullOrEmpty(TextStockMin.Text) && !String.IsNullOrEmpty(TextCategoria.Text))
             {
 
-                inv_controlador.GuardarProductos(Convert.ToInt32(TextId.Text), TextNombre.Text, float.Parse(TextPrecio.Text)
+                inv_controlador.GuardarProductos(TextId.Text, TextNombre.Text, float.Parse(TextPrecio.Text)
                  , Convert.ToInt32(TextStock.Text), Convert.ToInt32(TextStockMin.Text), TextCategoria.Text);
                 LimpiarPantalla();
             }
@@ -89,21 +89,12 @@ namespace GESTINV
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-         if(RbId.Checked)
+            if (!String.IsNullOrEmpty(TextConsulta.Text))
             {
-                TablaDatos.Items.Clear();
-                RefrescarTabla("id", TextConsulta.Text);
-                
-            }
-         if (RbNombre.Checked)
+                consulta();
+            } else
             {
-                TablaDatos.Items.Clear();
-                RefrescarTabla("nombre", TextConsulta.Text);
-            }
-            if (RbCategoria.Checked)
-            {
-                TablaDatos.Items.Clear();
-                RefrescarTabla("categoria", TextConsulta.Text);
+                MessageBox.Show("Ingrese un dato para la consulta!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -184,7 +175,7 @@ namespace GESTINV
             }
             catch (Exception ex)
             {
-                materialListView1.Items.Clear();
+                TablaDatos.Items.Clear();
                 MessageBox.Show(ex.Message);
             }
         }
@@ -193,6 +184,76 @@ namespace GESTINV
         private void materialRadioButton3_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void materialRaisedButton5_Click(object sender, EventArgs e)
+        {
+            RefrescarTabla();
+        }
+
+        private void TextStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TextStockMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TextPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TextId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TextConsulta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar==(char)13)
+            {
+                consulta();
+            }
+        }
+
+        public void consulta()
+        {
+            if (RbId.Checked)
+            {
+                TablaDatos.Items.Clear();
+                RefrescarTabla("id", TextConsulta.Text);
+            }
+
+            if (RbNombre.Checked)
+            {
+                TablaDatos.Items.Clear();
+                RefrescarTabla("nombre", TextConsulta.Text);
+            }
+
+            if (RbCategoria.Checked)
+            {
+                TablaDatos.Items.Clear();
+                RefrescarTabla("categoria", TextConsulta.Text);
+            }
         }
     }
 }

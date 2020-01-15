@@ -8,14 +8,14 @@ namespace Modelo.DTO
 {
     public class ProductoDTO
     {
-        int id;
+        String id;
         String nombre;
         float precio { get; set; }
         int stock { get; set; }
         int stockMin { get; set; }
         String categoria { get; set; }
 
-        public ProductoDTO(int id, string nombre, float precio, int stock, int stockMin, string categoria)
+        public ProductoDTO(String id, string nombre, float precio, int stock, int stockMin, string categoria)
         {
             this.id = id;
             this.nombre = nombre;
@@ -25,13 +25,9 @@ namespace Modelo.DTO
             this.categoria = categoria;
         }
 
-        public ProductoDTO(int id, string nombre)
-        {
-            this.id = id;
-            this.nombre = nombre;      
-        }
+       
 
-        public int ID
+        public String ID
         {
           get{return id; }
           set { id = value;}

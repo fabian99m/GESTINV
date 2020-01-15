@@ -16,7 +16,7 @@ namespace Controlador
 
 
 
-        public void GuardarProductos(int id, String nombre, float precio, int stock, int stockMin, String categoria)
+        public void GuardarProductos(String id, String nombre, float precio, int stock, int stockMin, String categoria)
         {
             InventarioDAO inv = new InventarioDAO();
             inv.GuardarProducto(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria));

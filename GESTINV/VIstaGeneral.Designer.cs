@@ -71,6 +71,7 @@
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialRaisedButton5 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.materialTabControl2.SuspendLayout();
@@ -94,7 +95,7 @@
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1163, 672);
+            this.materialTabControl1.Size = new System.Drawing.Size(1163, 696);
             this.materialTabControl1.TabIndex = 0;
             // 
             // tabPage3
@@ -105,7 +106,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(1155, 643);
+            this.tabPage3.Size = new System.Drawing.Size(1155, 667);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Inventario";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -121,7 +122,7 @@
             this.materialTabControl2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl2.Name = "materialTabControl2";
             this.materialTabControl2.SelectedIndex = 0;
-            this.materialTabControl2.Size = new System.Drawing.Size(1121, 582);
+            this.materialTabControl2.Size = new System.Drawing.Size(1121, 599);
             this.materialTabControl2.TabIndex = 1;
             // 
             // tabPage1
@@ -139,7 +140,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1113, 552);
+            this.tabPage1.Size = new System.Drawing.Size(1113, 569);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Añadir producto";
             // 
@@ -178,6 +179,7 @@
             this.TextStockMin.TabIndex = 8;
             this.TextStockMin.TabStop = false;
             this.TextStockMin.UseSystemPasswordChar = false;
+            this.TextStockMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextStockMin_KeyPress);
             // 
             // materialRaisedButton1
             // 
@@ -214,6 +216,7 @@
             this.TextStock.TabIndex = 6;
             this.TextStock.TabStop = false;
             this.TextStock.UseSystemPasswordChar = false;
+            this.TextStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextStock_KeyPress);
             // 
             // TextPrecio
             // 
@@ -232,6 +235,7 @@
             this.TextPrecio.TabIndex = 5;
             this.TextPrecio.TabStop = false;
             this.TextPrecio.UseSystemPasswordChar = false;
+            this.TextPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextPrecio_KeyPress);
             // 
             // materialLabel1
             // 
@@ -285,10 +289,12 @@
             this.TextId.TabIndex = 0;
             this.TextId.TabStop = false;
             this.TextId.UseSystemPasswordChar = false;
+            this.TextId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextId_KeyPress);
             // 
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.White;
+            this.tabPage4.Controls.Add(this.materialRaisedButton5);
             this.tabPage4.Controls.Add(this.RbCategoria);
             this.tabPage4.Controls.Add(this.RbNombre);
             this.tabPage4.Controls.Add(this.RbId);
@@ -302,7 +308,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(1113, 552);
+            this.tabPage4.Size = new System.Drawing.Size(1113, 569);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "Inventario";
             // 
@@ -364,7 +370,7 @@
             this.materialRaisedButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton4.Depth = 0;
             this.materialRaisedButton4.Icon = null;
-            this.materialRaisedButton4.Location = new System.Drawing.Point(971, 500);
+            this.materialRaisedButton4.Location = new System.Drawing.Point(958, 527);
             this.materialRaisedButton4.Margin = new System.Windows.Forms.Padding(4);
             this.materialRaisedButton4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton4.Name = "materialRaisedButton4";
@@ -380,7 +386,7 @@
             this.materialRaisedButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton3.Depth = 0;
             this.materialRaisedButton3.Icon = null;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(823, 500);
+            this.materialRaisedButton3.Location = new System.Drawing.Point(805, 527);
             this.materialRaisedButton3.Margin = new System.Windows.Forms.Padding(4);
             this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton3.Name = "materialRaisedButton3";
@@ -396,7 +402,7 @@
             this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton2.Depth = 0;
             this.materialRaisedButton2.Icon = null;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(331, 12);
+            this.materialRaisedButton2.Location = new System.Drawing.Point(336, 14);
             this.materialRaisedButton2.Margin = new System.Windows.Forms.Padding(4);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
@@ -425,6 +431,7 @@
             this.TextConsulta.TabStop = false;
             this.TextConsulta.UseSystemPasswordChar = false;
             this.TextConsulta.Click += new System.EventHandler(this.Consulta_Click);
+            this.TextConsulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextConsulta_KeyPress);
             // 
             // TablaDatos
             // 
@@ -447,7 +454,7 @@
             this.TablaDatos.MouseState = MaterialSkin.MouseState.OUT;
             this.TablaDatos.Name = "TablaDatos";
             this.TablaDatos.OwnerDraw = true;
-            this.TablaDatos.Size = new System.Drawing.Size(1101, 426);
+            this.TablaDatos.Size = new System.Drawing.Size(1101, 441);
             this.TablaDatos.TabIndex = 1;
             this.TablaDatos.UseCompatibleStateImageBehavior = false;
             this.TablaDatos.View = System.Windows.Forms.View.Details;
@@ -684,6 +691,22 @@
             this.materialLabel2.TabIndex = 0;
             this.materialLabel2.Text = "Modificar";
             // 
+            // materialRaisedButton5
+            // 
+            this.materialRaisedButton5.AutoSize = true;
+            this.materialRaisedButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialRaisedButton5.Depth = 0;
+            this.materialRaisedButton5.Icon = null;
+            this.materialRaisedButton5.Location = new System.Drawing.Point(7, 528);
+            this.materialRaisedButton5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton5.Name = "materialRaisedButton5";
+            this.materialRaisedButton5.Primary = true;
+            this.materialRaisedButton5.Size = new System.Drawing.Size(174, 36);
+            this.materialRaisedButton5.TabIndex = 9;
+            this.materialRaisedButton5.Text = "Refrescar tabla";
+            this.materialRaisedButton5.UseVisualStyleBackColor = true;
+            this.materialRaisedButton5.Click += new System.EventHandler(this.materialRaisedButton5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -765,6 +788,7 @@
         private MaterialSkin.Controls.MaterialRadioButton RbCategoria;
         private MaterialSkin.Controls.MaterialRadioButton RbNombre;
         private MaterialSkin.Controls.MaterialRadioButton RbId;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton5;
     }
 }
 
