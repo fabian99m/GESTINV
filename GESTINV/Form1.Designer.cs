@@ -38,8 +38,8 @@
             this.stock = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.precio = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.nombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.id = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.TextNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.TextId = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -121,8 +121,8 @@
             this.tabPage1.Controls.Add(this.stock);
             this.tabPage1.Controls.Add(this.precio);
             this.tabPage1.Controls.Add(this.materialLabel1);
-            this.tabPage1.Controls.Add(this.nombre);
-            this.tabPage1.Controls.Add(this.id);
+            this.tabPage1.Controls.Add(this.TextNombre);
+            this.tabPage1.Controls.Add(this.TextId);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -229,42 +229,42 @@
             this.materialLabel1.TabIndex = 4;
             this.materialLabel1.Text = "Información de producto";
             // 
-            // nombre
+            // TextNombre
             // 
-            this.nombre.BackColor = System.Drawing.Color.White;
-            this.nombre.Depth = 0;
-            this.nombre.Hint = "Nombre";
-            this.nombre.Location = new System.Drawing.Point(716, 124);
-            this.nombre.MaxLength = 32767;
-            this.nombre.MouseState = MaterialSkin.MouseState.HOVER;
-            this.nombre.Name = "nombre";
-            this.nombre.PasswordChar = '\0';
-            this.nombre.SelectedText = "";
-            this.nombre.SelectionLength = 0;
-            this.nombre.SelectionStart = 0;
-            this.nombre.Size = new System.Drawing.Size(316, 28);
-            this.nombre.TabIndex = 3;
-            this.nombre.TabStop = false;
-            this.nombre.UseSystemPasswordChar = false;
+            this.TextNombre.BackColor = System.Drawing.Color.White;
+            this.TextNombre.Depth = 0;
+            this.TextNombre.Hint = "Nombre";
+            this.TextNombre.Location = new System.Drawing.Point(716, 124);
+            this.TextNombre.MaxLength = 32767;
+            this.TextNombre.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TextNombre.Name = "TextNombre";
+            this.TextNombre.PasswordChar = '\0';
+            this.TextNombre.SelectedText = "";
+            this.TextNombre.SelectionLength = 0;
+            this.TextNombre.SelectionStart = 0;
+            this.TextNombre.Size = new System.Drawing.Size(316, 28);
+            this.TextNombre.TabIndex = 3;
+            this.TextNombre.TabStop = false;
+            this.TextNombre.UseSystemPasswordChar = false;
             // 
-            // id
+            // TextId
             // 
-            this.id.BackColor = System.Drawing.Color.White;
-            this.id.Depth = 0;
-            this.id.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.id.Hint = "Identificador";
-            this.id.Location = new System.Drawing.Point(208, 137);
-            this.id.MaxLength = 32767;
-            this.id.MouseState = MaterialSkin.MouseState.HOVER;
-            this.id.Name = "id";
-            this.id.PasswordChar = '\0';
-            this.id.SelectedText = "";
-            this.id.SelectionLength = 0;
-            this.id.SelectionStart = 0;
-            this.id.Size = new System.Drawing.Size(316, 28);
-            this.id.TabIndex = 0;
-            this.id.TabStop = false;
-            this.id.UseSystemPasswordChar = false;
+            this.TextId.BackColor = System.Drawing.Color.White;
+            this.TextId.Depth = 0;
+            this.TextId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TextId.Hint = "Identificador";
+            this.TextId.Location = new System.Drawing.Point(208, 137);
+            this.TextId.MaxLength = 32767;
+            this.TextId.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TextId.Name = "TextId";
+            this.TextId.PasswordChar = '\0';
+            this.TextId.SelectedText = "";
+            this.TextId.SelectionLength = 0;
+            this.TextId.SelectionStart = 0;
+            this.TextId.Size = new System.Drawing.Size(316, 28);
+            this.TextId.TabIndex = 0;
+            this.TextId.TabStop = false;
+            this.TextId.UseSystemPasswordChar = false;
             // 
             // tabPage2
             // 
@@ -553,8 +553,8 @@
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector3;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
-        private MaterialSkin.Controls.MaterialSingleLineTextField id;
-        private MaterialSkin.Controls.MaterialSingleLineTextField nombre;
+        private MaterialSkin.Controls.MaterialSingleLineTextField TextId;
+        private MaterialSkin.Controls.MaterialSingleLineTextField TextNombre;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialSingleLineTextField stock;
         private MaterialSkin.Controls.MaterialSingleLineTextField precio;

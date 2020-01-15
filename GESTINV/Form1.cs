@@ -11,12 +11,15 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using MySql.Data.MySqlClient;
 using Controlador;
+using Modelo.DTO;
+using Modelo.DAO;
 
 namespace GESTINV
 {
     public partial class Form1 : MaterialForm
     {
-        InventarioControlador inv_controlador = new InventarioControlador();
+        // InventarioControlador inv_controlador = new InventarioControlador();
+        InventarioDAO inv = new InventarioDAO();
 
         public Form1()
         {
@@ -35,7 +38,6 @@ namespace GESTINV
             );
             this.LabelUser.Text = "Admin";
         }
-
 
         public Form1(int num)
         {
@@ -62,33 +64,15 @@ namespace GESTINV
 
         private void GuardarProductos_Click(object sender, EventArgs e)
         {
-           string connectionString = "datasource=remotemysql.com;port=3306;username=pf7UNUfjqi;password=3Jq7lpo46I;database=pf7UNUfjqi;";
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-            string query = "INSERT INTO Producto(`id`, `nombre`) VALUES ('"+Convert.ToInt32(id.Text)+"','"+nombre.Text+"')";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
-            try
-            {
-                databaseConnection.Open();
- 
-                MySqlDataReader myReader = commandDatabase.ExecuteReader();
-
-                MessageBox.Show("Producto insertado satisfactoriamente!","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-                databaseConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Producto insertado sin éxito","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                
-            }
+            inv.GuardarProducto(new ProductoDTO(Convert.ToInt32(TextId.Text), TextNombre.Text));
             LimpiarPantalla();
+           
         }
 
         public void LimpiarPantalla()
         { 
-            id.Text = "";
-            nombre.Text = "";
+            TextId.Text = "";
+            TextNombre.Text = "";
             /*
             precio.Text = "";
             stockMin.Text = "";
