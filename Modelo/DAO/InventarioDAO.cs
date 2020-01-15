@@ -17,8 +17,10 @@ namespace Modelo.DAO
 
         public void GuardarProducto(ProductoDTO producto)
         {
+
+            string query = "INSERT INTO Producto(id, nombre,precio,stock,stockMin,categoria) VALUES ('" + producto.ID + "','" + producto.Nombre + "'," +
+            "'" + producto.Precio + "','" + producto.Stock + "','" + producto.StockMin + "','" + producto.Categoria + "')";
             
-            string query = "INSERT INTO Producto(`id`, `nombre`) VALUES ('" + producto.ID + "','" + producto.Nombre + "')";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             try

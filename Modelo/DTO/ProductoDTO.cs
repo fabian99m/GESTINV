@@ -43,7 +43,29 @@ namespace Modelo.DTO
           set{nombre = value;}
         }
 
+        public float Precio
+        {
+            get { return precio; }
+            set { precio = value; }
+        }
 
+        public int Stock
+        {
+            get { return stock; }
+            set { stock = value; }
+        }
+
+        public int StockMin
+        {
+            get { return stockMin; }
+            set { stockMin = value; }
+        }
+
+        public String Categoria
+        {
+            get { return categoria; }
+            set { categoria = value; }
+        }
 
     }
 }

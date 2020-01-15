@@ -16,11 +16,10 @@ namespace Controlador
 
 
 
-
-        public void GuardarProductos(int id,String nombre)
+        public void GuardarProductos(int id, String nombre, float precio, int stock, int stockMin, String categoria)
         {
             InventarioDAO inv = new InventarioDAO();
-            inv.GuardarProducto(new ProductoDTO(id,nombre));
+            inv.GuardarProducto(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria));
 
         }
 
