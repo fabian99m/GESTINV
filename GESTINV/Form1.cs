@@ -132,5 +132,10 @@ namespace GESTINV
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void materialRadioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
