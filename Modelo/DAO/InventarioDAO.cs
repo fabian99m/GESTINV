@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace Modelo.DAO
 {
-    public class InventarioDAO
+    public class InventarioDAO : Conexion
     {
         public InventarioDAO()
         {
@@ -17,8 +17,7 @@ namespace Modelo.DAO
 
         public void GuardarProducto(ProductoDTO producto)
         {
-            string connectionString = "datasource=remotemysql.com;port=3306;username=pf7UNUfjqi;password=3Jq7lpo46I;database=pf7UNUfjqi;";
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            
             string query = "INSERT INTO Producto(`id`, `nombre`) VALUES ('" + producto.ID + "','" + producto.Nombre + "')";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;

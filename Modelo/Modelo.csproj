@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\Conexion.cs" />
     <Compile Include="DAO\InventarioDAO.cs" />
     <Compile Include="DAO\ProductoDAO.cs" />
     <Compile Include="DTO\InventarioDTO.cs" />
