@@ -85,6 +85,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModificarProducto\ModificarProducto_view.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarProducto\ModificarProducto_view.Designer.cs">
+      <DependentUpon>ModificarProducto_view.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIstaGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ModificarProducto\ModificarProducto_view.resx">
+      <DependentUpon>ModificarProducto_view.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIstaGeneral.resx">
       <DependentUpon>VIstaGeneral.cs</DependentUpon>
     </EmbeddedResource>

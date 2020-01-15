@@ -5,7 +5,7 @@ using MaterialSkin.Controls;
 using MySql.Data.MySqlClient;
 using Controlador;
 using System.Drawing;
-
+using Vista.ModificarProducto;
 namespace GESTINV
 {
     public partial class Form1 : MaterialForm
@@ -193,7 +193,23 @@ namespace GESTINV
 
         private void materialRaisedButton3_Click(object sender, EventArgs e)
         {
-
+            if (TablaDatos.SelectedItems.Count > 0)
+            {
+                String id = TablaDatos.SelectedItems[0].SubItems[0].Text;
+                String nombre = TablaDatos.SelectedItems[0].SubItems[1].Text;
+                String precio = TablaDatos.SelectedItems[0].SubItems[2].Text;
+                String stock = TablaDatos.SelectedItems[0].SubItems[3].Text;
+                String stockMin = TablaDatos.SelectedItems[0].SubItems[4].Text;
+                String categoria = TablaDatos.SelectedItems[0].SubItems[5].Text;
+                ModificarProducto_view Modificar_view = new ModificarProducto_view(id, nombre, precio, stock, stockMin, categoria);
+                Modificar_view.ShowDialog();
+                TablaDatos.Items.Clear();
+                RefrescarTabla();     
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un producto para modificar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)

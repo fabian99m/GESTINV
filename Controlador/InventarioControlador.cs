@@ -41,6 +41,11 @@ namespace Controlador
             InvDAO.EliminarProductos(id);        
         }
 
-      }
+        public void ModificarProductos(String id, String nombre, float precio, int stock, int stockMin, String categoria,String IdOld)
+        {
+            InvDAO.ModificarProductos(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria),IdOld);
+        }
+
+    }
 
    }

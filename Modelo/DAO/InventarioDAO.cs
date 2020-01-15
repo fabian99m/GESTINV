@@ -129,6 +129,25 @@ namespace Modelo.DAO
             {
                 MessageBox.Show(ex.Message);
             }
+        } 
+
+        public void ModificarProductos(ProductoDTO producto,String id)
+        {
+            string query = "UPDATE Producto SET id="+producto.ID+", nombre='"+producto.Nombre+"' , precio="+producto.Precio+"" +
+                ",stock="+producto.Stock+",stockMin="+producto.StockMin+" ,Categoria='"+producto.Categoria+"' WHERE id="+id+"";
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

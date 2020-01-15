@@ -66,7 +66,7 @@
             this.TextContrasena.Size = new System.Drawing.Size(215, 28);
             this.TextContrasena.TabIndex = 1;
             this.TextContrasena.TabStop = false;
-            this.TextContrasena.UseSystemPasswordChar = false;
+            this.TextContrasena.UseSystemPasswordChar = true;
             // 
             // materialRaisedButton1
             // 
