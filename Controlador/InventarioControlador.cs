@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modelo.DAO;
+using Modelo.DTO;
 
 
 
@@ -15,15 +17,11 @@ namespace Controlador
 
 
 
-
-
-
-
-        public void GuardarProductos(int id, String nombre,float precio , int stock , int stockMin, String categoria)
+        public void GuardarProductos(int id,String nombre)
         {
-            
-            
-            
+            InventarioDAO inv = new InventarioDAO();
+            inv.GuardarProducto(new ProductoDTO(id,nombre));
+
         }
 
 

@@ -18,9 +18,8 @@ namespace GESTINV
 {
     public partial class Form1 : MaterialForm
     {
-        // InventarioControlador inv_controlador = new InventarioControlador();
-        InventarioDAO inv = new InventarioDAO();
-
+        InventarioControlador inv_controlador = new InventarioControlador();
+        
         public Form1()
         {
             //vista de admin
@@ -63,10 +62,9 @@ namespace GESTINV
         }
 
         private void GuardarProductos_Click(object sender, EventArgs e)
-        {
-            inv.GuardarProducto(new ProductoDTO(Convert.ToInt32(TextId.Text), TextNombre.Text));
-            LimpiarPantalla();
-           
+        {  
+            inv_controlador.GuardarProductos(Convert.ToInt32(TextId.Text), TextNombre.Text);
+            LimpiarPantalla();   
         }
 
         public void LimpiarPantalla()

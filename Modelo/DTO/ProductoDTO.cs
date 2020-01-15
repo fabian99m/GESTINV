@@ -28,16 +28,14 @@ namespace Modelo.DTO
         public ProductoDTO(int id, string nombre)
         {
             this.id = id;
-            this.nombre = nombre;
-            
+            this.nombre = nombre;      
         }
-
 
         public int ID
         {
           get{return id; }
           set { id = value;}
-         }
+        }
 
         public String Nombre
         {
