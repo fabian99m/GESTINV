@@ -78,5 +78,30 @@ namespace GESTINV
             categoria.Text = "";
             */
         }
+
+        private void materialTabSelector2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialListView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Consulta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
