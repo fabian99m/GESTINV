@@ -28,6 +28,7 @@ namespace GESTINV
                 
             );
             this.LabelUser.Text = "Admin";
+            RbId.Select();
         }
 
         public Form1(int num)
@@ -49,6 +50,7 @@ namespace GESTINV
             materialTabControl2.Controls.Remove(tabPage1);
             materialTabControl1.Controls.Remove(tabPage6);
             this.LabelUser.Text = "Auxiliar";
+            RbId.Select();
         }
 
         private void GuardarProductos_Click(object sender, EventArgs e)
@@ -85,9 +87,24 @@ namespace GESTINV
 
         }
 
-        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        private void btnConsultar_Click(object sender, EventArgs e)
         {
-            
+         if(RbId.Checked)
+            {
+                TablaDatos.Items.Clear();
+                RefrescarTabla("id", TextConsulta.Text);
+                
+            }
+         if (RbNombre.Checked)
+            {
+                TablaDatos.Items.Clear();
+                RefrescarTabla("nombre", TextConsulta.Text);
+            }
+            if (RbCategoria.Checked)
+            {
+                TablaDatos.Items.Clear();
+                RefrescarTabla("categoria", TextConsulta.Text);
+            }
         }
 
         private void CargarInventario_Event(object sender, EventArgs e)
@@ -117,7 +134,7 @@ namespace GESTINV
 
                         string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5) };
                         var listViewItem = new ListViewItem(row);
-                        materialListView1.Items.Add(listViewItem);
+                        TablaDatos.Items.Add(listViewItem);
                     }
                 }
                 else
@@ -132,6 +149,46 @@ namespace GESTINV
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void RefrescarTabla(String atri , String valor)
+        {
+            string connectionString = "datasource=remotemysql.com;port=3306;username=pf7UNUfjqi;password=3Jq7lpo46I;database=pf7UNUfjqi;";
+            string query = "SELECT * FROM Producto WHERE "+atri+"='"+valor+"' ";
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+
+
+                // Si se encontraron datos
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+
+                        string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5) };
+                        var listViewItem = new ListViewItem(row);
+                        TablaDatos.Items.Add(listViewItem);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No hay productos en inventario!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                materialListView1.Items.Clear();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
         private void materialRadioButton3_CheckedChanged(object sender, EventArgs e)
         {
