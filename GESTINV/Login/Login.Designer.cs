@@ -72,6 +72,7 @@
             // 
             this.materialRaisedButton1.AutoSize = true;
             this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton1.Depth = 0;
             this.materialRaisedButton1.Icon = null;
             this.materialRaisedButton1.Location = new System.Drawing.Point(195, 302);

@@ -2,15 +2,16 @@
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using MySql.Data.MySqlClient;
 using Controlador;
-using System.Drawing;
 using Vista.ModificarProducto;
+using Modelo.DTO;
+
 namespace GESTINV
 {
     public partial class Form1 : MaterialForm
     {
         InventarioControlador inv_controlador = new InventarioControlador();
+        OrdenControlador orden_controlador = new OrdenControlador();
 
         public Form1()
         {
@@ -29,6 +30,8 @@ namespace GESTINV
             );
             this.LabelUser.Text = "Admin";
             RbId.Select();
+            TablaInventario.HideSelection = true;
+            TablaOrdenes.HideSelection = true;
         }
 
         public Form1(int num)
@@ -51,6 +54,8 @@ namespace GESTINV
             materialTabControl1.Controls.Remove(tabPage6);
             this.LabelUser.Text = "Auxiliar";
             RbId.Select();
+            TablaInventario.HideSelection = true;
+            TablaOrdenes.HideSelection = true;
         }
 
         private void GuardarProductos_Click(object sender, EventArgs e)
@@ -65,10 +70,10 @@ namespace GESTINV
             }
             else
             {
-                MessageBox.Show("Ingrese datos para añadir!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese todos los datos para añadir!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             LimpiarPantalla();
-            RefrescarTabla();
+            RefrescarTablaInvetario();
         }
 
         public void LimpiarPantalla()
@@ -101,17 +106,24 @@ namespace GESTINV
 
         private void CargarInventario_Event(object sender, EventArgs e)
         {
-            RefrescarTabla();
+            RefrescarTablaInvetario();
+            RefrescaraTablaOrden();
             this.Refresh();
         }
-        private void RefrescarTabla()
+
+        private void RefrescaraTablaOrden()
         {
-            inv_controlador.ConsultarProductos(TablaDatos);
+            orden_controlador.ConsultarOrden(TablaOrdenes);
         }
 
-        private void RefrescarTabla(String atributo, String valor)
+        private void RefrescarTablaInvetario()
         {
-            inv_controlador.ConsultarProductos(TablaDatos, atributo, valor);
+            inv_controlador.ConsultarProductos(TablaInventario);
+        }
+
+        private void RefrescarTablaInvetario(String atributo, String valor)
+        {
+            inv_controlador.ConsultarProductos(TablaInventario, atributo, valor);
         }
 
 
@@ -122,8 +134,8 @@ namespace GESTINV
 
         private void materialRaisedButton5_Click(object sender, EventArgs e)
         {
-            TablaDatos.Items.Clear();
-            RefrescarTabla();
+            TablaInventario.Items.Clear();
+            RefrescarTablaInvetario();
         }
 
         private void TextStock_KeyPress(object sender, KeyPressEventArgs e)
@@ -174,37 +186,37 @@ namespace GESTINV
         {
             if (RbId.Checked)
             {
-                TablaDatos.Items.Clear();
-                RefrescarTabla("id", TextConsulta.Text);
+                TablaInventario.Items.Clear();
+                RefrescarTablaInvetario("id", TextConsulta.Text);
             }
 
             if (RbNombre.Checked)
             {
-                TablaDatos.Items.Clear();
-                RefrescarTabla("nombre", TextConsulta.Text);
+                TablaInventario.Items.Clear();
+                RefrescarTablaInvetario("nombre", TextConsulta.Text);
             }
 
             if (RbCategoria.Checked)
             {
-                TablaDatos.Items.Clear();
-                RefrescarTabla("categoria", TextConsulta.Text);
+                TablaInventario.Items.Clear();
+                RefrescarTablaInvetario("categoria", TextConsulta.Text);
             }
         }
 
         private void materialRaisedButton3_Click(object sender, EventArgs e)
         {
-            if (TablaDatos.SelectedItems.Count > 0)
+            if (TablaInventario.SelectedItems.Count > 0)
             {
-                String id = TablaDatos.SelectedItems[0].SubItems[0].Text;
-                String nombre = TablaDatos.SelectedItems[0].SubItems[1].Text;
-                String precio = TablaDatos.SelectedItems[0].SubItems[2].Text;
-                String stock = TablaDatos.SelectedItems[0].SubItems[3].Text;
-                String stockMin = TablaDatos.SelectedItems[0].SubItems[4].Text;
-                String categoria = TablaDatos.SelectedItems[0].SubItems[5].Text;
+                String id = TablaInventario.SelectedItems[0].SubItems[0].Text;
+                String nombre = TablaInventario.SelectedItems[0].SubItems[1].Text;
+                String precio = TablaInventario.SelectedItems[0].SubItems[2].Text;
+                String stock = TablaInventario.SelectedItems[0].SubItems[3].Text;
+                String stockMin = TablaInventario.SelectedItems[0].SubItems[4].Text;
+                String categoria = TablaInventario.SelectedItems[0].SubItems[5].Text;
                 ModificarProducto_view Modificar_view = new ModificarProducto_view(id, nombre, precio, stock, stockMin, categoria);
                 Modificar_view.ShowDialog();
-                TablaDatos.Items.Clear();
-                RefrescarTabla();     
+                TablaInventario.Items.Clear();
+                RefrescarTablaInvetario();     
             }
             else
             {
@@ -214,18 +226,19 @@ namespace GESTINV
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
         {
-            if (TablaDatos.SelectedItems.Count > 0)
+            if (TablaInventario.SelectedItems.Count > 0)
             {
-              String id = TablaDatos.SelectedItems[0].Text;
-              string message ="Quieres eliminar el producto con ID:"+id+"";
+              String id = TablaInventario.SelectedItems[0].Text;
+              String nombre = TablaInventario.SelectedItems[0].SubItems[1].Text;
+              string message ="¿ Quieres eliminar el producto : "+nombre+"-"+id+" ?";
               String caption = "Eliminar producto";
               var resultado = MessageBox.Show(message, caption, MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
                if (resultado == DialogResult.Yes)
                 {
                   inv_controlador.EliminarProductos(id);
-                  TablaDatos.Items.Clear();
-                  RefrescarTabla();
+                  TablaInventario.Items.Clear();
+                  RefrescarTablaInvetario();
                   MessageBox.Show("Producto eliminado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             } else
@@ -234,19 +247,29 @@ namespace GESTINV
             }
         }
 
-        private void materialListView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            orden_controlador.RegistrarOrden(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)),"Entrada", Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text));
+            TablaOrdenes.Items.Clear();
+            RefrescaraTablaOrden();
         }
 
-        private void materialSingleLineTextField4_Click(object sender, EventArgs e)
+        private void TextCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
         }
 
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        private void TextID2_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if(!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

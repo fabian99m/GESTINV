@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Modelo.DAO;
 using Modelo.DTO;
-using MaterialSkin;
 using MaterialSkin.Controls;
 
 
@@ -44,6 +39,11 @@ namespace Controlador
         public void ModificarProductos(String id, String nombre, float precio, int stock, int stockMin, String categoria,String IdOld)
         {
             InvDAO.ModificarProductos(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria),IdOld);
+        }
+
+        public String BuscarNombreProducto(String id)
+        {
+            return InvDAO.BuscarNombreProducto(id);
         }
 
     }

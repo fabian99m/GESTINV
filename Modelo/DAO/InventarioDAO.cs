@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Modelo.DTO;
 using MySql.Data.MySqlClient;
-using MaterialSkin;
 using MaterialSkin.Controls;
 
 namespace Modelo.DAO
@@ -55,12 +54,15 @@ namespace Modelo.DAO
                 // Si se encontraron datos
                 if (reader.HasRows)
                 {
+                    inventario.ProductoList.Clear();
                     while (reader.Read())
                     {
                         string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5) };
                         var listViewItem = new ListViewItem(row);
                        TablaDatos.Items.Add(listViewItem);
-                       
+
+                        inventario.ProductoList.Add(
+                            new ProductoDTO(reader.GetString(0), reader.GetString(1),float.Parse(reader.GetString(2)),Convert.ToInt32(reader.GetString(3)),Convert.ToInt32(reader.GetString(4)), reader.GetString(5)));                      
                     }
                 }
                 else
@@ -111,6 +113,19 @@ namespace Modelo.DAO
                 TablaDatos.Items.Clear();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public String BuscarNombreProducto(String id)
+        {
+            String nombre = "";
+            foreach (ProductoDTO  i in inventario.ProductoList)
+            {
+                if(id.Equals(i.ID))
+                {
+                    nombre= i.Nombre;
+                }
+            }
+            return nombre;
         }
 
         public void EliminarProductos(String id)

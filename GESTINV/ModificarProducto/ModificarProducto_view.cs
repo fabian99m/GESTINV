@@ -28,7 +28,7 @@ namespace Vista.ModificarProducto
             TextNombre.Text = nombre;
             TextPrecio.Text = precio;
             TextStock.Text = stock;
-            TextStockMin.Text = stock;
+            TextStockMin.Text = stockMin;
             TextCategoria.Text = categoria;
         }
 
@@ -42,7 +42,6 @@ namespace Vista.ModificarProducto
             if (!String.IsNullOrEmpty(TextID.Text) && !String.IsNullOrEmpty(TextNombre.Text) && !String.IsNullOrEmpty(TextPrecio.Text)
               && !String.IsNullOrEmpty(TextStock.Text) && !String.IsNullOrEmpty(TextStockMin.Text) && !String.IsNullOrEmpty(TextCategoria.Text))
             {
-
                 inv_controlador.ModificarProductos(TextID.Text, TextNombre.Text, float.Parse(TextPrecio.Text)
                  , Convert.ToInt32(TextStock.Text), Convert.ToInt32(TextStockMin.Text), TextCategoria.Text,aux);
                 MessageBox.Show("Producto modificado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -50,7 +49,7 @@ namespace Vista.ModificarProducto
             }
             else
             {
-                MessageBox.Show("Ingrese datos para modificar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese todos los datos para modificar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }

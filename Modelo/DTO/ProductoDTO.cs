@@ -15,7 +15,7 @@ namespace Modelo.DTO
         int stockMin;
         String categoria;
 
-        public ProductoDTO(String id, string nombre, float precio, int stock, int stockMin, string categoria)
+        public ProductoDTO(String id, String nombre, float precio, int stock, int stockMin, string categoria)
         {
             this.id = id;
             this.nombre = nombre;
@@ -24,6 +24,14 @@ namespace Modelo.DTO
             this.stockMin = stockMin;
             this.categoria = categoria;
         }
+
+        public ProductoDTO(String id, String nombre)
+        {
+            this.id = id;
+            this.nombre = nombre;
+        }
+
+
 
         public String ID
         {
