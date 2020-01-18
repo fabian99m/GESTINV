@@ -59,9 +59,11 @@
     <Compile Include="DAO\InventarioDAO.cs" />
     <Compile Include="DAO\OrdenDAO.cs" />
     <Compile Include="DAO\ProductoDAO.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DTO\InventarioDTO.cs" />
     <Compile Include="DTO\OrdenDTO.cs" />
     <Compile Include="DTO\ProductoDTO.cs" />
+    <Compile Include="DTO\UsuarioDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

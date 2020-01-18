@@ -53,7 +53,7 @@ namespace Modelo.DAO
 
                     while (reader.Read())
                     {
-                        string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(4)};
+                        string[] row = { reader.GetString(2), reader.GetString(0), reader.GetString(1), reader.GetString(4), reader.GetString(5) };
                         var listViewItem = new ListViewItem(row);
                         TablaOrden.Items.Add(listViewItem);
                     }

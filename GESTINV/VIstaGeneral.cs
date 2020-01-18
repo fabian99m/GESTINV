@@ -8,12 +8,12 @@ using Modelo.DTO;
 
 namespace GESTINV
 {
-    public partial class Form1 : MaterialForm
+    public partial class Vista : MaterialForm
     {
         InventarioControlador inv_controlador = new InventarioControlador();
         OrdenControlador orden_controlador = new OrdenControlador();
 
-        public Form1()
+        public Vista()
         {
             //vista de admin
 
@@ -34,7 +34,7 @@ namespace GESTINV
             TablaOrdenes.HideSelection = true;
         }
 
-        public Form1(int num)
+        public Vista(int valor)
         {
             //vista de auxiliar
 
@@ -56,6 +56,8 @@ namespace GESTINV
             RbId.Select();
             TablaInventario.HideSelection = true;
             TablaOrdenes.HideSelection = true;
+            ModificarProducto.Visible = false;
+            EliminarProducto.Visible = false;
         }
 
         private void GuardarProductos_Click(object sender, EventArgs e)
@@ -203,7 +205,7 @@ namespace GESTINV
             }
         }
 
-        private void materialRaisedButton3_Click(object sender, EventArgs e)
+        private void btnModificarProducto_Click(object sender, EventArgs e)
         {
             if (TablaInventario.SelectedItems.Count > 0)
             {
@@ -239,7 +241,7 @@ namespace GESTINV
                   inv_controlador.EliminarProductos(id);
                   TablaInventario.Items.Clear();
                   RefrescarTablaInvetario();
-                  MessageBox.Show("Producto eliminado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                  
                 }
             } else
             {
@@ -249,9 +251,15 @@ namespace GESTINV
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            orden_controlador.RegistrarOrden(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)),"Entrada", Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text));
-            TablaOrdenes.Items.Clear();
-            RefrescaraTablaOrden();
+            if (!String.IsNullOrEmpty(TextID2.Text) && !String.IsNullOrEmpty(TextCantidad.Text))
+            {
+                orden_controlador.RegistrarOrden(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)), "Entrada", Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text));
+                TablaOrdenes.Items.Clear();
+                RefrescaraTablaOrden();
+            } else
+            {
+                MessageBox.Show("Ingrese todos los datos para guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void TextCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -270,6 +278,10 @@ namespace GESTINV
                 e.Handled = true;
                 return;
             }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

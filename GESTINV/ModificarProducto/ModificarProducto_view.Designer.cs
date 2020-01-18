@@ -172,6 +172,7 @@
             this.Controls.Add(this.TextNombre);
             this.Controls.Add(this.TextID);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ModificarProducto_view";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar producto";

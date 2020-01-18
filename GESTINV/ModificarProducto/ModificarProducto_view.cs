@@ -44,7 +44,7 @@ namespace Vista.ModificarProducto
             {
                 inv_controlador.ModificarProductos(TextID.Text, TextNombre.Text, float.Parse(TextPrecio.Text)
                  , Convert.ToInt32(TextStock.Text), Convert.ToInt32(TextStockMin.Text), TextCategoria.Text,aux);
-                MessageBox.Show("Producto modificado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 this.Dispose();
             }
             else

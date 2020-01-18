@@ -1,6 +1,6 @@
 ﻿namespace GESTINV
 {
-    partial class Form1
+    partial class Vista
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -45,8 +45,8 @@
             this.RbCategoria = new MaterialSkin.Controls.MaterialRadioButton();
             this.RbNombre = new MaterialSkin.Controls.MaterialRadioButton();
             this.RbId = new MaterialSkin.Controls.MaterialRadioButton();
-            this.materialRaisedButton4 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.EliminarProducto = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ModificarProducto = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.TextConsulta = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.TablaInventario = new MaterialSkin.Controls.MaterialListView();
@@ -61,6 +61,7 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.materialTabControl3 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnGuardar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.Time = new System.Windows.Forms.DateTimePicker();
             this.TextCantidad = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -70,6 +71,7 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.materialListView2 = new MaterialSkin.Controls.MaterialListView();
@@ -89,6 +91,7 @@
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.button1 = new System.Windows.Forms.Button();
             this.materialTabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.materialTabControl2.SuspendLayout();
@@ -112,7 +115,7 @@
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1163, 697);
+            this.materialTabControl1.Size = new System.Drawing.Size(1148, 697);
             this.materialTabControl1.TabIndex = 0;
             // 
             // tabPage3
@@ -123,7 +126,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(1155, 668);
+            this.tabPage3.Size = new System.Drawing.Size(1140, 668);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Inventario";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -316,8 +319,8 @@
             this.tabPage4.Controls.Add(this.RbCategoria);
             this.tabPage4.Controls.Add(this.RbNombre);
             this.tabPage4.Controls.Add(this.RbId);
-            this.tabPage4.Controls.Add(this.materialRaisedButton4);
-            this.tabPage4.Controls.Add(this.materialRaisedButton3);
+            this.tabPage4.Controls.Add(this.EliminarProducto);
+            this.tabPage4.Controls.Add(this.ModificarProducto);
             this.tabPage4.Controls.Add(this.materialRaisedButton2);
             this.tabPage4.Controls.Add(this.TextConsulta);
             this.tabPage4.Controls.Add(this.TablaInventario);
@@ -400,41 +403,41 @@
             this.RbId.Text = "ID";
             this.RbId.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton4
+            // EliminarProducto
             // 
-            this.materialRaisedButton4.AutoSize = true;
-            this.materialRaisedButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialRaisedButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialRaisedButton4.Depth = 0;
-            this.materialRaisedButton4.Icon = null;
-            this.materialRaisedButton4.Location = new System.Drawing.Point(957, 527);
-            this.materialRaisedButton4.Margin = new System.Windows.Forms.Padding(4);
-            this.materialRaisedButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton4.Name = "materialRaisedButton4";
-            this.materialRaisedButton4.Primary = true;
-            this.materialRaisedButton4.Size = new System.Drawing.Size(100, 36);
-            this.materialRaisedButton4.TabIndex = 5;
-            this.materialRaisedButton4.Text = "Eliminar";
-            this.materialRaisedButton4.UseVisualStyleBackColor = true;
-            this.materialRaisedButton4.Click += new System.EventHandler(this.btnEliminarProducto_Click);
+            this.EliminarProducto.AutoSize = true;
+            this.EliminarProducto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EliminarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EliminarProducto.Depth = 0;
+            this.EliminarProducto.Icon = null;
+            this.EliminarProducto.Location = new System.Drawing.Point(957, 527);
+            this.EliminarProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.EliminarProducto.MouseState = MaterialSkin.MouseState.HOVER;
+            this.EliminarProducto.Name = "EliminarProducto";
+            this.EliminarProducto.Primary = true;
+            this.EliminarProducto.Size = new System.Drawing.Size(100, 36);
+            this.EliminarProducto.TabIndex = 5;
+            this.EliminarProducto.Text = "Eliminar";
+            this.EliminarProducto.UseVisualStyleBackColor = true;
+            this.EliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
             // 
-            // materialRaisedButton3
+            // ModificarProducto
             // 
-            this.materialRaisedButton3.AutoSize = true;
-            this.materialRaisedButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialRaisedButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Icon = null;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(805, 527);
-            this.materialRaisedButton3.Margin = new System.Windows.Forms.Padding(4);
-            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton3.Name = "materialRaisedButton3";
-            this.materialRaisedButton3.Primary = true;
-            this.materialRaisedButton3.Size = new System.Drawing.Size(113, 36);
-            this.materialRaisedButton3.TabIndex = 4;
-            this.materialRaisedButton3.Text = "Modificar";
-            this.materialRaisedButton3.UseVisualStyleBackColor = true;
-            this.materialRaisedButton3.Click += new System.EventHandler(this.materialRaisedButton3_Click);
+            this.ModificarProducto.AutoSize = true;
+            this.ModificarProducto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ModificarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ModificarProducto.Depth = 0;
+            this.ModificarProducto.Icon = null;
+            this.ModificarProducto.Location = new System.Drawing.Point(805, 527);
+            this.ModificarProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.ModificarProducto.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ModificarProducto.Name = "ModificarProducto";
+            this.ModificarProducto.Primary = true;
+            this.ModificarProducto.Size = new System.Drawing.Size(113, 36);
+            this.ModificarProducto.TabIndex = 4;
+            this.ModificarProducto.Text = "Modificar";
+            this.ModificarProducto.UseVisualStyleBackColor = true;
+            this.ModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
             // 
             // materialRaisedButton2
             // 
@@ -565,9 +568,9 @@
             this.tabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage6.Size = new System.Drawing.Size(1155, 668);
+            this.tabPage6.Size = new System.Drawing.Size(1140, 668);
             this.tabPage6.TabIndex = 3;
-            this.tabPage6.Text = "Ordenes";
+            this.tabPage6.Text = "Transferencias";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // materialTabControl3
@@ -586,6 +589,7 @@
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.Color.White;
+            this.tabPage8.Controls.Add(this.materialSingleLineTextField1);
             this.tabPage8.Controls.Add(this.btnGuardar);
             this.tabPage8.Controls.Add(this.Time);
             this.tabPage8.Controls.Add(this.TextCantidad);
@@ -598,7 +602,24 @@
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage8.Size = new System.Drawing.Size(1120, 531);
             this.tabPage8.TabIndex = 0;
-            this.tabPage8.Text = "Abastacimiento";
+            this.tabPage8.Text = "Entradas";
+            // 
+            // materialSingleLineTextField1
+            // 
+            this.materialSingleLineTextField1.Depth = 0;
+            this.materialSingleLineTextField1.Hint = "ID de proveedor";
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(415, 23);
+            this.materialSingleLineTextField1.MaxLength = 32767;
+            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
+            this.materialSingleLineTextField1.PasswordChar = '\0';
+            this.materialSingleLineTextField1.SelectedText = "";
+            this.materialSingleLineTextField1.SelectionLength = 0;
+            this.materialSingleLineTextField1.SelectionStart = 0;
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(223, 28);
+            this.materialSingleLineTextField1.TabIndex = 6;
+            this.materialSingleLineTextField1.TabStop = false;
+            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
             // 
             // btnGuardar
             // 
@@ -606,7 +627,7 @@
             this.btnGuardar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnGuardar.Depth = 0;
             this.btnGuardar.Icon = null;
-            this.btnGuardar.Location = new System.Drawing.Point(729, 9);
+            this.btnGuardar.Location = new System.Drawing.Point(869, 15);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGuardar.Name = "btnGuardar";
@@ -619,7 +640,7 @@
             // 
             // Time
             // 
-            this.Time.Location = new System.Drawing.Point(471, 23);
+            this.Time.Location = new System.Drawing.Point(645, 23);
             this.Time.Margin = new System.Windows.Forms.Padding(4);
             this.Time.Name = "Time";
             this.Time.Size = new System.Drawing.Size(191, 22);
@@ -629,7 +650,7 @@
             // 
             this.TextCantidad.Depth = 0;
             this.TextCantidad.Hint = "Cantidad de Entrada";
-            this.TextCantidad.Location = new System.Drawing.Point(214, 23);
+            this.TextCantidad.Location = new System.Drawing.Point(178, 23);
             this.TextCantidad.Margin = new System.Windows.Forms.Padding(4);
             this.TextCantidad.MaxLength = 32767;
             this.TextCantidad.MouseState = MaterialSkin.MouseState.HOVER;
@@ -638,7 +659,7 @@
             this.TextCantidad.SelectedText = "";
             this.TextCantidad.SelectionLength = 0;
             this.TextCantidad.SelectionStart = 0;
-            this.TextCantidad.Size = new System.Drawing.Size(223, 28);
+            this.TextCantidad.Size = new System.Drawing.Size(236, 28);
             this.TextCantidad.TabIndex = 3;
             this.TextCantidad.TabStop = false;
             this.TextCantidad.UseSystemPasswordChar = false;
@@ -670,11 +691,13 @@
             this.columnHeader14,
             this.columnHeader15,
             this.columnHeader16,
-            this.columnHeader7});
+            this.columnHeader7,
+            this.columnHeader8});
             this.TablaOrdenes.Depth = 0;
             this.TablaOrdenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
             this.TablaOrdenes.FullRowSelect = true;
             this.TablaOrdenes.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.TablaOrdenes.HideSelection = false;
             this.TablaOrdenes.Location = new System.Drawing.Point(12, 91);
             this.TablaOrdenes.Margin = new System.Windows.Forms.Padding(4);
             this.TablaOrdenes.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -694,17 +717,22 @@
             // columnHeader15
             // 
             this.columnHeader15.Text = "ID";
-            this.columnHeader15.Width = 180;
+            this.columnHeader15.Width = 150;
             // 
             // columnHeader16
             // 
             this.columnHeader16.Text = "Nombre";
-            this.columnHeader16.Width = 180;
+            this.columnHeader16.Width = 150;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Cantidad";
-            this.columnHeader7.Width = 180;
+            this.columnHeader7.Width = 150;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Proveedor";
+            this.columnHeader8.Width = 150;
             // 
             // materialLabel5
             // 
@@ -734,7 +762,7 @@
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage9.Size = new System.Drawing.Size(1120, 531);
             this.tabPage9.TabIndex = 1;
-            this.tabPage9.Text = "Desabastecimiento";
+            this.tabPage9.Text = "Salidas";
             // 
             // materialListView2
             // 
@@ -780,21 +808,21 @@
             this.materialRaisedButton7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton7.Depth = 0;
             this.materialRaisedButton7.Icon = null;
-            this.materialRaisedButton7.Location = new System.Drawing.Point(815, 12);
+            this.materialRaisedButton7.Location = new System.Drawing.Point(772, 14);
             this.materialRaisedButton7.Margin = new System.Windows.Forms.Padding(4);
             this.materialRaisedButton7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton7.Name = "materialRaisedButton7";
             this.materialRaisedButton7.Primary = true;
-            this.materialRaisedButton7.Size = new System.Drawing.Size(82, 36);
+            this.materialRaisedButton7.Size = new System.Drawing.Size(100, 36);
             this.materialRaisedButton7.TabIndex = 4;
-            this.materialRaisedButton7.Text = "Enviar";
+            this.materialRaisedButton7.Text = "Guardar";
             this.materialRaisedButton7.UseVisualStyleBackColor = true;
             // 
             // materialSingleLineTextField4
             // 
             this.materialSingleLineTextField4.Depth = 0;
-            this.materialSingleLineTextField4.Hint = "Cantidan Saliente";
-            this.materialSingleLineTextField4.Location = new System.Drawing.Point(301, 22);
+            this.materialSingleLineTextField4.Hint = "Cantidad Saliente";
+            this.materialSingleLineTextField4.Location = new System.Drawing.Point(263, 22);
             this.materialSingleLineTextField4.Margin = new System.Windows.Forms.Padding(4);
             this.materialSingleLineTextField4.MaxLength = 32767;
             this.materialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -811,7 +839,7 @@
             // materialSingleLineTextField3
             // 
             this.materialSingleLineTextField3.Depth = 0;
-            this.materialSingleLineTextField3.Hint = "Código";
+            this.materialSingleLineTextField3.Hint = "ID de producto";
             this.materialSingleLineTextField3.Location = new System.Drawing.Point(7, 22);
             this.materialSingleLineTextField3.Margin = new System.Windows.Forms.Padding(4);
             this.materialSingleLineTextField3.MaxLength = 32767;
@@ -828,7 +856,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(559, 26);
+            this.dateTimePicker2.Location = new System.Drawing.Point(511, 28);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(183, 22);
@@ -866,7 +894,7 @@
             this.tabPage7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage7.Size = new System.Drawing.Size(1155, 668);
+            this.tabPage7.Size = new System.Drawing.Size(1140, 668);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Reportes";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -902,11 +930,12 @@
             this.LabelUser.Depth = 0;
             this.LabelUser.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LabelUser.Location = new System.Drawing.Point(1083, 39);
+            this.LabelUser.Location = new System.Drawing.Point(863, 35);
             this.LabelUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelUser.Name = "LabelUser";
-            this.LabelUser.Size = new System.Drawing.Size(0, 24);
+            this.LabelUser.Size = new System.Drawing.Size(42, 24);
             this.LabelUser.TabIndex = 2;
+            this.LabelUser.Text = "test";
             // 
             // materialLabel9
             // 
@@ -914,7 +943,7 @@
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(987, 39);
+            this.materialLabel9.Location = new System.Drawing.Point(768, 35);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.Size = new System.Drawing.Size(89, 24);
@@ -947,18 +976,31 @@
             this.materialLabel2.TabIndex = 0;
             this.materialLabel2.Text = "Modificar";
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(945, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 33);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Cerrar sesión";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 846);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.LabelUser);
             this.Controls.Add(this.TabPrincipal);
             this.Controls.Add(this.materialTabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Vista";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GESTINV";
@@ -1012,8 +1054,8 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField TextId;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.TabPage tabPage4;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton4;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton3;
+        private MaterialSkin.Controls.MaterialRaisedButton EliminarProducto;
+        private MaterialSkin.Controls.MaterialRaisedButton ModificarProducto;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
         private MaterialSkin.Controls.MaterialSingleLineTextField TextConsulta;
         private MaterialSkin.Controls.MaterialListView TablaInventario;
@@ -1046,6 +1088,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.ColumnHeader columnHeader16;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

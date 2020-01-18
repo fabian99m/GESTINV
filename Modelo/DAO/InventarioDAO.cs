@@ -104,14 +104,14 @@ namespace Modelo.DAO
                 else
                 {
                     MessageBox.Show("Producto no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //RefrescarTabla();
+                    this.ConsultarProducto(TablaDatos);                     
                 }
                 databaseConnection.Close();
             }
             catch (Exception ex)
             {
                 TablaDatos.Items.Clear();
-                MessageBox.Show(ex.Message);
+               // MessageBox.Show(ex.Message);
             }
         }
 
@@ -139,10 +139,11 @@ namespace Modelo.DAO
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
+                MessageBox.Show("Producto eliminado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+            {            
+                MessageBox.Show("Producto eliminado sin éxito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         } 
 
@@ -158,10 +159,11 @@ namespace Modelo.DAO
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
+                MessageBox.Show("Producto modificado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Producto modificado sin éxito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -21,11 +21,11 @@ namespace GESTINV
                 l.ShowDialog();
                 if (l.DialogResult == DialogResult.OK)
                 {
-                    Application.Run(new Form1());
+                    Application.Run(new Vista());
                 }
                 else if (l.DialogResult == DialogResult.No)
                 {
-                    Application.Run(new Form1(1));
+                    Application.Run(new Vista(1));
                    
                 }
                 else if (l.DialogResult == DialogResult.Cancel)

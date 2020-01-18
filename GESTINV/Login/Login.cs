@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using MySql.Data.MySqlClient;
+using Controlador;
+using Modelo.DTO;
+
 
 namespace Vista.Login
 {
     public partial class Login : MaterialForm
     {
+        UsuarioControlador user_controlador = new UsuarioControlador();
+
         public Login()
         {
             InitializeComponent();
@@ -35,45 +32,7 @@ namespace Vista.Login
         {
             if (!String.IsNullOrEmpty(TextNombre.Text) && !String.IsNullOrEmpty(TextContrasena.Text))
             {
-                string connectionString = "datasource=remotemysql.com;port=3306;username=pf7UNUfjqi;password=3Jq7lpo46I;database=pf7UNUfjqi;";
-                string query = "SELECT * FROM Usuario WHERE nombre='" + TextNombre.Text + "' and contrasena='" + TextContrasena.Text + "'";
-                MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-                commandDatabase.CommandTimeout = 60;
-                MySqlDataReader reader;
-                try
-                {
-                    databaseConnection.Open();
-                    reader = commandDatabase.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            if (reader.GetString(3).Equals("Admin"))
-                            {
-                                this.DialogResult = DialogResult.OK;
-                            }
-                            if (reader.GetString(3) == "Auxiliar")
-                            {
-                                this.DialogResult = DialogResult.No;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        this.DialogResult = DialogResult.Retry;
-                        MessageBox.Show("Datos incorrectos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    databaseConnection.Close();
-                    LimpiarPantalla();
-                }
-                catch (Exception ex)
-                {
-                    this.DialogResult = DialogResult.Retry;
-                    LimpiarPantalla();
-                    MessageBox.Show("Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                user_controlador.IniciarSesion(new UsuarioDTO(TextNombre.Text, TextContrasena.Text), this);
             } else
             {
                 MessageBox.Show("Ingrese datos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
