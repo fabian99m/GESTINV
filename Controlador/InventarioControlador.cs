@@ -29,6 +29,11 @@ namespace Controlador
             InvDAO.ConsultarProducto(TablaDatos, atributo, valor);
         }
 
+        public Boolean BuscarProducto(String id)
+        {
+            return this.InvDAO.BuscarProducto(id);
+        }
+
         public void EliminarProductos(String id)
         {
             InvDAO.EliminarProductos(id);        

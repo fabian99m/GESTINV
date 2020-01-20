@@ -80,9 +80,8 @@ namespace Modelo.DAO
 
         public void ConsultarProducto(MaterialListView TablaDatos, String atributo , String valor)
         {
-            string connectionString = "datasource=remotemysql.com;port=3306;username=pf7UNUfjqi;password=3Jq7lpo46I;database=pf7UNUfjqi;";
-            string query = "SELECT * FROM Producto WHERE " + atributo + "='" + valor + "' ";
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            
+            string query = "SELECT * FROM Producto WHERE " + atributo + "='" + valor + "' ";        
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             MySqlDataReader reader;
@@ -126,6 +125,31 @@ namespace Modelo.DAO
                 }
             }
             return nombre;
+        }
+
+        public Boolean BuscarProducto(String id)
+        {         
+            string query = "SELECT * FROM Producto WHERE id="+id+"";
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            Boolean aux=false;
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();        
+                if(reader.HasRows)
+                {
+                    aux = true;
+                }
+                databaseConnection.Close();
+                
+            }
+            catch (Exception ex)
+            {             
+              // MessageBox.Show(ex.Message);
+            }
+            return aux;
         }
 
         public void EliminarProductos(String id)
@@ -177,8 +201,7 @@ namespace Modelo.DAO
             {
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
-                databaseConnection.Close();
-                
+                databaseConnection.Close();         
             }
             catch (Exception ex)
             {

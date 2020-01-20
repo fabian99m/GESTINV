@@ -245,12 +245,20 @@ namespace GESTINV
         {
             if (!String.IsNullOrEmpty(TextID2.Text) && !String.IsNullOrEmpty(TextCantidad.Text))
             {
-                orden_controlador.RegistrarOrden(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)), "Entrada", Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text),cbProveedor.SelectedItem.ToString());
-                TablaOrdenes.Items.Clear();
-                RefrescaraTablaOrden();
-                LImpiarentrada();
-                TablaInventario.Items.Clear();
-                RefrescarTablaInvetario();
+                if (inv_controlador.BuscarProducto(TextID2.Text)==true )
+                {
+
+                    orden_controlador.RegistrarOrden(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)), "Entrada", Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text), cbProveedor.SelectedItem.ToString());
+                    TablaOrdenes.Items.Clear();
+                    RefrescaraTablaOrden();
+                    LImpiarentrada();
+                    TablaInventario.Items.Clear();
+                    RefrescarTablaInvetario();
+                } else
+                {
+                    MessageBox.Show("Producto no existente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
             } else
             {
                 MessageBox.Show("Ingrese todos los datos para guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
