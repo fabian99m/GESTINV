@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InventarioControlador.cs" />
+    <Compile Include="ProveedorControlador.cs" />
     <Compile Include="UsuarioControlador.cs" />
     <Compile Include="OrdenControlador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -25,6 +25,7 @@ namespace Vista.Login
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.WHITE
             );
+            TextNombre.Select();
         }
 
         
@@ -35,7 +36,7 @@ namespace Vista.Login
                 user_controlador.IniciarSesion(new UsuarioDTO(TextNombre.Text, TextContrasena.Text), this);
             } else
             {
-                MessageBox.Show("Ingrese datos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ingrese todos los datos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);             
             }
         }
 

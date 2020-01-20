@@ -9,12 +9,12 @@ namespace Modelo.DAO
    public class OrdenDAO : ConexionBD
     {
 
-
+        InventarioDAO inventario = new InventarioDAO();
      
-        public void RegistrarOrden(ProductoDTO producto, String tipo , String fecha , int cantidad)
+        public void RegistrarOrden(ProductoDTO producto, String tipo , String fecha , int cantidad,String proveedor)
         {
-            string query = "INSERT INTO Orden(id,nombre,tipo,fecha,cantidad) VALUES ('"+producto.ID+"', '"+producto.Nombre+"'," +
-                "  '"+tipo+"' , '"+fecha+"', "+cantidad+") ";
+            string query = "INSERT INTO Orden(id,nombre,tipo,fecha,cantidad,proveedor) VALUES ('"+producto.ID+"', '"+producto.Nombre+"'," +
+                "  '"+tipo+"' , '"+fecha+"', "+cantidad+",'"+proveedor+"') ";
 
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -27,6 +27,8 @@ namespace Modelo.DAO
                 MessageBox.Show("Orden guardada satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 databaseConnection.Close();
+
+                inventario.ModificarStock(producto.ID, cantidad);
             }
             catch (Exception ex)
             {
@@ -71,5 +73,6 @@ namespace Modelo.DAO
             }
         }
 
+        
     }
 }

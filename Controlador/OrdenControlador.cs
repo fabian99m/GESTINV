@@ -15,9 +15,9 @@ namespace Controlador
             this.Orden = new OrdenDAO();
         }
 
-        public void RegistrarOrden(ProductoDTO producto, String tipo, String fecha, int cantidad)
+        public void RegistrarOrden(ProductoDTO producto, String tipo, String fecha, int cantidad,String proveedor)
         {
-            Orden.RegistrarOrden(producto, tipo, fecha, cantidad);
+            Orden.RegistrarOrden(producto, tipo, fecha, cantidad,proveedor);
         }
 
         public void ConsultarOrden(MaterialListView TablaOrden)

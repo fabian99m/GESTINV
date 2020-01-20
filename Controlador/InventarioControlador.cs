@@ -3,8 +3,6 @@ using Modelo.DAO;
 using Modelo.DTO;
 using MaterialSkin.Controls;
 
-
-
 namespace Controlador
 {
     public class InventarioControlador

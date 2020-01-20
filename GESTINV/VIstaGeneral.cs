@@ -5,6 +5,8 @@ using MaterialSkin.Controls;
 using Controlador;
 using Vista.ModificarProducto;
 using Modelo.DTO;
+using Vista.Proveedor;
+using System.Collections.Generic;
 
 namespace GESTINV
 {
@@ -12,52 +14,43 @@ namespace GESTINV
     {
         InventarioControlador inv_controlador = new InventarioControlador();
         OrdenControlador orden_controlador = new OrdenControlador();
+        ProveedorControlador proveedor_controlador = new ProveedorControlador();
 
         public Vista()
         {
             //vista de admin
-
-            InitializeComponent();
-            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-
-            materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue400, Primary.Blue500,
-                Primary.Blue500, Accent.LightBlue200,
-                TextShade.BLACK
-
-            );
-            this.LabelUser.Text = "Admin";
-            RbId.Select();
-            TablaInventario.HideSelection = true;
-            TablaOrdenes.HideSelection = true;
+         
+            IniciarVista(); 
+            this.LabelUser.Text = "Admin";               
         }
 
         public Vista(int valor)
         {
             //vista de auxiliar
+            
+            IniciarVista();
+            materialTabControl2.Controls.Remove(tabPage1);
+            materialTabControl1.Controls.Remove(tabPage6);
+            this.LabelUser.Text = "Auxiliar";              
+            ModificarProducto.Visible = false;
+            EliminarProducto.Visible = false;
+        }
 
+        public void IniciarVista()
+        {
             InitializeComponent();
-
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Blue400, Primary.Blue500,
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.BLACK
             );
-
-            materialTabControl2.Controls.Remove(tabPage1);
-            materialTabControl1.Controls.Remove(tabPage6);
-            this.LabelUser.Text = "Auxiliar";
             RbId.Select();
             TablaInventario.HideSelection = true;
             TablaOrdenes.HideSelection = true;
-            ModificarProducto.Visible = false;
-            EliminarProducto.Visible = false;
+           
         }
 
         private void GuardarProductos_Click(object sender, EventArgs e)
@@ -72,7 +65,7 @@ namespace GESTINV
             }
             else
             {
-                MessageBox.Show("Ingrese todos los datos para añadir!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese todos los datos para añadir!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);          
             }
             LimpiarPantalla();
             RefrescarTablaInvetario();
@@ -88,11 +81,6 @@ namespace GESTINV
             TextCategoria.Text = "";
         }
 
-
-        private void Consulta_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
@@ -111,6 +99,16 @@ namespace GESTINV
             RefrescarTablaInvetario();
             RefrescaraTablaOrden();
             this.Refresh();
+            CargarProveedor();
+        }
+
+        public void CargarProveedor()
+        {       
+            List<String> lista_proveedor = proveedor_controlador.ConsultarProveedores();
+            if (lista_proveedor.Count > 0) {             
+                cbProveedor.DataSource = lista_proveedor;
+                cbProveedor.Refresh();
+            }  
         }
 
         private void RefrescaraTablaOrden()
@@ -126,12 +124,6 @@ namespace GESTINV
         private void RefrescarTablaInvetario(String atributo, String valor)
         {
             inv_controlador.ConsultarProductos(TablaInventario, atributo, valor);
-        }
-
-
-        private void materialRadioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void materialRaisedButton5_Click(object sender, EventArgs e)
@@ -253,13 +245,23 @@ namespace GESTINV
         {
             if (!String.IsNullOrEmpty(TextID2.Text) && !String.IsNullOrEmpty(TextCantidad.Text))
             {
-                orden_controlador.RegistrarOrden(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)), "Entrada", Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text));
+                orden_controlador.RegistrarOrden(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)), "Entrada", Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text),cbProveedor.SelectedItem.ToString());
                 TablaOrdenes.Items.Clear();
                 RefrescaraTablaOrden();
+                LImpiarentrada();
+                TablaInventario.Items.Clear();
+                RefrescarTablaInvetario();
             } else
             {
                 MessageBox.Show("Ingrese todos los datos para guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        public void LImpiarentrada()
+        {
+            TextID2.Text = "";
+            TextCantidad.Text = "";
+            cbProveedor.SelectedIndex = 0;
         }
 
         private void TextCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -282,6 +284,13 @@ namespace GESTINV
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            Proveedor_view proveedor = new Proveedor_view();
+            proveedor.ShowDialog();
+            CargarProveedor();
         }
     }
 }

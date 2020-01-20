@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.TextNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.TextContrasena = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -74,12 +75,12 @@
             this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Icon = null;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(195, 302);
+            this.materialRaisedButton1.Icon = ((System.Drawing.Image)(resources.GetObject("materialRaisedButton1.Icon")));
+            this.materialRaisedButton1.Location = new System.Drawing.Point(184, 305);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(146, 36);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(174, 36);
             this.materialRaisedButton1.TabIndex = 2;
             this.materialRaisedButton1.Text = "Iniciar sesión";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
@@ -90,12 +91,12 @@
             this.materialRaisedButton2.AutoSize = true;
             this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Icon = null;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(229, 388);
+            this.materialRaisedButton2.Icon = ((System.Drawing.Image)(resources.GetObject("materialRaisedButton2.Icon")));
+            this.materialRaisedButton2.Location = new System.Drawing.Point(218, 384);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
             this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(69, 36);
+            this.materialRaisedButton2.Size = new System.Drawing.Size(97, 36);
             this.materialRaisedButton2.TabIndex = 3;
             this.materialRaisedButton2.Text = "Salir";
             this.materialRaisedButton2.UseVisualStyleBackColor = true;

@@ -91,6 +91,12 @@
     <Compile Include="ModificarProducto\ModificarProducto_view.Designer.cs">
       <DependentUpon>ModificarProducto_view.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proveedor\Proveedor_view.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\Proveedor_view.Designer.cs">
+      <DependentUpon>Proveedor_view.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIstaGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ModificarProducto\ModificarProducto_view.resx">
       <DependentUpon>ModificarProducto_view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\Proveedor_view.resx">
+      <DependentUpon>Proveedor_view.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIstaGeneral.resx">
       <DependentUpon>VIstaGeneral.cs</DependentUpon>
@@ -160,9 +169,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\" />
-    <Folder Include="Auxiliar\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

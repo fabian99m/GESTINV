@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarProducto_view));
             this.TextID = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.TextNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.TextPrecio = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -148,12 +149,12 @@
             this.GuardarDatos.AutoSize = true;
             this.GuardarDatos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.GuardarDatos.Depth = 0;
-            this.GuardarDatos.Icon = null;
+            this.GuardarDatos.Icon = ((System.Drawing.Image)(resources.GetObject("GuardarDatos.Icon")));
             this.GuardarDatos.Location = new System.Drawing.Point(176, 396);
             this.GuardarDatos.MouseState = MaterialSkin.MouseState.HOVER;
             this.GuardarDatos.Name = "GuardarDatos";
             this.GuardarDatos.Primary = true;
-            this.GuardarDatos.Size = new System.Drawing.Size(160, 36);
+            this.GuardarDatos.Size = new System.Drawing.Size(188, 36);
             this.GuardarDatos.TabIndex = 6;
             this.GuardarDatos.Text = "Guardar datos";
             this.GuardarDatos.UseVisualStyleBackColor = true;

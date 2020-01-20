@@ -167,5 +167,24 @@ namespace Modelo.DAO
             }
         }
 
+        public void ModificarStock(String id, int Stocknuevo)
+        {
+            string query = "UPDATE Producto SET stock=stock+"+Stocknuevo+" WHERE id="+id+"";
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+                databaseConnection.Close();
+                
+            }
+            catch (Exception ex)
+            {
+               
+            }
+        }
+
     }
 }
