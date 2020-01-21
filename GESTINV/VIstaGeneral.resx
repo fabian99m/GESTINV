@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnGuardar.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnGuardarSalida.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAARtJREFUWEft
         lz0KwkAQhXMzCzvttbDxEFbaeAFFLfUoIngGPYdniPOcpwTM/snsYrEfvCb5ZvaBJpCmUslF27YDyVKy
@@ -187,6 +187,16 @@
         DILkZ8aZpBryetTaNdCTD3JRDnrMWjsdCBxB/yn/D9dRvqceoyw9jHN4jD5HFpMuBMvl53pFOP47u4Xp
         /kYisBs/SnoD5Gm/jK36V5X0lxIIHcK3uIc/8BfKf9QGvsCbDzCvZQmfu1kqFC6XH3dfZROPbKkauDxb
         Kggur7dUwdr3Awv4S93vOxTBErLUwn+xTEZGc8jlrgEIceNm5rY3iAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnGuardarEntrada.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAARtJREFUWEft
+        lz0KwkAQhXMzCzvttbDxEFbaeAFFLfUoIngGPYdniPOcpwTM/snsYrEfvCb5ZvaBJpCmUslF27YDyVKy
+        Nsica39DFuwl1iy4Pg0ZHOt8FtJLydBKZ19cJX0/QUww20daKRnAsjdrXk4Gs7qil/hSIpcoBOJKiViq
+        EJhRdyNSyULh/ZDUffF3hXI8ZV2SC+WmFgpRC4XIUugs2TEXXEjAtNBDMuTYB1zjvRhMC0058gXuqRLE
+        rNCNuhM4qnoxK3Si7gSOql7MCh2pO4GjqhezQnfqTuCo6sX0Tz3hyBe4p0oQ00LFHnt8i6WAF+OBSX0x
+        LnmsG5FG6hZhxGP9iLhVPysbHheHDFh+SneDnQMeU6kY0zRP7EWGdJpPROgAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

@@ -3,7 +3,7 @@
 
 namespace Modelo.DTO
 {
-    class OrdenDTO
+    class TransferenciaDTO
     {
 
         ProductoDTO producto;
@@ -11,7 +11,7 @@ namespace Modelo.DTO
         int cantidad;
         string fecha;
 
-        public OrdenDTO(ProductoDTO producto, string tipo, int cantidad, string fecha)
+        public TransferenciaDTO(ProductoDTO producto, string tipo, int cantidad, string fecha)
         {
             this.producto = producto;
             this.tipo = tipo;

@@ -15,9 +15,9 @@ namespace Modelo.DAO
         {
         }
 
-        public void GuardarProducto(ProductoDTO producto)
+        public Boolean GuardarProducto(ProductoDTO producto)
         {
-
+          Boolean res=false;
           string query = "INSERT INTO Producto(id, nombre,precio,stock,stockMin,categoria) VALUES ('" + producto.ID + "','" + producto.Nombre + "'," +
           "'" + producto.Precio + "','" + producto.Stock + "','" + producto.StockMin + "','" + producto.Categoria + "')";
             
@@ -26,21 +26,16 @@ namespace Modelo.DAO
            try
             {
                 databaseConnection.Open();
-
-                MySqlDataReader myReader = commandDatabase.ExecuteReader();
-
-                MessageBox.Show("Producto insertado satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MySqlDataReader myReader = commandDatabase.ExecuteReader();              
                 databaseConnection.Close();
+                res = true;
             }
             catch (Exception ex)
-            {
-                MessageBox.Show("Producto insertado sin éxito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
+            { }
+            return res;
         }
 
-        public void ConsultarProducto( MaterialListView TablaDatos)
+        public void ConsultarProducto(MaterialListView TablaDatos)
         {
             string query = "SELECT * FROM Producto";        
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -50,7 +45,6 @@ namespace Modelo.DAO
             {
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
-
                 // Si se encontraron datos
                 if (reader.HasRows)
                 {
@@ -59,23 +53,16 @@ namespace Modelo.DAO
                     {
                         string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5) };
                         var listViewItem = new ListViewItem(row);
-                       TablaDatos.Items.Add(listViewItem);
+                        TablaDatos.Items.Add(listViewItem);
 
                         inventario.ProductoList.Add(
-                            new ProductoDTO(reader.GetString(0), reader.GetString(1),float.Parse(reader.GetString(2)),Convert.ToInt32(reader.GetString(3)),Convert.ToInt32(reader.GetString(4)), reader.GetString(5)));                      
+                         new ProductoDTO(reader.GetString(0), reader.GetString(1),float.Parse(reader.GetString(2)),Convert.ToInt32(reader.GetString(3)),Convert.ToInt32(reader.GetString(4)), reader.GetString(5)));                      
                     }
-                }
-                else
-                {
-                    MessageBox.Show("No hay productos en inventario!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
+                }              
                 databaseConnection.Close();
             }
             catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            { }
         }
 
         public void ConsultarProducto(MaterialListView TablaDatos, String atributo , String valor)
@@ -97,20 +84,21 @@ namespace Modelo.DAO
                     {
                         string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5) };
                         var listViewItem = new ListViewItem(row);
-                        TablaDatos.Items.Add(listViewItem);
+                        TablaDatos.Items.Add(listViewItem);                      
                     }
+                    databaseConnection.Close();
                 }
                 else
                 {
+                    databaseConnection.Close();
                     MessageBox.Show("Producto no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.ConsultarProducto(TablaDatos);                     
                 }
-                databaseConnection.Close();
+               
             }
             catch (Exception ex)
             {
-                TablaDatos.Items.Clear();
-               // MessageBox.Show(ex.Message);
+                TablaDatos.Items.Clear();            
             }
         }
 
@@ -152,8 +140,9 @@ namespace Modelo.DAO
             return aux;
         }
 
-        public void EliminarProductos(String id)
+        public Boolean EliminarProductos(String id)
         {
+            Boolean res = false;
             string query = "DELETE FROM Producto WHERE id="+id+"";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -163,16 +152,17 @@ namespace Modelo.DAO
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
-                MessageBox.Show("Producto eliminado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                res = true;
+                
             }
             catch (Exception ex)
-            {            
-                MessageBox.Show("Producto eliminado sin éxito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            { }
+            return res;
         } 
 
-        public void ModificarProductos(ProductoDTO producto,String id)
+        public Boolean ModificarProductos(ProductoDTO producto,String id)
         {
+            Boolean res = false;
             string query = "UPDATE Producto SET id="+producto.ID+", nombre='"+producto.Nombre+"' , precio="+producto.Precio+"" +
                 ",stock="+producto.Stock+",stockMin="+producto.StockMin+" ,Categoria='"+producto.Categoria+"' WHERE id="+id+"";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -183,17 +173,25 @@ namespace Modelo.DAO
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
-                MessageBox.Show("Producto modificado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                res = true;    
             }
             catch (Exception ex)
-            {
-                MessageBox.Show("Producto modificado sin éxito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            { }
+            return res;
         }
 
-        public void ModificarStock(String id, int Stocknuevo)
+        public void ModificarStock(String id, int Stocknuevo,String tipo)
         {
-            string query = "UPDATE Producto SET stock=stock+"+Stocknuevo+" WHERE id="+id+"";
+            String query="";
+            if(tipo.Equals("Entrada"))
+            {
+                 query = "UPDATE Producto SET stock=stock+" + Stocknuevo + " WHERE id=" + id + "";
+            }
+            if (tipo.Equals("Salida"))
+            {
+                query = "UPDATE Producto SET stock=stock-" + Stocknuevo + " WHERE id=" + id + "";
+            }
+
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             MySqlDataReader reader;
@@ -204,9 +202,7 @@ namespace Modelo.DAO
                 databaseConnection.Close();         
             }
             catch (Exception ex)
-            {
-               
-            }
+            { }
         }
 
     }

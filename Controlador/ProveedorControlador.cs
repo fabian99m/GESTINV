@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Modelo.DAO;
 using Modelo.DTO;
 
@@ -18,7 +19,14 @@ namespace Controlador
 
         public void GuardarProovedor(ProveedorDTO proveedor)
         {
-            this.proveedor.GuardarProveedor(proveedor);
+             Boolean res = this.proveedor.GuardarProveedor(proveedor);
+            if(res)
+            {
+                MessageBox.Show("Proveedor insertado satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else
+            {
+                MessageBox.Show("Proveedor insertado sin éxito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
          public List<String> ConsultarProveedores()

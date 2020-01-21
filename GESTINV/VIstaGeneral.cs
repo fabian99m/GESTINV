@@ -13,7 +13,7 @@ namespace GESTINV
     public partial class Vista : MaterialForm
     {
         InventarioControlador inv_controlador = new InventarioControlador();
-        OrdenControlador orden_controlador = new OrdenControlador();
+        TransferenciaControlador transferencia_controlador = new TransferenciaControlador();
         ProveedorControlador proveedor_controlador = new ProveedorControlador();
 
         public Vista()
@@ -49,8 +49,8 @@ namespace GESTINV
             );
             RbId.Select();
             TablaInventario.HideSelection = true;
-            TablaOrdenes.HideSelection = true;
-           
+            TablaEntrada.HideSelection = true;
+            TablaSalida.HideSelection = true;
         }
 
         private void GuardarProductos_Click(object sender, EventArgs e)
@@ -97,7 +97,8 @@ namespace GESTINV
         private void CargarInventario_Event(object sender, EventArgs e)
         {
             RefrescarTablaInvetario();
-            RefrescaraTablaOrden();
+            RefrescaraTablaEntrada();
+            refrescarTablaSalida();
             this.Refresh();
             CargarProveedor();
         }
@@ -111,13 +112,22 @@ namespace GESTINV
             }  
         }
 
-        private void RefrescaraTablaOrden()
+        private void RefrescaraTablaEntrada()
+            
         {
-            orden_controlador.ConsultarOrden(TablaOrdenes);
+            TablaEntrada.Items.Clear();
+           transferencia_controlador.ConsultarEntrada(TablaEntrada);
+        }
+
+        private void refrescarTablaSalida()
+        {
+            TablaSalida.Items.Clear();
+            transferencia_controlador.ConsultarSalida(TablaSalida);
         }
 
         private void RefrescarTablaInvetario()
         {
+            TablaInventario.Items.Clear();
             inv_controlador.ConsultarProductos(TablaInventario);
         }
 
@@ -128,8 +138,8 @@ namespace GESTINV
 
         private void materialRaisedButton5_Click(object sender, EventArgs e)
         {
-            TablaInventario.Items.Clear();
             RefrescarTablaInvetario();
+            TextConsulta.Text = "";
         }
 
         private void TextStock_KeyPress(object sender, KeyPressEventArgs e)
@@ -209,7 +219,6 @@ namespace GESTINV
                 String categoria = TablaInventario.SelectedItems[0].SubItems[5].Text;
                 ModificarProducto_view Modificar_view = new ModificarProducto_view(id, nombre, precio, stock, stockMin, categoria);
                 Modificar_view.ShowDialog();
-                TablaInventario.Items.Clear();
                 RefrescarTablaInvetario();     
             }
             else
@@ -241,24 +250,20 @@ namespace GESTINV
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnGuardarEntrada_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(TextID2.Text) && !String.IsNullOrEmpty(TextCantidad.Text))
             {
-                if (inv_controlador.BuscarProducto(TextID2.Text)==true )
+                if (inv_controlador.BuscarProducto(TextID2.Text))
                 {
-
-                    orden_controlador.RegistrarOrden(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)), "Entrada", Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text), cbProveedor.SelectedItem.ToString());
-                    TablaOrdenes.Items.Clear();
-                    RefrescaraTablaOrden();
+                    transferencia_controlador.RegistrarEntrada(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)),Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text), cbProveedor.SelectedItem.ToString());                  
+                    RefrescaraTablaEntrada();
                     LImpiarentrada();
-                    TablaInventario.Items.Clear();
                     RefrescarTablaInvetario();
                 } else
                 {
-                    MessageBox.Show("Producto no existente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Producto no existente en inventario!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
             } else
             {
                 MessageBox.Show("Ingrese todos los datos para guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -299,6 +304,43 @@ namespace GESTINV
             Proveedor_view proveedor = new Proveedor_view();
             proveedor.ShowDialog();
             CargarProveedor();
+        }
+
+        private void btnGuardarSalida_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(TextID3.Text) && !String.IsNullOrEmpty(TextCantidad2.Text))
+            {
+                if (inv_controlador.BuscarProducto(TextID3.Text))
+                {
+                    transferencia_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text, inv_controlador.BuscarNombreProducto(TextID3.Text)), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
+                    RefrescarTablaInvetario();
+                    refrescarTablaSalida();
+                    LimpiarSalida();
+                }
+                else
+                {
+                    MessageBox.Show("Producto no existente en inventario!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese todos los datos para guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        } 
+
+        private void LimpiarSalida()
+        {
+            TextID3.Text = "";
+            TextCantidad2.Text = "";
+        }
+
+        private void TextCantidad2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
         }
     }
 }
