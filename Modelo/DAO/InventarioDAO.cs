@@ -9,7 +9,7 @@ namespace Modelo.DAO
 {
     public class InventarioDAO : ConexionBD
     {
-        InventarioDTO inventario = new InventarioDTO(new List<ProductoDTO>());
+        InventarioDTO inventario = new InventarioDTO();
         
         public InventarioDAO()
         {
@@ -62,7 +62,9 @@ namespace Modelo.DAO
                 databaseConnection.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void ConsultarProducto(MaterialListView TablaDatos, String atributo , String valor)
@@ -104,7 +106,7 @@ namespace Modelo.DAO
 
         public String BuscarNombreProducto(String id)
         {
-            String nombre = "";
+            String nombre = "";        
             foreach (ProductoDTO  i in inventario.ProductoList)
             {
                 if(id.Equals(i.ID))
@@ -115,7 +117,18 @@ namespace Modelo.DAO
             return nombre;
         }
 
-        public Boolean BuscarProducto(String id)
+        public Boolean ValidarStock(String id, int Stocknuevo)
+        {
+            Boolean res = true;
+            ProductoDTO producto = BuscarProducto(id);        
+             if ((producto.Stock - Stocknuevo) <= producto.StockMin)
+                 {
+                   res = false;
+                 }  
+            return res;
+        }
+
+        public Boolean ComprobarExistencia(String id)
         {         
             string query = "SELECT * FROM Producto WHERE id="+id+"";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -138,6 +151,36 @@ namespace Modelo.DAO
               // MessageBox.Show(ex.Message);
             }
             return aux;
+        }
+
+        public ProductoDTO BuscarProducto(String id)
+        {
+            ProductoDTO producto = new ProductoDTO();
+            string query = "SELECT * FROM Producto WHERE id=" + id + "";
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            Boolean aux = false;
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                     producto =
+                         new ProductoDTO(reader.GetString(0), reader.GetString(1), float.Parse(reader.GetString(2)), Convert.ToInt32(reader.GetString(3)), Convert.ToInt32(reader.GetString(4)), reader.GetString(5));
+                    }
+                }
+                databaseConnection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                // MessageBox.Show(ex.Message);
+            }
+            return producto;
         }
 
         public Boolean EliminarProductos(String id)
@@ -182,14 +225,15 @@ namespace Modelo.DAO
 
         public void ModificarStock(String id, int Stocknuevo,String tipo)
         {
-            String query="";
+             String query="";
             if(tipo.Equals("Entrada"))
             {
-                 query = "UPDATE Producto SET stock=stock+" + Stocknuevo + " WHERE id=" + id + "";
+                 query = "UPDATE Producto SET stock=stock +" + Stocknuevo + " WHERE id=" + id + "";
             }
             if (tipo.Equals("Salida"))
             {
-                query = "UPDATE Producto SET stock=stock-" + Stocknuevo + " WHERE id=" + id + "";
+               
+                query = "UPDATE Producto SET stock=stock -" + Stocknuevo + " WHERE id=" + id + "";
             }
 
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -204,6 +248,10 @@ namespace Modelo.DAO
             catch (Exception ex)
             { }
         }
+
+        
+
+
 
     }
 }

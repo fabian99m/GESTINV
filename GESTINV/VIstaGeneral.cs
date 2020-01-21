@@ -7,6 +7,8 @@ using Vista.ModificarProducto;
 using Modelo.DTO;
 using Vista.Proveedor;
 using System.Collections.Generic;
+using System.Drawing;
+using Vista.Alerta;
 
 namespace GESTINV
 {
@@ -312,10 +314,19 @@ namespace GESTINV
             {
                 if (inv_controlador.BuscarProducto(TextID3.Text))
                 {
-                    transferencia_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text, inv_controlador.BuscarNombreProducto(TextID3.Text)), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
+                   Boolean res = transferencia_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text,  inv_controlador.BuscarNombreProducto(TextID3.Text) ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
                     RefrescarTablaInvetario();
                     refrescarTablaSalida();
                     LimpiarSalida();
+                    if(!res)
+                    {                   
+                        Alerta2.Icon = SystemIcons.Warning;
+                        Alerta2.Text = "Producto en escasez!!!";
+                        Alerta2.Visible = true;                      
+                        Alerta2.BalloonTipText = "Producto en escasez, click para tomar acciones.";
+                        Alerta2.BalloonTipTitle = "Alerta!";
+                        Alerta2.ShowBalloonTip(100);
+                    }
                 }
                 else
                 {
@@ -341,6 +352,13 @@ namespace GESTINV
                 e.Handled = true;
                 return;
             }
+        }
+
+
+        private void Alerta2_BalloonTipClicked(object sender, EventArgs e)
+        {
+            Alerta a = new Alerta();
+            a.ShowDialog();
         }
     }
 }

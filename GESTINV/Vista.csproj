@@ -85,6 +85,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alerta\Alerta_view.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alerta\Alerta_view.Designer.cs">
+      <DependentUpon>Alerta_view.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModificarProducto\ModificarProducto_view.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Alerta\Alerta_view.resx">
+      <DependentUpon>Alerta_view.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModificarProducto\ModificarProducto_view.resx">
       <DependentUpon>ModificarProducto_view.cs</DependentUpon>
     </EmbeddedResource>

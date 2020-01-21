@@ -10,16 +10,16 @@ namespace Modelo.DTO
     {
         List<ProductoDTO> productoList;
 
-        public InventarioDTO(List<ProductoDTO> productoList)
+        public InventarioDTO()
         {
-            this.productoList = productoList;
+            this.productoList = new List<ProductoDTO>();
         }
 
         public List<ProductoDTO> ProductoList
         { 
         
-            get { return productoList; }
-            set { productoList= value; }
+            get { return this.productoList; }
+            set { this.productoList= value; }
         }
 
     }

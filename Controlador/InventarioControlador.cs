@@ -39,7 +39,7 @@ namespace Controlador
 
         public Boolean BuscarProducto(String id)
         {
-            return this.InvDAO.BuscarProducto(id);
+            return this.InvDAO.ComprobarExistencia(id);
         }
 
         public void EliminarProductos(String id)

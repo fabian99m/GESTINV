@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vista));
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -81,12 +82,13 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Cantidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnGuardarSalida = new MaterialSkin.Controls.MaterialRaisedButton();
             this.TextCantidad2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.TextID3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.Time2 = new System.Windows.Forms.DateTimePicker();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.Alerta = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.TabPrincipal = new MaterialSkin.Controls.MaterialTabSelector();
@@ -95,7 +97,7 @@
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.button1 = new System.Windows.Forms.Button();
-            this.Cantidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Alerta2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.materialTabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.materialTabControl2.SuspendLayout();
@@ -565,7 +567,7 @@
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.tab);
-            this.tabPage6.Controls.Add(this.materialTabSelector3);
+            this.tabPage6.Controls.Add(this.Alerta);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage6.Name = "tabPage6";
@@ -839,6 +841,11 @@
             this.columnHeader12.Text = "Nombre";
             this.columnHeader12.Width = 200;
             // 
+            // Cantidad
+            // 
+            this.Cantidad.Text = "Cantidad";
+            this.Cantidad.Width = 200;
+            // 
             // btnGuardarSalida
             // 
             this.btnGuardarSalida.AutoSize = true;
@@ -915,17 +922,17 @@
             this.materialLabel7.TabIndex = 0;
             this.materialLabel7.Text = "Desabastecimiento";
             // 
-            // materialTabSelector3
+            // Alerta
             // 
-            this.materialTabSelector3.BaseTabControl = this.tab;
-            this.materialTabSelector3.Depth = 0;
-            this.materialTabSelector3.Location = new System.Drawing.Point(0, 22);
-            this.materialTabSelector3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.materialTabSelector3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabSelector3.Name = "materialTabSelector3";
-            this.materialTabSelector3.Size = new System.Drawing.Size(1133, 42);
-            this.materialTabSelector3.TabIndex = 1;
-            this.materialTabSelector3.Text = "materialTabSelector3";
+            this.Alerta.BaseTabControl = this.tab;
+            this.Alerta.Depth = 0;
+            this.Alerta.Location = new System.Drawing.Point(0, 22);
+            this.Alerta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Alerta.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Alerta.Name = "Alerta";
+            this.Alerta.Size = new System.Drawing.Size(1133, 42);
+            this.Alerta.TabIndex = 1;
+            this.Alerta.Text = "materialTabSelector3";
             // 
             // tabPage7
             // 
@@ -1028,10 +1035,11 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Cantidad
+            // Alerta2
             // 
-            this.Cantidad.Text = "Cantidad";
-            this.Cantidad.Width = 200;
+            this.Alerta2.Text = "notifyIcon1";
+            this.Alerta2.Visible = true;
+            this.Alerta2.BalloonTipClicked += new System.EventHandler(this.Alerta2_BalloonTipClicked);
             // 
             // Vista
             // 
@@ -1082,7 +1090,7 @@
         private MaterialSkin.Controls.MaterialTabControl tab;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
-        private MaterialSkin.Controls.MaterialTabSelector materialTabSelector3;
+        private MaterialSkin.Controls.MaterialTabSelector Alerta;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialLabel LabelUser;
@@ -1139,6 +1147,7 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private System.Windows.Forms.DateTimePicker Time;
         private System.Windows.Forms.ColumnHeader Cantidad;
+        private System.Windows.Forms.NotifyIcon Alerta2;
     }
 }
 

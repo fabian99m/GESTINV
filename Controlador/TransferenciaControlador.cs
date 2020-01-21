@@ -28,7 +28,7 @@ namespace Controlador
             }
         }
 
-        public void RegistrarSalida(ProductoDTO producto, String fecha, int cantidad)
+        public Boolean RegistrarSalida(ProductoDTO producto, String fecha, int cantidad)
         {
             Boolean res = Orden.RegistrarSalida(producto, fecha, cantidad);
             if (res)
@@ -37,8 +37,9 @@ namespace Controlador
             }
             else
             {
-                MessageBox.Show("Salida guardada sin éxito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // MessageBox.Show("Producto en escazes!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            return res;
         }
 
         public void ConsultarEntrada(MaterialListView TablaOrden)

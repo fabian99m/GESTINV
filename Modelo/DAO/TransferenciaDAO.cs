@@ -25,6 +25,7 @@ namespace Modelo.DAO
                 databaseConnection.Close();
 
                 inventario.ModificarStock(producto.ID, cantidad,"Entrada");
+               
             }
             catch (Exception ex)
             { }
@@ -33,18 +34,20 @@ namespace Modelo.DAO
 
         public Boolean RegistrarSalida(ProductoDTO producto, String fecha, int cantidad)
         {
-            Boolean res = false;
-            string query = "INSERT INTO Salida(id,nombre,fecha,cantidad) VALUES ('" + producto.ID + "', '" + producto.Nombre + "',  '" + fecha + "', " + cantidad + ") ";
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
+            Boolean res = inventario.ValidarStock(producto.ID, cantidad);        
             try
-            {
-                databaseConnection.Open();
-                MySqlDataReader myReader = commandDatabase.ExecuteReader();
-                res = true;
-                databaseConnection.Close();
-
-                inventario.ModificarStock(producto.ID, cantidad,"Salida");
+            {           
+                if (res)
+                {              
+                    string query = "INSERT INTO Salida(id,nombre,fecha,cantidad) VALUES ('" + producto.ID + "', '" + producto.Nombre + "',  '" + fecha + "', " + cantidad + ") ";
+                    MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+                    commandDatabase.CommandTimeout = 60;
+                    databaseConnection.Open();
+                    MySqlDataReader myReader = commandDatabase.ExecuteReader();
+                    res = true;
+                    databaseConnection.Close();
+                    inventario.ModificarStock(producto.ID, cantidad, "Salida");
+                }               
             }
             catch (Exception ex)
             { }
