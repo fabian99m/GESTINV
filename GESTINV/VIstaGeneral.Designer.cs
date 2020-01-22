@@ -64,7 +64,6 @@
             this.tab = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.Time = new System.Windows.Forms.DateTimePicker();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.cbProveedor = new System.Windows.Forms.ComboBox();
             this.btnProveedores = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnGuardarEntrada = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -98,6 +97,7 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.Alerta2 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.materialTabControl2.SuspendLayout();
@@ -593,8 +593,8 @@
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.Color.White;
+            this.tabPage8.Controls.Add(this.materialLabel8);
             this.tabPage8.Controls.Add(this.Time);
-            this.tabPage8.Controls.Add(this.materialSingleLineTextField1);
             this.tabPage8.Controls.Add(this.cbProveedor);
             this.tabPage8.Controls.Add(this.btnProveedores);
             this.tabPage8.Controls.Add(this.btnGuardarEntrada);
@@ -617,25 +617,6 @@
             this.Time.Name = "Time";
             this.Time.Size = new System.Drawing.Size(190, 22);
             this.Time.TabIndex = 10;
-            // 
-            // materialSingleLineTextField1
-            // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(393, 0);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(125, 28);
-            this.materialSingleLineTextField1.TabIndex = 9;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.Text = "Proveedor";
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
             // 
             // cbProveedor
             // 
@@ -1001,7 +982,7 @@
             // 
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel4.Location = new System.Drawing.Point(484, 176);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1040,6 +1021,19 @@
             this.Alerta2.Text = "notifyIcon1";
             this.Alerta2.Visible = true;
             this.Alerta2.BalloonTipClicked += new System.EventHandler(this.Alerta2_BalloonTipClicked);
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(390, 0);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(96, 24);
+            this.materialLabel8.TabIndex = 11;
+            this.materialLabel8.Text = "Proveedor";
             // 
             // Vista
             // 
@@ -1144,10 +1138,10 @@
         private System.Windows.Forms.Button button1;
         private MaterialSkin.Controls.MaterialRaisedButton btnProveedores;
         private System.Windows.Forms.ComboBox cbProveedor;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private System.Windows.Forms.DateTimePicker Time;
         private System.Windows.Forms.ColumnHeader Cantidad;
         private System.Windows.Forms.NotifyIcon Alerta2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
     }
 }
 

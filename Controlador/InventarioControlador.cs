@@ -37,7 +37,7 @@ namespace Controlador
             InvDAO.ConsultarProducto(TablaDatos, atributo, valor);
         }
 
-        public Boolean BuscarProducto(String id)
+        public Boolean BuscarExistenciaProducto(String id)
         {
             return this.InvDAO.ComprobarExistencia(id);
         }

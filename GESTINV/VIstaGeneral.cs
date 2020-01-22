@@ -177,7 +177,7 @@ namespace GESTINV
             {
                 e.Handled = true;
                 return;
-            }
+            }        
         }
 
         private void TextConsulta_KeyPress(object sender, KeyPressEventArgs e)
@@ -256,7 +256,7 @@ namespace GESTINV
         {
             if (!String.IsNullOrEmpty(TextID2.Text) && !String.IsNullOrEmpty(TextCantidad.Text))
             {
-                if (inv_controlador.BuscarProducto(TextID2.Text))
+                if (inv_controlador.BuscarExistenciaProducto(TextID2.Text))
                 {
                     transferencia_controlador.RegistrarEntrada(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)),Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text), cbProveedor.SelectedItem.ToString());                  
                     RefrescaraTablaEntrada();
@@ -312,21 +312,17 @@ namespace GESTINV
         {
             if (!String.IsNullOrEmpty(TextID3.Text) && !String.IsNullOrEmpty(TextCantidad2.Text))
             {
-                if (inv_controlador.BuscarProducto(TextID3.Text))
+                if (inv_controlador.BuscarExistenciaProducto(TextID3.Text))
                 {
                    Boolean res = transferencia_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text,  inv_controlador.BuscarNombreProducto(TextID3.Text) ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
                     RefrescarTablaInvetario();
                     refrescarTablaSalida();
-                    LimpiarSalida();
+                    
                     if(!res)
-                    {                   
-                        Alerta2.Icon = SystemIcons.Warning;
-                        Alerta2.Text = "Producto en escasez!!!";
-                        Alerta2.Visible = true;                      
-                        Alerta2.BalloonTipText = "Producto en escasez, click para tomar acciones.";
-                        Alerta2.BalloonTipTitle = "Alerta!";
-                        Alerta2.ShowBalloonTip(100);
+                    {
+                        Alertar(TextID3.Text);   
                     }
+                    LimpiarSalida();
                 }
                 else
                 {
@@ -338,6 +334,16 @@ namespace GESTINV
                 MessageBox.Show("Ingrese todos los datos para guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         } 
+
+        private void Alertar(String id)
+        {
+            Alerta2.Icon = SystemIcons.Warning;
+            Alerta2.Text = "Producto en escasez!!!";
+            Alerta2.Visible = true;
+            Alerta2.BalloonTipText = "Producto : "+inv_controlador.BuscarNombreProducto(id)+" a punto de agortarse!, click para tomar acciones.";
+            Alerta2.BalloonTipTitle = "Alerta!";
+            Alerta2.ShowBalloonTip(100);
+        }
 
         private void LimpiarSalida()
         {
@@ -353,7 +359,6 @@ namespace GESTINV
                 return;
             }
         }
-
 
         private void Alerta2_BalloonTipClicked(object sender, EventArgs e)
         {
