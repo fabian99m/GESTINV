@@ -3,6 +3,7 @@ using Modelo.DAO;
 using Modelo.DTO;
 using MaterialSkin.Controls;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Controlador
 {
@@ -29,12 +30,27 @@ namespace Controlador
 
         public void ConsultarProductos(MaterialListView TablaDatos)
         {
-            InvDAO.ConsultarProducto(TablaDatos);
+             List<String[]> r = InvDAO.ConsultarProducto();
+            foreach (String[] a in r) {
+                var listViewItem = new ListViewItem(a);
+                TablaDatos.Items.Add(listViewItem);
+            }
         }
 
-        public void ConsultarProductos(MaterialListView TablaDatos, String atributo, String valor)
+        public void ConsultarProductos(MaterialListView TablaDatos,String atributo, String valor)
         {
-            InvDAO.ConsultarProducto(TablaDatos, atributo, valor);
+            List<String[]> r = InvDAO.ConsultarProducto( atributo, valor);
+            if (r.Count > 0)
+            {
+                foreach (String[] a in r)
+                {
+                    var listViewItem = new ListViewItem(a);
+                    TablaDatos.Items.Add(listViewItem);
+                }
+            } else
+            {
+                ConsultarProductos(TablaDatos);
+            }
         }
 
         public Boolean BuscarExistenciaProducto(String id)

@@ -10,23 +10,23 @@ namespace Modelo.DAO
     public class InventarioDAO : ConexionBD
     {
         InventarioDTO inventario = new InventarioDTO();
-        
+
         public InventarioDAO()
         {
         }
 
         public Boolean GuardarProducto(ProductoDTO producto)
         {
-          Boolean res=false;
-          string query = "INSERT INTO Producto(id, nombre,precio,stock,stockMin,categoria) VALUES ('" + producto.ID + "','" + producto.Nombre + "'," +
-          "'" + producto.Precio + "','" + producto.Stock + "','" + producto.StockMin + "','" + producto.Categoria + "')";
-            
-          MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-          commandDatabase.CommandTimeout = 60;
-           try
+            Boolean res = false;
+            string query = "INSERT INTO Producto(id, nombre,precio,stock,stockMin,categoria) VALUES ('" + producto.ID + "','" + producto.Nombre + "'," +
+            "'" + producto.Precio + "','" + producto.Stock + "','" + producto.StockMin + "','" + producto.Categoria + "')";
+
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            try
             {
                 databaseConnection.Open();
-                MySqlDataReader myReader = commandDatabase.ExecuteReader();              
+                MySqlDataReader myReader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
                 res = true;
             }
@@ -35,12 +35,13 @@ namespace Modelo.DAO
             return res;
         }
 
-        public void ConsultarProducto(MaterialListView TablaDatos)
+        public List<String[]> ConsultarProducto()
         {
             string query = "SELECT * FROM Producto";        
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             MySqlDataReader reader;
+            List<String[]> r = new List<string[]>();
             try
             {
                 databaseConnection.Open();
@@ -51,10 +52,13 @@ namespace Modelo.DAO
                     inventario.ProductoList.Clear();
                     while (reader.Read())
                     {
-                        string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5) };
-                        var listViewItem = new ListViewItem(row);
+                        String aux;
+                        aux = (Convert.ToInt32(reader.GetString(3)) <= Convert.ToInt32(reader.GetString(4))) ? "Sí" : "No";                       
+                        string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), aux };
+                        r.Add(row);
+                        /* var listViewItem = new ListViewItem(row);
                         TablaDatos.Items.Add(listViewItem);
-
+                        */
                         inventario.ProductoList.Add(
                          new ProductoDTO(reader.GetString(0), reader.GetString(1),float.Parse(reader.GetString(2)),Convert.ToInt32(reader.GetString(3)),Convert.ToInt32(reader.GetString(4)), reader.GetString(5)));                      
                     }
@@ -65,15 +69,17 @@ namespace Modelo.DAO
             {
                 MessageBox.Show(ex.Message);
             }
+            return r;
         }
 
-        public void ConsultarProducto(MaterialListView TablaDatos, String atributo , String valor)
+        public List<String[]> ConsultarProducto( String atributo , String valor)
         {
             
             string query = "SELECT * FROM Producto WHERE " + atributo + "='" + valor + "' ";        
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             MySqlDataReader reader;
+            List<String[]> r = new List<string[]>();
             try
             {
                 databaseConnection.Open();
@@ -84,9 +90,14 @@ namespace Modelo.DAO
                 {
                     while (reader.Read())
                     {
-                        string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5) };
+                        String aux;
+                        aux = (Convert.ToInt32(reader.GetString(3))<= Convert.ToInt32(reader.GetString(4)))? "Sí":"No";
+                        string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), aux };
+                        r.Add(row);
+                        /*
                         var listViewItem = new ListViewItem(row);
-                        TablaDatos.Items.Add(listViewItem);                      
+                        TablaDatos.Items.Add(listViewItem);
+                        */
                     }
                     databaseConnection.Close();
                 }
@@ -94,14 +105,15 @@ namespace Modelo.DAO
                 {
                     databaseConnection.Close();
                     MessageBox.Show("Producto no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.ConsultarProducto(TablaDatos);                     
+                    this.ConsultarProducto();                     
                 }
                
             }
             catch (Exception ex)
             {
-                TablaDatos.Items.Clear();            
+                //TablaDatos.Items.Clear();            
             }
+            return r;
         }
 
         public String BuscarNombreProducto(String id)
