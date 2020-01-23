@@ -136,7 +136,7 @@ namespace Modelo.DAO
                 {
                     while (reader.Read())
                     {                       
-                        x.Add(inventario.BuscarProducto(reader.GetString(0)).Nombre);
+                        x.Add(inventario.BuscarProducto(reader.GetString(0)).Nombre);               
                         y.Add(reader.GetString(1));                     
                     }
                 }
@@ -168,7 +168,7 @@ namespace Modelo.DAO
                 {
                     while (reader.Read())
                     {
-                        x.Add(inventario.BuscarProducto(reader.GetString(0)).Nombre);
+                        x.Add(inventario.BuscarProducto(reader.GetString(0)).Nombre);                       
                         y.Add(reader.GetString(1));
                     }
                 }

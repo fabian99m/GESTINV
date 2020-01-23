@@ -48,16 +48,13 @@ namespace Modelo.DAO
                 // Si se encontraron datos
                 if (reader.HasRows)
                 {
-                    inventario.ProductoList.Clear();
+
                     while (reader.Read())
                     {
                         String aux;
-                        aux = (Convert.ToInt32(reader.GetString(3)) <= Convert.ToInt32(reader.GetString(4))) ? "Sí" : "No";                       
+                        aux = (Convert.ToInt32(reader.GetString(3)) <= Convert.ToInt32(reader.GetString(4))) ? "Sí" : "No";
                         string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), aux };
                         datos.Add(row);
-                        
-                        inventario.ProductoList.Add(
-                         new ProductoDTO(reader.GetString(0), reader.GetString(1),float.Parse(reader.GetString(2)),Convert.ToInt32(reader.GetString(3)),Convert.ToInt32(reader.GetString(4)), reader.GetString(5)));                      
                     }
                 }              
                 databaseConnection.Close();
@@ -106,21 +103,6 @@ namespace Modelo.DAO
                 //TablaDatos.Items.Clear();            
             }
             return datos;
-        }
-
-        public String BuscarNombreProducto(String id)
-        {
-            String nombre = "";        
-            foreach (ProductoDTO  i in inventario.ProductoList)
-            {
-                if(id.Equals(i.ID))
-                {
-                    nombre= i.Nombre;
-                }
-            }
-            return nombre;
-
-
         }
 
         public int ValidarStock(String id, int Stocknuevo)
@@ -177,8 +159,7 @@ namespace Modelo.DAO
             string query = "SELECT * FROM Producto WHERE id=" + id + "";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
-            MySqlDataReader reader;
-            Boolean aux = false;
+            MySqlDataReader reader;         
             try
             {
                 databaseConnection.Open();

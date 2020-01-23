@@ -46,7 +46,7 @@ namespace GESTINV
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue400, Primary.Blue500,
+                (Primary)6732650, Primary.Blue500,
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.BLACK
             );
@@ -111,9 +111,12 @@ namespace GESTINV
             refrescarTablaSalida();
             this.Refresh();
             CargarProveedor();
+
+
             CargarGraficaSalida();
             CargarGraficaEntrada();
-         }
+
+        }
 
         private void CargarGraficaSalida()
         {
@@ -121,6 +124,7 @@ namespace GESTINV
             {
                 grafica1.Series.Clear();
                 grafica1.Titles.Clear();
+                
 
                 List<String> x = new List<String>();
                 List<String> y = new List<String>();
@@ -311,7 +315,6 @@ namespace GESTINV
                   RefrescarTablaInvetario();
                   CargarGraficaSalida();
                   CargarGraficaEntrada();
-
                 }
             } else
             {
@@ -325,7 +328,7 @@ namespace GESTINV
             {
                 if (inventario_controlador.BuscarExistenciaProducto(TextID2.Text))
                 {
-                    registro_controlador.RegistrarEntrada(new ProductoDTO(TextID2.Text, inventario_controlador.BuscarNombreProducto(TextID2.Text)),Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text), cbProveedor.SelectedItem.ToString());                  
+                    registro_controlador.RegistrarEntrada(new ProductoDTO(TextID2.Text, inventario_controlador.BuscarProducto(TextID2.Text).Nombre),Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text), cbProveedor.SelectedItem.ToString());                  
                     RefrescaraTablaEntrada();
                     LImpiarentrada();
                     RefrescarTablaInvetario();
@@ -383,7 +386,7 @@ namespace GESTINV
             {
                 if (inventario_controlador.BuscarExistenciaProducto(TextID3.Text))
                 {
-                   int res = registro_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text,  inventario_controlador.BuscarNombreProducto(TextID3.Text) ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
+                   int res = registro_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text,  inventario_controlador.BuscarProducto(TextID3.Text).Nombre ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
                     RefrescarTablaInvetario();
                     refrescarTablaSalida();
                     CargarGraficaSalida();
@@ -412,11 +415,11 @@ namespace GESTINV
         {
             if(res==1)
             {
-                Alerta2.BalloonTipText = "Producto " + inventario_controlador.BuscarNombreProducto(id) + " a punto de agortarse!, click para tomar acciones al respecto.";
+                Alerta2.BalloonTipText = "Producto " + inventario_controlador.BuscarProducto(id).Nombre + " a punto de agortarse!, click para tomar acciones al respecto.";
             } 
             if(res==3)
             {
-                Alerta2.BalloonTipText = "Producto " + inventario_controlador.BuscarNombreProducto(id) + " agotado!, click para tomar acciones al respecto.";
+                Alerta2.BalloonTipText = "Producto " + inventario_controlador.BuscarProducto(id).Nombre + " agotado!, click para tomar acciones al respecto.";
             }
             Alerta2.Icon = SystemIcons.Warning;
             Alerta2.Text = "Producto en escasez!!!";
@@ -454,5 +457,9 @@ namespace GESTINV
             LimpiarSalida();
         }
 
+        private void Vista_Click(object sender, EventArgs e)
+        {
+           
+        }     
     }
 }

@@ -88,12 +88,6 @@ namespace Controlador
             }
         }
 
-        public String BuscarNombreProducto(String id)
-        {
-            return InventarioDAO.BuscarNombreProducto(id);
-
-        }
-
     }
 
    }
