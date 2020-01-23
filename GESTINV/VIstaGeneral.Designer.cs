@@ -146,6 +146,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Inventario";
             this.tabPage3.UseVisualStyleBackColor = true;
+      
             // 
             // materialTabControl2
             // 
@@ -160,6 +161,8 @@
             this.materialTabControl2.SelectedIndex = 0;
             this.materialTabControl2.Size = new System.Drawing.Size(1121, 599);
             this.materialTabControl2.TabIndex = 1;
+            
+            
             // 
             // tabPage1
             // 
@@ -579,6 +582,7 @@
             this.materialTabSelector2.Size = new System.Drawing.Size(1139, 42);
             this.materialTabSelector2.TabIndex = 0;
             this.materialTabSelector2.Text = "materialTabSelector2";
+            
             // 
             // tabPage6
             // 
@@ -995,7 +999,7 @@
             // 
             this.TabPrincipal.BaseTabControl = this.materialTabControl1;
             this.TabPrincipal.Depth = 0;
-            this.TabPrincipal.Location = new System.Drawing.Point(29, 94);
+            this.TabPrincipal.Location = new System.Drawing.Point(33, 96);
             this.TabPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabPrincipal.MouseState = MaterialSkin.MouseState.HOVER;
             this.TabPrincipal.Name = "TabPrincipal";

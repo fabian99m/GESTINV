@@ -78,6 +78,7 @@ namespace GESTINV
             
             RefrescarTablaInvetario();
             CargarGraficaSalida();
+            CargarGraficaEntrada();
         }
 
         public void LimpiarPantalla()
@@ -104,7 +105,7 @@ namespace GESTINV
         }
 
         private void CargarInventario_Event(object sender, EventArgs e)
-        {
+         {  
             RefrescarTablaInvetario();
             RefrescaraTablaEntrada();
             refrescarTablaSalida();
@@ -112,7 +113,7 @@ namespace GESTINV
             CargarProveedor();
             CargarGraficaSalida();
             CargarGraficaEntrada();
-        }
+         }
 
         private void CargarGraficaSalida()
         {
@@ -283,6 +284,7 @@ namespace GESTINV
                 Modificar_view.ShowDialog();
                 RefrescarTablaInvetario();
                 CargarGraficaSalida();
+                CargarGraficaEntrada();
             }
             else
             {
@@ -307,8 +309,9 @@ namespace GESTINV
                   registro_controlador.EliminarSalida(id);
                   TablaInventario.Items.Clear();
                   RefrescarTablaInvetario();
-                   CargarGraficaSalida();
-                  
+                  CargarGraficaSalida();
+                  CargarGraficaEntrada();
+
                 }
             } else
             {
@@ -327,6 +330,7 @@ namespace GESTINV
                     LImpiarentrada();
                     RefrescarTablaInvetario();
                     CargarGraficaSalida();
+                    CargarGraficaEntrada();
                 } else
                 {
                     MessageBox.Show("Producto no existente en inventario!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -383,7 +387,8 @@ namespace GESTINV
                     RefrescarTablaInvetario();
                     refrescarTablaSalida();
                     CargarGraficaSalida();
-                    if(res!=2)
+                    CargarGraficaEntrada();
+                    if (res!=2)
                     {
                         Alertar(TextID3.Text,res);   
                     } else
@@ -448,5 +453,6 @@ namespace GESTINV
         {
             LimpiarSalida();
         }
+
     }
 }
