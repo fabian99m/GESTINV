@@ -173,7 +173,7 @@ namespace Modelo.DAO
 
         public ProductoDTO BuscarProducto(String id)
         {
-            ProductoDTO producto = new ProductoDTO();
+            ProductoDTO producto = null;
             string query = "SELECT * FROM Producto WHERE id=" + id + "";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;

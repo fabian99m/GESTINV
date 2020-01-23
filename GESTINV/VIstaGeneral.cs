@@ -61,10 +61,16 @@ namespace GESTINV
             if (!String.IsNullOrEmpty(TextId.Text) && !String.IsNullOrEmpty(TextNombre.Text) && !String.IsNullOrEmpty(TextPrecio.Text)
               && !String.IsNullOrEmpty(TextStock.Text) && !String.IsNullOrEmpty(TextStockMin.Text) && !String.IsNullOrEmpty(TextCategoria.Text))
             {
-
-                inventario_controlador.GuardarProductos(TextId.Text, TextNombre.Text, float.Parse(TextPrecio.Text)
-                 , Convert.ToInt32(TextStock.Text), Convert.ToInt32(TextStockMin.Text), TextCategoria.Text);
-                LimpiarPantalla();
+                if (inventario_controlador.BuscarProducto(TextId.Text)==null)
+                {
+                   
+                    inventario_controlador.GuardarProductos(TextId.Text, TextNombre.Text, float.Parse(TextPrecio.Text)
+                     , Convert.ToInt32(TextStock.Text), Convert.ToInt32(TextStockMin.Text), TextCategoria.Text);
+                    LimpiarPantalla();
+                } else
+                {
+                    MessageBox.Show("Producto existente en inventario!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
@@ -111,23 +117,27 @@ namespace GESTINV
 
         private void CargarGrafica()
         {
-            grafica1.Series.Clear();
-            grafica1.Titles.Clear();
-           
-            List<String> x = new List<String>();
-            List<String> y = new List<String>();
-            x = registro_controlador.ProductoMasVendido()[0];
-            y = registro_controlador.ProductoMasVendido()[1];
-            grafica1.Titles.Add("Productos más vendidos");
-            grafica1.Palette = ChartColorPalette.Pastel;
-            int i = 0;
-            foreach (string item in x)
+            try
             {
-                Series s = grafica1.Series.Add(item);
-                s.Label = y[i];
-                s.Points.Add(Convert.ToDouble(y[i]));
-                i++;
-            }
+                grafica1.Series.Clear();
+                grafica1.Titles.Clear();
+
+                List<String> x = new List<String>();
+                List<String> y = new List<String>();
+                x = registro_controlador.ProductoMasVendido()[0];
+                y = registro_controlador.ProductoMasVendido()[1];
+                grafica1.Titles.Add("Productos más vendidos");
+                grafica1.Palette = ChartColorPalette.Pastel;
+                int i = 0;
+                foreach (string item in x)
+                {
+                    Series s = grafica1.Series.Add(item);
+                    s.Label = y[i];
+                    s.Points.Add(Convert.ToDouble(y[i]));
+                    i++;
+                }
+            } catch (Exception e)
+            { }
         }
 
         public void CargarProveedor()
@@ -268,6 +278,8 @@ namespace GESTINV
                if (resultado == DialogResult.Yes)
                 {
                   inventario_controlador.EliminarProductos(id);
+                  registro_controlador.EliminarEntrada(id);
+                  registro_controlador.EliminarSalida(id);
                   TablaInventario.Items.Clear();
                   RefrescarTablaInvetario();
                    CargarGrafica();

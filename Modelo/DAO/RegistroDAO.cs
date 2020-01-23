@@ -149,5 +149,37 @@ namespace Modelo.DAO
             return unir;
 
         }
+
+        public void EliminarSalida(String id)
+        {
+            string query = "DELETE FROM Salida WHERE id=" + id + "";
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            { }          
+        }
+
+        public void EliminarEntrada(String id)
+        {
+            string query = "DELETE FROM Entrada WHERE id=" + id + "";
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            { }
+        }
     }
 }

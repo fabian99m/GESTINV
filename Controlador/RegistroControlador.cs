@@ -70,5 +70,15 @@ namespace Controlador
             return this.registroDAO.ProductoMasVendido();
         }
 
+
+        public void EliminarEntrada(String id)
+        {
+            this.registroDAO.EliminarEntrada(id);
+        }
+
+        public void EliminarSalida(String id)
+        {
+            this.registroDAO.EliminarSalida(id);
+        }
     }
 }
