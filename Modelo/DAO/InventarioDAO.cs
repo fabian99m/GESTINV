@@ -41,7 +41,7 @@ namespace Modelo.DAO
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             MySqlDataReader reader;
-            List<String[]> r = new List<string[]>();
+            List<String[]> datos = new List<string[]>();
             try
             {
                 databaseConnection.Open();
@@ -55,10 +55,8 @@ namespace Modelo.DAO
                         String aux;
                         aux = (Convert.ToInt32(reader.GetString(3)) <= Convert.ToInt32(reader.GetString(4))) ? "Sí" : "No";                       
                         string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), aux };
-                        r.Add(row);
-                        /* var listViewItem = new ListViewItem(row);
-                        TablaDatos.Items.Add(listViewItem);
-                        */
+                        datos.Add(row);
+                        
                         inventario.ProductoList.Add(
                          new ProductoDTO(reader.GetString(0), reader.GetString(1),float.Parse(reader.GetString(2)),Convert.ToInt32(reader.GetString(3)),Convert.ToInt32(reader.GetString(4)), reader.GetString(5)));                      
                     }
@@ -69,7 +67,7 @@ namespace Modelo.DAO
             {
                 MessageBox.Show(ex.Message);
             }
-            return r;
+            return datos;
         }
 
         public List<String[]> ConsultarProducto( String atributo , String valor)
@@ -79,7 +77,7 @@ namespace Modelo.DAO
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             MySqlDataReader reader;
-            List<String[]> r = new List<string[]>();
+            List<String[]> datos = new List<string[]>();
             try
             {
                 databaseConnection.Open();
@@ -93,11 +91,7 @@ namespace Modelo.DAO
                         String aux;
                         aux = (Convert.ToInt32(reader.GetString(3))<= Convert.ToInt32(reader.GetString(4)))? "Sí":"No";
                         string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), aux };
-                        r.Add(row);
-                        /*
-                        var listViewItem = new ListViewItem(row);
-                        TablaDatos.Items.Add(listViewItem);
-                        */
+                        datos.Add(row);                       
                     }
                     databaseConnection.Close();
                 }
@@ -106,14 +100,13 @@ namespace Modelo.DAO
                     databaseConnection.Close();
                     MessageBox.Show("Producto no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.ConsultarProducto();                     
-                }
-               
+                }             
             }
             catch (Exception ex)
             {
                 //TablaDatos.Items.Clear();            
             }
-            return r;
+            return datos;
         }
 
         public String BuscarNombreProducto(String id)
@@ -129,15 +122,29 @@ namespace Modelo.DAO
             return nombre;
         }
 
-        public Boolean ValidarStock(String id, int Stocknuevo)
+        public int ValidarStock(String id, int Stocknuevo)
         {
-            Boolean res = true;
-            ProductoDTO producto = BuscarProducto(id);        
-             if ((producto.Stock - Stocknuevo) <= producto.StockMin)
-                 {
-                   res = false;
-                 }  
-            return res;
+            int aux=0;
+            ProductoDTO producto = BuscarProducto(id);
+
+            if ((producto.Stock - Stocknuevo) > 0)
+            {  
+               // a punto de agortase
+                if ((producto.Stock - Stocknuevo) <= producto.StockMin)
+                {
+                   aux = 1;
+                }
+               // disponibilidad por encima del mínimo
+                else
+                {
+                    aux = 2;
+                } 
+            //agotado
+            } else
+            {
+                aux = 3;
+            }       
+            return aux;
         }
 
         public Boolean ComprobarExistencia(String id)

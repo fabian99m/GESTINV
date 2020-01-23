@@ -9,17 +9,17 @@ namespace Controlador
 {
     public class InventarioControlador
     {
-        InventarioDAO InvDAO;
+        InventarioDAO InventarioDAO;
 
         public InventarioControlador()
         {
-            this.InvDAO = new InventarioDAO();
+            this.InventarioDAO = new InventarioDAO();
         }
 
         public void GuardarProductos(String id, String nombre, float precio, int stock, int stockMin, String categoria)
         {
-           Boolean res = InvDAO.GuardarProducto(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria));
-        if(res)
+           Boolean res = InventarioDAO.GuardarProducto(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria));
+            if(res)
             {
                 MessageBox.Show("Producto insertado satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
@@ -30,21 +30,21 @@ namespace Controlador
 
         public void ConsultarProductos(MaterialListView TablaDatos)
         {
-             List<String[]> r = InvDAO.ConsultarProducto();
-            foreach (String[] a in r) {
-                var listViewItem = new ListViewItem(a);
+             List<String[]> datos = InventarioDAO.ConsultarProducto();
+            foreach (String[] item in datos) {
+                var listViewItem = new ListViewItem(item);
                 TablaDatos.Items.Add(listViewItem);
             }
         }
 
         public void ConsultarProductos(MaterialListView TablaDatos,String atributo, String valor)
         {
-            List<String[]> r = InvDAO.ConsultarProducto( atributo, valor);
-            if (r.Count > 0)
+            List<String[]> datos = InventarioDAO.ConsultarProducto(atributo, valor);
+            if (datos.Count > 0)
             {
-                foreach (String[] a in r)
+                foreach (String[] item in datos)
                 {
-                    var listViewItem = new ListViewItem(a);
+                    var listViewItem = new ListViewItem(item);
                     TablaDatos.Items.Add(listViewItem);
                 }
             } else
@@ -55,12 +55,12 @@ namespace Controlador
 
         public Boolean BuscarExistenciaProducto(String id)
         {
-            return this.InvDAO.ComprobarExistencia(id);
+            return this.InventarioDAO.ComprobarExistencia(id);
         }
 
         public void EliminarProductos(String id)
         {
-            Boolean res = InvDAO.EliminarProductos(id);   
+            Boolean res = InventarioDAO.EliminarProductos(id);   
             if(res)
             {
                 MessageBox.Show("Producto eliminado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,7 +72,7 @@ namespace Controlador
 
         public void ModificarProductos(String id, String nombre, float precio, int stock, int stockMin, String categoria,String IdOld)
         {
-          Boolean res = InvDAO.ModificarProductos(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria),IdOld);
+          Boolean res = InventarioDAO.ModificarProductos(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria),IdOld);
             if (res)
             {
                 MessageBox.Show("Producto modificado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -85,7 +85,7 @@ namespace Controlador
 
         public String BuscarNombreProducto(String id)
         {
-            return InvDAO.BuscarNombreProducto(id);
+            return InventarioDAO.BuscarNombreProducto(id);
 
         }
 

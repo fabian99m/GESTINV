@@ -314,13 +314,12 @@ namespace GESTINV
             {
                 if (inv_controlador.BuscarExistenciaProducto(TextID3.Text))
                 {
-                   Boolean res = transferencia_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text,  inv_controlador.BuscarNombreProducto(TextID3.Text) ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
+                   int res = transferencia_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text,  inv_controlador.BuscarNombreProducto(TextID3.Text) ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
                     RefrescarTablaInvetario();
-                    refrescarTablaSalida();
-                    
-                    if(!res)
+                    refrescarTablaSalida();                   
+                    if(res!=2)
                     {
-                        Alertar(TextID3.Text);   
+                        Alertar(TextID3.Text,res);   
                     }
                     LimpiarSalida();
                 }
@@ -335,12 +334,19 @@ namespace GESTINV
             }
         } 
 
-        private void Alertar(String id)
+        private void Alertar(String id,int res)
         {
+            if(res==1)
+            {
+                Alerta2.BalloonTipText = "Producto " + inv_controlador.BuscarNombreProducto(id) + " a punto de agortarse!, click para tomar acciones al respecto.";
+            } 
+            if(res==3)
+            {
+                Alerta2.BalloonTipText = "Producto " + inv_controlador.BuscarNombreProducto(id) + " agotado!, click para tomar acciones al respecto.";
+            }
             Alerta2.Icon = SystemIcons.Warning;
             Alerta2.Text = "Producto en escasez!!!";
-            Alerta2.Visible = true;
-            Alerta2.BalloonTipText = "Producto : "+inv_controlador.BuscarNombreProducto(id)+" a punto de agortarse!, click para tomar acciones.";
+            Alerta2.Visible = true;        
             Alerta2.BalloonTipTitle = "Alerta!";
             Alerta2.ShowBalloonTip(100);
         }
