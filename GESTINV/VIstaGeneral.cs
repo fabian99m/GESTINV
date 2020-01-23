@@ -61,9 +61,8 @@ namespace GESTINV
             if (!String.IsNullOrEmpty(TextId.Text) && !String.IsNullOrEmpty(TextNombre.Text) && !String.IsNullOrEmpty(TextPrecio.Text)
               && !String.IsNullOrEmpty(TextStock.Text) && !String.IsNullOrEmpty(TextStockMin.Text) && !String.IsNullOrEmpty(TextCategoria.Text))
             {
-                if (inventario_controlador.BuscarProducto(TextId.Text)==null)
-                {
-                   
+                if (!inventario_controlador.BuscarExistenciaProducto(TextId.Text))
+                {                 
                     inventario_controlador.GuardarProductos(TextId.Text, TextNombre.Text, float.Parse(TextPrecio.Text)
                      , Convert.ToInt32(TextStock.Text), Convert.ToInt32(TextStockMin.Text), TextCategoria.Text);
                     LimpiarPantalla();
@@ -76,9 +75,9 @@ namespace GESTINV
             {
                 MessageBox.Show("Ingrese todos los datos para añadir!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);          
             }
-            LimpiarPantalla();
+            
             RefrescarTablaInvetario();
-            CargarGrafica();
+            CargarGraficaSalida();
         }
 
         public void LimpiarPantalla()
@@ -111,11 +110,11 @@ namespace GESTINV
             refrescarTablaSalida();
             this.Refresh();
             CargarProveedor();
-            CargarGrafica();
-
+            CargarGraficaSalida();
+            CargarGraficaEntrada();
         }
 
-        private void CargarGrafica()
+        private void CargarGraficaSalida()
         {
             try
             {
@@ -124,9 +123,9 @@ namespace GESTINV
 
                 List<String> x = new List<String>();
                 List<String> y = new List<String>();
-                x = registro_controlador.ProductoMasVendido()[0];
-                y = registro_controlador.ProductoMasVendido()[1];
-                grafica1.Titles.Add("Productos más vendidos");
+                x = registro_controlador.ReporteSalida()[0];
+                y = registro_controlador.ReporteSalida()[1];
+                grafica1.Titles.Add("Reporte de salidas");
                 grafica1.Palette = ChartColorPalette.Pastel;
                 int i = 0;
                 foreach (string item in x)
@@ -137,6 +136,32 @@ namespace GESTINV
                     i++;
                 }
             } catch (Exception e)
+            { }
+        }
+
+        private void CargarGraficaEntrada()
+        {
+            try
+            {
+                grafica2.Series.Clear();
+                grafica2.Titles.Clear();
+
+                List<String> x = new List<String>();
+                List<String> y = new List<String>();
+                x = registro_controlador.ReporteEntrada()[0];
+                y = registro_controlador.ReporteEntrada()[1];
+                grafica2.Titles.Add("Reporte de entradas");
+                grafica2.Palette = ChartColorPalette.Pastel;
+                int i = 0;
+                foreach (string item in x)
+                {
+                    Series s = grafica2.Series.Add(item);
+                    s.Label = y[i];
+                    s.Points.Add(Convert.ToDouble(y[i]));
+                    i++;
+                }
+            }
+            catch (Exception e)
             { }
         }
 
@@ -257,7 +282,7 @@ namespace GESTINV
                 ModificarProducto_view Modificar_view = new ModificarProducto_view(id, nombre, precio, stock, stockMin, categoria);
                 Modificar_view.ShowDialog();
                 RefrescarTablaInvetario();
-                CargarGrafica();
+                CargarGraficaSalida();
             }
             else
             {
@@ -282,7 +307,7 @@ namespace GESTINV
                   registro_controlador.EliminarSalida(id);
                   TablaInventario.Items.Clear();
                   RefrescarTablaInvetario();
-                   CargarGrafica();
+                   CargarGraficaSalida();
                   
                 }
             } else
@@ -301,7 +326,7 @@ namespace GESTINV
                     RefrescaraTablaEntrada();
                     LImpiarentrada();
                     RefrescarTablaInvetario();
-                    CargarGrafica();
+                    CargarGraficaSalida();
                 } else
                 {
                     MessageBox.Show("Producto no existente en inventario!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -357,7 +382,7 @@ namespace GESTINV
                    int res = registro_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text,  inventario_controlador.BuscarNombreProducto(TextID3.Text) ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
                     RefrescarTablaInvetario();
                     refrescarTablaSalida();
-                    CargarGrafica();
+                    CargarGraficaSalida();
                     if(res!=2)
                     {
                         Alertar(TextID3.Text,res);   

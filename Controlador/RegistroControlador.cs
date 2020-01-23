@@ -65,11 +65,15 @@ namespace Controlador
             }
         }
 
-        public List<List<string>> ProductoMasVendido()
+        public List<List<string>> ReporteSalida()
         {
-            return this.registroDAO.ProductoMasVendido();
+            return this.registroDAO.ReporteSalida();
         }
 
+        public List<List<string>> ReporteEntrada()
+        {
+            return this.registroDAO.ReporteEntrada();
+        }
 
         public void EliminarEntrada(String id)
         {

@@ -118,7 +118,7 @@ namespace Modelo.DAO
             return datos;
         }
 
-        public List<List<string>> ProductoMasVendido()
+        public List<List<string>> ReporteSalida()
         {
             string query = "SELECT Salida.id, SUM(Salida.cantidad) AS TotalVentas FROM Salida GROUP BY Salida.id ORDER BY SUM(Salida.cantidad) DESC LIMIT 0 , 5";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -138,6 +138,38 @@ namespace Modelo.DAO
                     {                       
                         x.Add(inventario.BuscarProducto(reader.GetString(0)).Nombre);
                         y.Add(reader.GetString(1));                     
+                    }
+                }
+                unir.Add(x);
+                unir.Add(y);
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            { }
+            return unir;
+
+        }
+
+        public List<List<string>> ReporteEntrada()
+        {
+            string query = "SELECT Entrada.id, SUM(Entrada.cantidad) AS TotalVentas FROM Entrada GROUP BY Entrada.id ORDER BY SUM(Entrada.cantidad) DESC LIMIT 0 , 5";
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            List<String> x = new List<String>();
+            List<String> y = new List<String>();
+            List<List<string>> unir = new List<List<string>>();
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        x.Add(inventario.BuscarProducto(reader.GetString(0)).Nombre);
+                        y.Add(reader.GetString(1));
                     }
                 }
                 unir.Add(x);
