@@ -54,8 +54,8 @@
   <ItemGroup>
     <Compile Include="InventarioControlador.cs" />
     <Compile Include="ProveedorControlador.cs" />
+    <Compile Include="RegistroControlador.cs" />
     <Compile Include="UsuarioControlador.cs" />
-    <Compile Include="TransferenciaControlador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporteControlador.cs" />
   </ItemGroup>

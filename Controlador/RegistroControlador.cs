@@ -5,25 +5,27 @@ using MaterialSkin.Controls;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
+
 namespace Controlador
 {
-  public class TransferenciaControlador
+    public class RegistroControlador
     {
-        TransferenciaDAO transferenciaDAO;
+        RegistroDAO registroDAO;
 
 
-        public TransferenciaControlador()
+        public RegistroControlador()
         {
-            this.transferenciaDAO = new TransferenciaDAO();
+            this.registroDAO = new RegistroDAO();
         }
 
-        public void RegistrarEntrada(ProductoDTO producto, String fecha, int cantidad,String proveedor)
+        public void RegistrarEntrada(ProductoDTO producto, String fecha, int cantidad, String proveedor)
         {
-          Boolean res =   transferenciaDAO.RegistrarEntrada(producto, fecha, cantidad,proveedor);
-            if(res)
+            Boolean res = registroDAO.RegistrarEntrada(producto, fecha, cantidad, proveedor);
+            if (res)
             {
                 MessageBox.Show("Entrada guardada satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } else
+            }
+            else
             {
                 MessageBox.Show("Entrada guardada sin éxito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -31,8 +33,8 @@ namespace Controlador
 
         public int RegistrarSalida(ProductoDTO producto, String fecha, int cantidad)
         {
-            int res = transferenciaDAO.RegistrarSalida(producto, fecha, cantidad);
-            if (res==1 || res==2)
+            int res = registroDAO.RegistrarSalida(producto, fecha, cantidad);
+            if (res == 1 || res == 2)
             {
                 MessageBox.Show("Salida guardada satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -44,8 +46,8 @@ namespace Controlador
         }
 
         public void ConsultarEntrada(MaterialListView TablaOrden)
-        {       
-            List<String[]> datos = transferenciaDAO.ConsultarEntrada();
+        {
+            List<String[]> datos = registroDAO.ConsultarEntrada();
             foreach (String[] item in datos)
             {
                 var listViewItem = new ListViewItem(item);
@@ -55,14 +57,18 @@ namespace Controlador
 
         public void ConsultarSalida(MaterialListView TablaSalida)
         {
-            List<String[]> datos = transferenciaDAO.ConsultarSalida();
+            List<String[]> datos = registroDAO.ConsultarSalida();
             foreach (String[] item in datos)
             {
                 var listViewItem = new ListViewItem(item);
                 TablaSalida.Items.Add(listViewItem);
             }
         }
+
+        public List<List<string>> ProductoMasVendido()
+        {
+            return this.registroDAO.ProductoMasVendido();
+        }
+
     }
-
-
 }

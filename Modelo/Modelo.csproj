@@ -57,7 +57,7 @@
   <ItemGroup>
     <Compile Include="DAO\ConexionBD.cs" />
     <Compile Include="DAO\InventarioDAO.cs" />
-    <Compile Include="DAO\TransferenciaDAO.cs" />
+    <Compile Include="DAO\RegistroDAO.cs" />
     <Compile Include="DAO\ProductoDAO.cs" />
     <Compile Include="DAO\ProveedorDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />

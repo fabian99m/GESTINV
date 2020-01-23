@@ -119,6 +119,8 @@ namespace Modelo.DAO
                 }
             }
             return nombre;
+
+
         }
 
         public int ValidarStock(String id, int Stocknuevo)

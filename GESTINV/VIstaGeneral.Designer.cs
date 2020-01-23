@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vista));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
@@ -91,7 +94,6 @@
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.Alerta = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.TabPrincipal = new MaterialSkin.Controls.MaterialTabSelector();
             this.LabelUser = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
@@ -99,6 +101,7 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.Alerta2 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.grafica1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.materialTabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.materialTabControl2.SuspendLayout();
@@ -109,6 +112,7 @@
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grafica1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -934,13 +938,13 @@
             this.Alerta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Alerta.MouseState = MaterialSkin.MouseState.HOVER;
             this.Alerta.Name = "Alerta";
-            this.Alerta.Size = new System.Drawing.Size(1133, 42);
+            this.Alerta.Size = new System.Drawing.Size(1139, 42);
             this.Alerta.TabIndex = 1;
             this.Alerta.Text = "materialTabSelector3";
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.materialLabel6);
+            this.tabPage7.Controls.Add(this.grafica1);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage7.Name = "tabPage7";
@@ -949,19 +953,6 @@
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Reportes";
             this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(445, 281);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(86, 24);
-            this.materialLabel6.TabIndex = 0;
-            this.materialLabel6.Text = "Reportes";
             // 
             // TabPrincipal
             // 
@@ -1047,6 +1038,21 @@
             this.Alerta2.BalloonTipClicked += new System.EventHandler(this.Alerta2_BalloonTipClicked);
             this.Alerta2.BalloonTipClosed += new System.EventHandler(this.Alerta2_BalloonTipClosed);
             // 
+            // grafica1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.grafica1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.grafica1.Legends.Add(legend1);
+            this.grafica1.Location = new System.Drawing.Point(37, 25);
+            this.grafica1.Name = "grafica1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.grafica1.Series.Add(series1);
+            this.grafica1.Size = new System.Drawing.Size(539, 344);
+            this.grafica1.TabIndex = 0;
+            // 
             // Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1078,7 +1084,7 @@
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
             this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grafica1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1092,7 +1098,6 @@
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector2;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
-        private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialTabControl tab;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
@@ -1155,6 +1160,7 @@
         private System.Windows.Forms.NotifyIcon Alerta2;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.DataVisualization.Charting.Chart grafica1;
     }
 }
 
