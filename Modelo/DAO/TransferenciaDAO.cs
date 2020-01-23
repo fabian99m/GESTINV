@@ -1,8 +1,6 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
-using System.Windows.Forms;
 using Modelo.DTO;
-using MaterialSkin.Controls;
 using System.Collections.Generic;
 
 namespace Modelo.DAO

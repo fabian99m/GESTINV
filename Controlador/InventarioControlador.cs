@@ -58,6 +58,11 @@ namespace Controlador
             return this.InventarioDAO.ComprobarExistencia(id);
         }
 
+        public ProductoDTO BuscarProducto(String id)
+        {
+            return this.InventarioDAO.BuscarProducto(id);
+        }
+
         public void EliminarProductos(String id)
         {
             Boolean res = InventarioDAO.EliminarProductos(id);   

@@ -1,12 +1,13 @@
 ﻿using System;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Modelo.DTO;
 
 namespace Vista.Alerta
 {
     public partial class Alerta : MaterialForm
     {
-        public Alerta()
+        public Alerta(ProductoDTO producto)
         {
             InitializeComponent();
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
@@ -18,6 +19,13 @@ namespace Vista.Alerta
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.WHITE
             );
+
+            lbNombre.Text = producto.Nombre;
+            lbId.Text = producto.ID;
+            lbPrecio.Text = producto.Precio.ToString();
+            lbStock.Text = producto.Stock.ToString();
+            lbStockMin.Text = producto.StockMin.ToString();
+            lbCategoria.Text = producto.Categoria;
         }
     }
 }

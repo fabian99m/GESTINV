@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Modelo.DTO;
 using MySql.Data.MySqlClient;
-using MaterialSkin.Controls;
 
 namespace Modelo.DAO
 {
@@ -166,9 +165,7 @@ namespace Modelo.DAO
                 
             }
             catch (Exception ex)
-            {             
-              // MessageBox.Show(ex.Message);
-            }
+            { }
             return aux;
         }
 
@@ -196,9 +193,8 @@ namespace Modelo.DAO
 
             }
             catch (Exception ex)
-            {
-                // MessageBox.Show(ex.Message);
-            }
+            { }
+
             return producto;
         }
 
@@ -266,11 +262,6 @@ namespace Modelo.DAO
             }
             catch (Exception ex)
             { }
-        }
-
-        
-
-
-
+        }      
     }
 }

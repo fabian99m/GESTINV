@@ -417,7 +417,7 @@
             this.EliminarProducto.Depth = 0;
             this.EliminarProducto.Icon = ((System.Drawing.Image)(resources.GetObject("EliminarProducto.Icon")));
             this.EliminarProducto.Location = new System.Drawing.Point(961, 527);
-            this.EliminarProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EliminarProducto.Margin = new System.Windows.Forms.Padding(4);
             this.EliminarProducto.MouseState = MaterialSkin.MouseState.HOVER;
             this.EliminarProducto.Name = "EliminarProducto";
             this.EliminarProducto.Primary = true;
@@ -435,7 +435,7 @@
             this.ModificarProducto.Depth = 0;
             this.ModificarProducto.Icon = ((System.Drawing.Image)(resources.GetObject("ModificarProducto.Icon")));
             this.ModificarProducto.Location = new System.Drawing.Point(772, 527);
-            this.ModificarProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ModificarProducto.Margin = new System.Windows.Forms.Padding(4);
             this.ModificarProducto.MouseState = MaterialSkin.MouseState.HOVER;
             this.ModificarProducto.Name = "ModificarProducto";
             this.ModificarProducto.Primary = true;
@@ -453,7 +453,7 @@
             this.materialRaisedButton2.Depth = 0;
             this.materialRaisedButton2.Icon = ((System.Drawing.Image)(resources.GetObject("materialRaisedButton2.Icon")));
             this.materialRaisedButton2.Location = new System.Drawing.Point(336, 14);
-            this.materialRaisedButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialRaisedButton2.Margin = new System.Windows.Forms.Padding(4);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
             this.materialRaisedButton2.Primary = true;
@@ -468,7 +468,7 @@
             this.TextConsulta.Depth = 0;
             this.TextConsulta.Hint = "Consulta";
             this.TextConsulta.Location = new System.Drawing.Point(7, 20);
-            this.TextConsulta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextConsulta.Margin = new System.Windows.Forms.Padding(4);
             this.TextConsulta.MaxLength = 32767;
             this.TextConsulta.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextConsulta.Name = "TextConsulta";
@@ -499,7 +499,7 @@
             this.TablaInventario.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.TablaInventario.HideSelection = false;
             this.TablaInventario.Location = new System.Drawing.Point(3, 64);
-            this.TablaInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TablaInventario.Margin = new System.Windows.Forms.Padding(4);
             this.TablaInventario.MouseLocation = new System.Drawing.Point(-1, -1);
             this.TablaInventario.MouseState = MaterialSkin.MouseState.OUT;
             this.TablaInventario.MultiSelect = false;
@@ -589,12 +589,12 @@
             this.tab.Controls.Add(this.tabPage8);
             this.tab.Controls.Add(this.tabPage9);
             this.tab.Depth = 0;
-            this.tab.Location = new System.Drawing.Point(5, 80);
+            this.tab.Location = new System.Drawing.Point(7, 50);
             this.tab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab.MouseState = MaterialSkin.MouseState.HOVER;
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(1128, 583);
+            this.tab.Size = new System.Drawing.Size(1128, 574);
             this.tab.TabIndex = 2;
             // 
             // tabPage8
@@ -613,7 +613,7 @@
             this.tabPage8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage8.Size = new System.Drawing.Size(1120, 554);
+            this.tabPage8.Size = new System.Drawing.Size(1120, 545);
             this.tabPage8.TabIndex = 0;
             this.tabPage8.Text = "Entradas";
             // 
@@ -659,7 +659,7 @@
             this.btnProveedores.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnProveedores.Depth = 0;
             this.btnProveedores.Icon = null;
-            this.btnProveedores.Location = new System.Drawing.Point(12, 517);
+            this.btnProveedores.Location = new System.Drawing.Point(3, 509);
             this.btnProveedores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProveedores.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnProveedores.Name = "btnProveedores";
@@ -678,7 +678,7 @@
             this.btnGuardarEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarEntrada.Icon = ((System.Drawing.Image)(resources.GetObject("btnGuardarEntrada.Icon")));
             this.btnGuardarEntrada.Location = new System.Drawing.Point(785, 22);
-            this.btnGuardarEntrada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardarEntrada.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardarEntrada.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGuardarEntrada.Name = "btnGuardarEntrada";
             this.btnGuardarEntrada.Primary = true;
@@ -693,7 +693,7 @@
             this.TextCantidad.Depth = 0;
             this.TextCantidad.Hint = "Cantidad";
             this.TextCantidad.Location = new System.Drawing.Point(207, 36);
-            this.TextCantidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextCantidad.Margin = new System.Windows.Forms.Padding(4);
             this.TextCantidad.MaxLength = 32767;
             this.TextCantidad.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextCantidad.Name = "TextCantidad";
@@ -712,7 +712,7 @@
             this.TextID2.Depth = 0;
             this.TextID2.Hint = "ID de producto";
             this.TextID2.Location = new System.Drawing.Point(4, 36);
-            this.TextID2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextID2.Margin = new System.Windows.Forms.Padding(4);
             this.TextID2.MaxLength = 32767;
             this.TextID2.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextID2.Name = "TextID2";
@@ -740,13 +740,13 @@
             this.TablaEntrada.FullRowSelect = true;
             this.TablaEntrada.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.TablaEntrada.HideSelection = false;
-            this.TablaEntrada.Location = new System.Drawing.Point(12, 91);
-            this.TablaEntrada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TablaEntrada.Location = new System.Drawing.Point(4, 91);
+            this.TablaEntrada.Margin = new System.Windows.Forms.Padding(4);
             this.TablaEntrada.MouseLocation = new System.Drawing.Point(-1, -1);
             this.TablaEntrada.MouseState = MaterialSkin.MouseState.OUT;
             this.TablaEntrada.Name = "TablaEntrada";
             this.TablaEntrada.OwnerDraw = true;
-            this.TablaEntrada.Size = new System.Drawing.Size(1079, 396);
+            this.TablaEntrada.Size = new System.Drawing.Size(1087, 396);
             this.TablaEntrada.TabIndex = 1;
             this.TablaEntrada.UseCompatibleStateImageBehavior = false;
             this.TablaEntrada.View = System.Windows.Forms.View.Details;
@@ -802,7 +802,7 @@
             this.tabPage9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage9.Size = new System.Drawing.Size(1120, 554);
+            this.tabPage9.Size = new System.Drawing.Size(1120, 545);
             this.tabPage9.TabIndex = 1;
             this.tabPage9.Text = "Salidas";
             // 
@@ -819,13 +819,13 @@
             this.TablaSalida.FullRowSelect = true;
             this.TablaSalida.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.TablaSalida.HideSelection = false;
-            this.TablaSalida.Location = new System.Drawing.Point(11, 98);
-            this.TablaSalida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TablaSalida.Location = new System.Drawing.Point(4, 98);
+            this.TablaSalida.Margin = new System.Windows.Forms.Padding(4);
             this.TablaSalida.MouseLocation = new System.Drawing.Point(-1, -1);
             this.TablaSalida.MouseState = MaterialSkin.MouseState.OUT;
             this.TablaSalida.Name = "TablaSalida";
             this.TablaSalida.OwnerDraw = true;
-            this.TablaSalida.Size = new System.Drawing.Size(1101, 423);
+            this.TablaSalida.Size = new System.Drawing.Size(1108, 423);
             this.TablaSalida.TabIndex = 5;
             this.TablaSalida.UseCompatibleStateImageBehavior = false;
             this.TablaSalida.View = System.Windows.Forms.View.Details;
@@ -857,7 +857,7 @@
             this.btnGuardarSalida.Depth = 0;
             this.btnGuardarSalida.Icon = ((System.Drawing.Image)(resources.GetObject("btnGuardarSalida.Icon")));
             this.btnGuardarSalida.Location = new System.Drawing.Point(687, 10);
-            this.btnGuardarSalida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardarSalida.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardarSalida.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGuardarSalida.Name = "btnGuardarSalida";
             this.btnGuardarSalida.Primary = true;
@@ -872,7 +872,7 @@
             this.TextCantidad2.Depth = 0;
             this.TextCantidad2.Hint = "Cantidad";
             this.TextCantidad2.Location = new System.Drawing.Point(263, 22);
-            this.TextCantidad2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextCantidad2.Margin = new System.Windows.Forms.Padding(4);
             this.TextCantidad2.MaxLength = 32767;
             this.TextCantidad2.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextCantidad2.Name = "TextCantidad2";
@@ -891,7 +891,7 @@
             this.TextID3.Depth = 0;
             this.TextID3.Hint = "ID de producto";
             this.TextID3.Location = new System.Drawing.Point(11, 22);
-            this.TextID3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextID3.Margin = new System.Windows.Forms.Padding(4);
             this.TextID3.MaxLength = 32767;
             this.TextID3.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextID3.Name = "TextID3";
@@ -908,7 +908,7 @@
             // 
             this.Time2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Time2.Location = new System.Drawing.Point(431, 22);
-            this.Time2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Time2.Margin = new System.Windows.Forms.Padding(4);
             this.Time2.Name = "Time2";
             this.Time2.Size = new System.Drawing.Size(215, 24);
             this.Time2.TabIndex = 1;
@@ -930,7 +930,7 @@
             // 
             this.Alerta.BaseTabControl = this.tab;
             this.Alerta.Depth = 0;
-            this.Alerta.Location = new System.Drawing.Point(0, 22);
+            this.Alerta.Location = new System.Drawing.Point(-4, 4);
             this.Alerta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Alerta.MouseState = MaterialSkin.MouseState.HOVER;
             this.Alerta.Name = "Alerta";
@@ -1045,6 +1045,7 @@
             this.Alerta2.Text = "notifyIcon1";
             this.Alerta2.Visible = true;
             this.Alerta2.BalloonTipClicked += new System.EventHandler(this.Alerta2_BalloonTipClicked);
+            this.Alerta2.BalloonTipClosed += new System.EventHandler(this.Alerta2_BalloonTipClosed);
             // 
             // Vista
             // 

@@ -14,7 +14,7 @@ namespace GESTINV
 {
     public partial class Vista : MaterialForm
     {
-        InventarioControlador inv_controlador = new InventarioControlador();
+        InventarioControlador inventario_controlador = new InventarioControlador();
         TransferenciaControlador transferencia_controlador = new TransferenciaControlador();
         ProveedorControlador proveedor_controlador = new ProveedorControlador();
 
@@ -61,7 +61,7 @@ namespace GESTINV
               && !String.IsNullOrEmpty(TextStock.Text) && !String.IsNullOrEmpty(TextStockMin.Text) && !String.IsNullOrEmpty(TextCategoria.Text))
             {
 
-                inv_controlador.GuardarProductos(TextId.Text, TextNombre.Text, float.Parse(TextPrecio.Text)
+                inventario_controlador.GuardarProductos(TextId.Text, TextNombre.Text, float.Parse(TextPrecio.Text)
                  , Convert.ToInt32(TextStock.Text), Convert.ToInt32(TextStockMin.Text), TextCategoria.Text);
                 LimpiarPantalla();
             }
@@ -130,12 +130,12 @@ namespace GESTINV
         private void RefrescarTablaInvetario()
         {
             TablaInventario.Items.Clear();
-            inv_controlador.ConsultarProductos(TablaInventario);
+            inventario_controlador.ConsultarProductos(TablaInventario);
         }
 
         private void RefrescarTablaInvetario(String atributo, String valor)
         {
-            inv_controlador.ConsultarProductos(TablaInventario, atributo, valor);
+            inventario_controlador.ConsultarProductos(TablaInventario, atributo, valor);
         }
 
         private void materialRaisedButton5_Click(object sender, EventArgs e)
@@ -241,7 +241,7 @@ namespace GESTINV
 
                if (resultado == DialogResult.Yes)
                 {
-                  inv_controlador.EliminarProductos(id);
+                  inventario_controlador.EliminarProductos(id);
                   TablaInventario.Items.Clear();
                   RefrescarTablaInvetario();
                   
@@ -256,9 +256,9 @@ namespace GESTINV
         {
             if (!String.IsNullOrEmpty(TextID2.Text) && !String.IsNullOrEmpty(TextCantidad.Text))
             {
-                if (inv_controlador.BuscarExistenciaProducto(TextID2.Text))
+                if (inventario_controlador.BuscarExistenciaProducto(TextID2.Text))
                 {
-                    transferencia_controlador.RegistrarEntrada(new ProductoDTO(TextID2.Text, inv_controlador.BuscarNombreProducto(TextID2.Text)),Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text), cbProveedor.SelectedItem.ToString());                  
+                    transferencia_controlador.RegistrarEntrada(new ProductoDTO(TextID2.Text, inventario_controlador.BuscarNombreProducto(TextID2.Text)),Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text), cbProveedor.SelectedItem.ToString());                  
                     RefrescaraTablaEntrada();
                     LImpiarentrada();
                     RefrescarTablaInvetario();
@@ -312,16 +312,19 @@ namespace GESTINV
         {
             if (!String.IsNullOrEmpty(TextID3.Text) && !String.IsNullOrEmpty(TextCantidad2.Text))
             {
-                if (inv_controlador.BuscarExistenciaProducto(TextID3.Text))
+                if (inventario_controlador.BuscarExistenciaProducto(TextID3.Text))
                 {
-                   int res = transferencia_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text,  inv_controlador.BuscarNombreProducto(TextID3.Text) ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
+                   int res = transferencia_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text,  inventario_controlador.BuscarNombreProducto(TextID3.Text) ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
                     RefrescarTablaInvetario();
                     refrescarTablaSalida();                   
                     if(res!=2)
                     {
                         Alertar(TextID3.Text,res);   
+                    } else
+                    {
+                        LimpiarSalida();
                     }
-                    LimpiarSalida();
+                    
                 }
                 else
                 {
@@ -338,16 +341,16 @@ namespace GESTINV
         {
             if(res==1)
             {
-                Alerta2.BalloonTipText = "Producto " + inv_controlador.BuscarNombreProducto(id) + " a punto de agortarse!, click para tomar acciones al respecto.";
+                Alerta2.BalloonTipText = "Producto " + inventario_controlador.BuscarNombreProducto(id) + " a punto de agortarse!, click para tomar acciones al respecto.";
             } 
             if(res==3)
             {
-                Alerta2.BalloonTipText = "Producto " + inv_controlador.BuscarNombreProducto(id) + " agotado!, click para tomar acciones al respecto.";
+                Alerta2.BalloonTipText = "Producto " + inventario_controlador.BuscarNombreProducto(id) + " agotado!, click para tomar acciones al respecto.";
             }
             Alerta2.Icon = SystemIcons.Warning;
             Alerta2.Text = "Producto en escasez!!!";
             Alerta2.Visible = true;        
-            Alerta2.BalloonTipTitle = "Alerta!";
+            Alerta2.BalloonTipTitle = "Alerta de stock bajo!";
             Alerta2.ShowBalloonTip(100);
         }
 
@@ -368,8 +371,16 @@ namespace GESTINV
 
         private void Alerta2_BalloonTipClicked(object sender, EventArgs e)
         {
-            Alerta a = new Alerta();
-            a.ShowDialog();
+
+             ProductoDTO producto =  inventario_controlador.BuscarProducto(TextID3.Text);
+             Alerta a = new Alerta(producto);
+             a.ShowDialog();
+             LimpiarSalida();
+        }
+
+        private void Alerta2_BalloonTipClosed(object sender, EventArgs e)
+        {
+            LimpiarSalida();
         }
     }
 }
