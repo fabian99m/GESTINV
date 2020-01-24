@@ -21,8 +21,8 @@ namespace Vista.Login
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
             materialSkinManager.ColorScheme = new ColorScheme(
-                (Primary)6732650, Primary.Blue500,
-                Primary.Blue500, Accent.LightBlue200,
+                (Primary)6732650, (Primary)9268835,
+               (Primary)6732650, (Accent)6732650,
                 TextShade.WHITE
             );
             TextNombre.Select();

@@ -46,7 +46,7 @@ namespace Modelo.DAO
             catch (Exception ex)
             {
                 login_form.DialogResult = DialogResult.Retry;               
-                MessageBox.Show("Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

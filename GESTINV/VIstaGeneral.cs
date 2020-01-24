@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -41,19 +42,37 @@ namespace GESTINV
 
         public void IniciarVista()
         {
-            InitializeComponent();
+
+            Thread t = new Thread(new ThreadStart(Splash));
+            t.Start();
+            InitializeComponent();     
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
-                (Primary)6732650, Primary.Blue500,
-                Primary.Blue500, Accent.LightBlue200,
+                (Primary)6732650, (Primary)9268835,
+                (Primary)6732650, (Accent)6732650,
                 TextShade.BLACK
             );
             RbId.Select();
             TablaInventario.HideSelection = true;
             TablaEntrada.HideSelection = true;
             TablaSalida.HideSelection = true;
+            RefrescarTablaInvetario();
+            RefrescaraTablaEntrada();
+            refrescarTablaSalida();
+            this.Refresh();
+            CargarProveedor();
+            CargarGraficaSalida();
+            CargarGraficaEntrada();
+            t.Abort();
+        }
+
+        void Splash()
+        {
+            SplashScreen.SplashForm form = new SplashScreen.SplashForm();
+            form.AppName = "GESTINV";
+            Application.Run(form);           
         }
 
         private void GuardarProductos_Click(object sender, EventArgs e)
@@ -106,16 +125,7 @@ namespace GESTINV
 
         private void CargarInventario_Event(object sender, EventArgs e)
          {  
-            RefrescarTablaInvetario();
-            RefrescaraTablaEntrada();
-            refrescarTablaSalida();
-            this.Refresh();
-            CargarProveedor();
-
-
-            CargarGraficaSalida();
-            CargarGraficaEntrada();
-
+         
         }
 
         private void CargarGraficaSalida()
@@ -125,7 +135,6 @@ namespace GESTINV
                 grafica1.Series.Clear();
                 grafica1.Titles.Clear();
                 
-
                 List<String> x = new List<String>();
                 List<String> y = new List<String>();
                 x = registro_controlador.ReporteSalida()[0];
@@ -376,7 +385,7 @@ namespace GESTINV
         private void btnProveedores_Click(object sender, EventArgs e)
         {
             Proveedor_view proveedor = new Proveedor_view();
-            proveedor.ShowDialog();
+            proveedor.Show();
             CargarProveedor();
         }
 
@@ -456,10 +465,6 @@ namespace GESTINV
         {
             LimpiarSalida();
         }
-
-        private void Vista_Click(object sender, EventArgs e)
-        {
-           
-        }     
+          
     }
 }

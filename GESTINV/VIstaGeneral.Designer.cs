@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vista));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
@@ -142,7 +142,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(1140, 668);
+            this.tabPage3.Size = new System.Drawing.Size(1156, 668);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Inventario";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -572,11 +572,11 @@
             // 
             this.materialTabSelector2.BaseTabControl = this.materialTabControl2;
             this.materialTabSelector2.Depth = 0;
-            this.materialTabSelector2.Location = new System.Drawing.Point(-4, 6);
+            this.materialTabSelector2.Location = new System.Drawing.Point(9, 6);
             this.materialTabSelector2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialTabSelector2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector2.Name = "materialTabSelector2";
-            this.materialTabSelector2.Size = new System.Drawing.Size(1139, 42);
+            this.materialTabSelector2.Size = new System.Drawing.Size(1130, 42);
             this.materialTabSelector2.TabIndex = 0;
             this.materialTabSelector2.Text = "materialTabSelector2";
             // 
@@ -588,7 +588,7 @@
             this.tabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage6.Size = new System.Drawing.Size(1140, 668);
+            this.tabPage6.Size = new System.Drawing.Size(1156, 668);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Transferencias";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -939,11 +939,11 @@
             // 
             this.Alerta.BaseTabControl = this.tab;
             this.Alerta.Depth = 0;
-            this.Alerta.Location = new System.Drawing.Point(-4, 4);
+            this.Alerta.Location = new System.Drawing.Point(6, 4);
             this.Alerta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Alerta.MouseState = MaterialSkin.MouseState.HOVER;
             this.Alerta.Name = "Alerta";
-            this.Alerta.Size = new System.Drawing.Size(1139, 42);
+            this.Alerta.Size = new System.Drawing.Size(1133, 42);
             this.Alerta.TabIndex = 1;
             this.Alerta.Text = "materialTabSelector3";
             // 
@@ -962,32 +962,32 @@
             // 
             // grafica2
             // 
-            chartArea5.Name = "ChartArea1";
-            this.grafica2.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.grafica2.Legends.Add(legend5);
+            chartArea9.Name = "ChartArea1";
+            this.grafica2.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this.grafica2.Legends.Add(legend9);
             this.grafica2.Location = new System.Drawing.Point(607, 102);
             this.grafica2.Name = "grafica2";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.grafica2.Series.Add(series5);
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.grafica2.Series.Add(series9);
             this.grafica2.Size = new System.Drawing.Size(532, 433);
             this.grafica2.TabIndex = 1;
             this.grafica2.Text = "chart1";
             // 
             // grafica1
             // 
-            chartArea6.Name = "ChartArea1";
-            this.grafica1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.grafica1.Legends.Add(legend6);
+            chartArea10.Name = "ChartArea1";
+            this.grafica1.ChartAreas.Add(chartArea10);
+            legend10.Name = "Legend1";
+            this.grafica1.Legends.Add(legend10);
             this.grafica1.Location = new System.Drawing.Point(6, 102);
             this.grafica1.Name = "grafica1";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.grafica1.Series.Add(series6);
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.grafica1.Series.Add(series10);
             this.grafica1.Size = new System.Drawing.Size(540, 433);
             this.grafica1.TabIndex = 0;
             // 
@@ -995,14 +995,13 @@
             // 
             this.TabPrincipal.BaseTabControl = this.materialTabControl1;
             this.TabPrincipal.Depth = 0;
-            this.TabPrincipal.Location = new System.Drawing.Point(33, 96);
+            this.TabPrincipal.Location = new System.Drawing.Point(42, 96);
             this.TabPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabPrincipal.MouseState = MaterialSkin.MouseState.HOVER;
             this.TabPrincipal.Name = "TabPrincipal";
-            this.TabPrincipal.Size = new System.Drawing.Size(1139, 39);
+            this.TabPrincipal.Size = new System.Drawing.Size(1135, 39);
             this.TabPrincipal.TabIndex = 1;
             this.TabPrincipal.Text = "materialTabSelector1";
-            
             // 
             // LabelUser
             // 
@@ -1092,7 +1091,7 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GESTINV";
-            this.Load += new System.EventHandler(this.CargarInventario_Event);          
+            this.Load += new System.EventHandler(this.CargarInventario_Event);
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.materialTabControl2.ResumeLayout(false);
