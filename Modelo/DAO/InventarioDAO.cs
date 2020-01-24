@@ -8,10 +8,11 @@ namespace Modelo.DAO
 {
     public class InventarioDAO : ConexionBD
     {
-        InventarioDTO inventario = new InventarioDTO();
+        public InventarioDTO inventarioDTO = new InventarioDTO();
 
         public InventarioDAO()
         {
+            this.ConsultarProducto();
         }
 
         public Boolean GuardarProducto(ProductoDTO producto)
@@ -48,16 +49,20 @@ namespace Modelo.DAO
                 // Si se encontraron datos
                 if (reader.HasRows)
                 {
-
+                    inventarioDTO.ProductoList.Clear();
                     while (reader.Read())
                     {
                         String aux;
                         aux = (Convert.ToInt32(reader.GetString(3)) <= Convert.ToInt32(reader.GetString(4))) ? "Sí" : "No";
                         string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), aux };
                         datos.Add(row);
+
+                         inventarioDTO.ProductoList.Add(
+                         new ProductoDTO(reader.GetString(0), reader.GetString(1), float.Parse(reader.GetString(2)), Convert.ToInt32(reader.GetString(3)), Convert.ToInt32(reader.GetString(4)), reader.GetString(5)));                   
                     }
                 }              
                 databaseConnection.Close();
+               
             }
             catch (Exception ex)
             {
@@ -129,6 +134,22 @@ namespace Modelo.DAO
             }       
             return aux;
         }
+
+
+        public String BuscarNombreProducto(String id)
+        {
+            String nombre = "";
+            foreach (ProductoDTO i in inventarioDTO.ProductoList)
+            {
+                if (id.Equals(i.ID))
+                {
+                    nombre = i.Nombre;
+                }
+            }
+            return nombre;
+        }
+
+
 
         public Boolean ComprobarExistencia(String id)
         {         

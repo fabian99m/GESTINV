@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Modelo.DTO
 {
-    class InventarioDTO
+   public class InventarioDTO
     {
-        List<ProductoDTO> productoList;
+        List<ProductoDTO> productoLista;
 
         public InventarioDTO()
         {
-            this.productoList = new List<ProductoDTO>();
+            this.productoLista = new List<ProductoDTO>();
         }
 
         public List<ProductoDTO> ProductoList
         { 
         
-            get { return this.productoList; }
-            set { this.productoList= value; }
+            get { return this.productoLista; }
+            set { this.productoLista= value; }
         }
 
     }

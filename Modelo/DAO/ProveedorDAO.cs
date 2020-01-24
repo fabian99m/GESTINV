@@ -49,10 +49,7 @@ namespace Modelo.DAO
                 databaseConnection.Close();
             }
             catch (Exception ex)
-            {
-               // MessageBox.Show("Proveedor insertado sin éxito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+            { }
             return lista;
         }
     }

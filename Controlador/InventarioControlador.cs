@@ -30,6 +30,7 @@ namespace Controlador
 
         public void ConsultarProductos(MaterialListView TablaDatos)
         {
+            
              List<String[]> datos = InventarioDAO.ConsultarProducto();
             foreach (String[] item in datos) {
                 var listViewItem = new ListViewItem(item);
