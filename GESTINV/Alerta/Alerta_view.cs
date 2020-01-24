@@ -15,10 +15,10 @@ namespace Vista.Alerta
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue400, Primary.Blue500,
-                Primary.Blue500, Accent.LightBlue200,
-                TextShade.WHITE
-            );
+                 (Primary)6732650, (Primary)9268835,
+                (Primary)6732650, (Accent)6732650,
+                 TextShade.BLACK
+             ); ;
 
             lbNombre.Text = producto.Nombre;
             lbId.Text = producto.ID;

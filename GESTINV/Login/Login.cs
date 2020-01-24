@@ -23,7 +23,7 @@ namespace Vista.Login
             materialSkinManager.ColorScheme = new ColorScheme(
                 (Primary)6732650, (Primary)9268835,
                (Primary)6732650, (Accent)6732650,
-                TextShade.WHITE
+                TextShade.BLACK
             );
             TextNombre.Select();
         }

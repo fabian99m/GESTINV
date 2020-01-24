@@ -49,10 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\ConexionBD.cs" />
     <Compile Include="DAO\InventarioDAO.cs" />
     <Compile Include="DAO\RegistroDAO.cs" />
-    <Compile Include="DAO\ProductoDAO.cs" />
     <Compile Include="DAO\ProveedorDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DTO\InventarioDTO.cs" />
@@ -60,6 +58,11 @@
     <Compile Include="DTO\ProductoDTO.cs" />
     <Compile Include="DTO\ProveedorDTO.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
+    <Compile Include="ImplDAO\ConexionBD.cs" />
+    <Compile Include="ImplDAO\InventarioImplDAO.cs" />
+    <Compile Include="ImplDAO\ProveedorImplDAO.cs" />
+    <Compile Include="ImplDAO\RegistroImplDAO.cs" />
+    <Compile Include="ImplDAO\UsuarioImplDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

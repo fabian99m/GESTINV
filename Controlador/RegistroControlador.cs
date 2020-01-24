@@ -1,26 +1,27 @@
-﻿using Modelo.DAO;
+﻿
 using Modelo.DTO;
 using System;
 using MaterialSkin.Controls;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using Modelo.ImplDAO;
 
 
 namespace Controlador
 {
     public class RegistroControlador
     {
-        RegistroDAO registroDAO;
+        RegistroImplDAO registroImpl;
 
 
         public RegistroControlador()
         {
-            this.registroDAO = new RegistroDAO();
+            this.registroImpl = new RegistroImplDAO();
         }
 
         public void RegistrarEntrada(ProductoDTO producto, String fecha, int cantidad, String proveedor)
         {
-            Boolean res = registroDAO.RegistrarEntrada(producto, fecha, cantidad, proveedor);
+            Boolean res = registroImpl.RegistrarEntrada(producto, fecha, cantidad, proveedor);
             if (res)
             {
                 MessageBox.Show("Entrada guardada satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -33,7 +34,7 @@ namespace Controlador
 
         public int RegistrarSalida(ProductoDTO producto, String fecha, int cantidad)
         {
-            int res = registroDAO.RegistrarSalida(producto, fecha, cantidad);
+            int res = registroImpl.RegistrarSalida(producto, fecha, cantidad);
             if (res == 1 || res == 2)
             {
                 MessageBox.Show("Salida guardada satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -47,7 +48,7 @@ namespace Controlador
 
         public void ConsultarEntrada(MaterialListView TablaOrden)
         {
-            List<String[]> datos = registroDAO.ConsultarEntrada();
+            List<String[]> datos = registroImpl.ConsultarEntrada();
             foreach (String[] item in datos)
             {
                 var listViewItem = new ListViewItem(item);
@@ -57,7 +58,7 @@ namespace Controlador
 
         public void ConsultarSalida(MaterialListView TablaSalida)
         {
-            List<String[]> datos = registroDAO.ConsultarSalida();
+            List<String[]> datos = registroImpl.ConsultarSalida();
             foreach (String[] item in datos)
             {
                 var listViewItem = new ListViewItem(item);
@@ -67,22 +68,22 @@ namespace Controlador
 
         public List<List<string>> ReporteSalida()
         {
-            return this.registroDAO.ReporteSalida();
+            return this.registroImpl.ReporteSalida();
         }
 
         public List<List<string>> ReporteEntrada()
         {
-            return this.registroDAO.ReporteEntrada();
+            return this.registroImpl.ReporteEntrada();
         }
 
         public void EliminarEntrada(String id)
         {
-            this.registroDAO.EliminarEntrada(id);
+            this.registroImpl.EliminarEntrada(id);
         }
 
         public void EliminarSalida(String id)
         {
-            this.registroDAO.EliminarSalida(id);
+            this.registroImpl.EliminarSalida(id);
         }
     }
 }

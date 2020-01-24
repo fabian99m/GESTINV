@@ -2,24 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Modelo.DAO;
 using Modelo.DTO;
+using Modelo.ImplDAO;
 
 namespace Controlador
 {
     public class ProveedorControlador
     {
-        ProveedorDAO proveedor;
+      ProveedorImplDAO ProveedorImpl;
 
         public ProveedorControlador()
         {
-            this.proveedor = new ProveedorDAO();
+            this.ProveedorImpl = new ProveedorImplDAO();
         }
 
 
         public void GuardarProovedor(ProveedorDTO proveedor)
         {
-             Boolean res = this.proveedor.GuardarProveedor(proveedor);
+             Boolean res = this.ProveedorImpl.GuardarProveedor(proveedor);
             if(res)
             {
                 MessageBox.Show("Proveedor insertado satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -31,7 +31,7 @@ namespace Controlador
 
          public List<String> ConsultarProveedores()
         {
-            return this.proveedor.ConsultarProveedores();
+            return this.ProveedorImpl.ConsultarProveedores();
         }
     }
 }

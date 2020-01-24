@@ -387,7 +387,7 @@ namespace GESTINV
         private void btnProveedores_Click(object sender, EventArgs e)
         {
             Proveedor_view proveedor = new Proveedor_view();
-            proveedor.Show();
+            proveedor.ShowDialog();
             CargarProveedor();
         }
 

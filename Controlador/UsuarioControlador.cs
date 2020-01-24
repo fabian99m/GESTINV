@@ -1,5 +1,5 @@
 ﻿
-using Modelo.DAO;
+using Modelo.ImplDAO;
 using Modelo.DTO;
 using System.Windows.Forms;
 
@@ -8,16 +8,16 @@ namespace Controlador
     public class UsuarioControlador
     {
 
-        UsuarioDAO user;
+       UsuarioImplDAO UserImpl;
 
         public UsuarioControlador()
         {
-            this.user = new UsuarioDAO();
+            this.UserImpl = new UsuarioImplDAO();
         }
 
         public void IniciarSesion(UsuarioDTO user, Form login_form) 
         {
-            this.user.IniciarSesion( user, login_form);
+            this.UserImpl.IniciarSesion( user, login_form);
         }
     }
 }

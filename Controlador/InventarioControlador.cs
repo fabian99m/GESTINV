@@ -1,5 +1,5 @@
 ﻿using System;
-using Modelo.DAO;
+using Modelo.ImplDAO;
 using Modelo.DTO;
 using MaterialSkin.Controls;
 using System.Windows.Forms;
@@ -9,16 +9,17 @@ namespace Controlador
 {
     public class InventarioControlador
     {
-        InventarioDAO InventarioDAO;
+        
+        InventarioImplDAO InventarioImpl;
 
         public InventarioControlador()
         {
-            this.InventarioDAO = new InventarioDAO();
+            this.InventarioImpl = new InventarioImplDAO();
         }
 
         public void GuardarProductos(String id, String nombre, float precio, int stock, int stockMin, String categoria)
         {
-           Boolean res = InventarioDAO.GuardarProducto(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria));
+           Boolean res = InventarioImpl.GuardarProducto(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria));
             if(res)
             {
                 MessageBox.Show("Producto insertado satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -31,7 +32,7 @@ namespace Controlador
         public void ConsultarProductos(MaterialListView TablaDatos)
         {
             
-             List<String[]> datos = InventarioDAO.ConsultarProducto();
+             List<String[]> datos = InventarioImpl.ConsultarProducto();
             foreach (String[] item in datos) {
                 var listViewItem = new ListViewItem(item);
                 TablaDatos.Items.Add(listViewItem);
@@ -40,7 +41,7 @@ namespace Controlador
 
         public void ConsultarProductos(MaterialListView TablaDatos,String atributo, String valor)
         {
-            List<String[]> datos = InventarioDAO.ConsultarProducto(atributo, valor);
+            List<String[]> datos = InventarioImpl.ConsultarProducto(atributo, valor);
             if (datos.Count > 0)
             {
                 foreach (String[] item in datos)
@@ -56,17 +57,17 @@ namespace Controlador
 
         public Boolean BuscarExistenciaProducto(String id)
         {
-            return this.InventarioDAO.ComprobarExistencia(id);
+            return this.InventarioImpl.ComprobarExistencia(id);
         }
 
         public ProductoDTO BuscarProducto(String id)
         {
-            return this.InventarioDAO.BuscarProducto(id);
+            return this.InventarioImpl.BuscarProducto(id);
         }
 
         public void EliminarProductos(String id)
         {
-            Boolean res = InventarioDAO.EliminarProductos(id);   
+            Boolean res = InventarioImpl.EliminarProductos(id);   
             if(res)
             {
                 MessageBox.Show("Producto eliminado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -78,7 +79,7 @@ namespace Controlador
 
         public void ModificarProductos(String id, String nombre, float precio, int stock, int stockMin, String categoria,String IdOld)
         {
-          Boolean res = InventarioDAO.ModificarProductos(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria),IdOld);
+          Boolean res = InventarioImpl.ModificarProductos(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria),IdOld);
             if (res)
             {
                 MessageBox.Show("Producto modificado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
