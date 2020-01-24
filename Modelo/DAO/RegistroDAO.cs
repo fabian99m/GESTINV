@@ -140,9 +140,10 @@ namespace Modelo.DAO
                         y.Add(reader.GetString(1));                     
                     }
                 }
+                databaseConnection.Close();
                 unir.Add(x);
                 unir.Add(y);
-                databaseConnection.Close();
+                
             }
             catch (Exception ex)
             { }
@@ -172,9 +173,10 @@ namespace Modelo.DAO
                         y.Add(reader.GetString(1));
                     }
                 }
+                databaseConnection.Close();
                 unir.Add(x);
                 unir.Add(y);
-                databaseConnection.Close();
+            
             }
             catch (Exception ex)
             { }

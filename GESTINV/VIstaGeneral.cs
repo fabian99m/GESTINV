@@ -42,9 +42,8 @@ namespace GESTINV
 
         public void IniciarVista()
         {
-
             Thread t = new Thread(new ThreadStart(Splash));
-            t.Start();
+            t.Start();  
             InitializeComponent();     
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -58,13 +57,7 @@ namespace GESTINV
             TablaInventario.HideSelection = true;
             TablaEntrada.HideSelection = true;
             TablaSalida.HideSelection = true;
-            RefrescarTablaInvetario();
-            RefrescaraTablaEntrada();
-            refrescarTablaSalida();
-            this.Refresh();
-            CargarProveedor();
-            CargarGraficaSalida();
-            CargarGraficaEntrada();
+            CargarDatos();
             t.Abort();
         }
 
@@ -73,6 +66,17 @@ namespace GESTINV
             SplashScreen.SplashForm form = new SplashScreen.SplashForm();
             form.AppName = "GESTINV";
             Application.Run(form);           
+        }
+
+        public void CargarDatos()
+        {
+            RefrescarTablaInvetario();
+            RefrescaraTablaEntrada();
+            refrescarTablaSalida();
+            this.Refresh();
+            CargarProveedor();
+            CargarGraficaSalida();
+            CargarGraficaEntrada();
         }
 
         private void GuardarProductos_Click(object sender, EventArgs e)
@@ -123,10 +127,6 @@ namespace GESTINV
             }
         }
 
-        private void CargarInventario_Event(object sender, EventArgs e)
-         {  
-         
-        }
 
         private void CargarGraficaSalida()
         {
@@ -137,8 +137,9 @@ namespace GESTINV
                 
                 List<String> x = new List<String>();
                 List<String> y = new List<String>();
-                x = registro_controlador.ReporteSalida()[0];
-                y = registro_controlador.ReporteSalida()[1];
+                List<List<string>> unir = registro_controlador.ReporteSalida();
+                x = unir[0];
+                y = unir[1];
                 grafica1.Titles.Add("Reporte de salidas");
                 grafica1.Palette = ChartColorPalette.Pastel;
                 int i = 0;
@@ -162,8 +163,9 @@ namespace GESTINV
 
                 List<String> x = new List<String>();
                 List<String> y = new List<String>();
-                x = registro_controlador.ReporteEntrada()[0];
-                y = registro_controlador.ReporteEntrada()[1];
+                List<List<string>> unir = registro_controlador.ReporteEntrada();
+                x = unir[0];
+                y = unir[1];
                 grafica2.Titles.Add("Reporte de entradas");
                 grafica2.Palette = ChartColorPalette.Pastel;
                 int i = 0;

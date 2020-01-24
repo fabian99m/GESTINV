@@ -1091,7 +1091,7 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GESTINV";
-            this.Load += new System.EventHandler(this.CargarInventario_Event);
+            
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.materialTabControl2.ResumeLayout(false);
