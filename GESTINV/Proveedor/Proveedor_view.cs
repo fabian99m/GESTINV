@@ -29,7 +29,7 @@ namespace Vista.Proveedor
         {
         if(!String.IsNullOrEmpty(TextNombre.Text) && !String.IsNullOrEmpty(TextTel.Text) && !String.IsNullOrEmpty(TextEmail.Text))
             {
-                proveedor_controlador.GuardarProovedor(new ProveedorDTO(TextNombre.Text,TextTel.Text,TextEmail.Text) );
+                proveedor_controlador.GuardarProovedor(new Modelo.DTO.Proveedor(TextNombre.Text, TextTel.Text, TextEmail.Text) );
                 LimpiarPantalla();
             } else
             {

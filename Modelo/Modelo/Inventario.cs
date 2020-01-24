@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Modelo.DTO
 {
-   public class InventarioDTO
+   public class Inventario
     {
-        List<ProductoDTO> productoLista;
+        List<Producto> productoLista;
 
-        public InventarioDTO()
+        public Inventario()
         {
-            this.productoLista = new List<ProductoDTO>();
+            this.productoLista = new List<Producto>();
         }
 
-        public List<ProductoDTO> ProductoList
+        public List<Producto> ProductoList
         { 
         
             get { return this.productoLista; }

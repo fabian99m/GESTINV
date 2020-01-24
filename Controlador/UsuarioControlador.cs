@@ -15,7 +15,7 @@ namespace Controlador
             this.UserImpl = new UsuarioImplDAO();
         }
 
-        public void IniciarSesion(UsuarioDTO user, Form login_form) 
+        public void IniciarSesion(Usuario user, Form login_form) 
         {
             this.UserImpl.IniciarSesion( user, login_form);
         }

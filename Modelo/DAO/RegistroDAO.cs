@@ -9,9 +9,9 @@ namespace Modelo.DAO
     public interface RegistroDAO 
     {
 
-         Boolean RegistrarEntrada(ProductoDTO producto, String fecha, int cantidad, String proveedor);
+         Boolean RegistrarEntrada(Producto producto, String fecha, int cantidad, String proveedor);
 
-         int RegistrarSalida(ProductoDTO producto, String fecha, int cantidad);
+         int RegistrarSalida(Producto producto, String fecha, int cantidad);
 
          List<String[]> ConsultarEntrada();
 

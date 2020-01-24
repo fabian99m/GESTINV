@@ -11,7 +11,7 @@ namespace Modelo.ImplDAO
 
         InventarioImplDAO Inventario = new InventarioImplDAO();
 
-        public Boolean RegistrarEntrada(ProductoDTO producto, String fecha, int cantidad, String proveedor)
+        public Boolean RegistrarEntrada(Producto producto, String fecha, int cantidad, String proveedor)
         {
             Boolean res = false;
             string query = "INSERT INTO Entrada(id,nombre,fecha,cantidad,proveedor) VALUES ('" + producto.ID + "', '" + producto.Nombre + "',  '" + fecha + "', " + cantidad + ",'" + proveedor + "') ";
@@ -32,7 +32,7 @@ namespace Modelo.ImplDAO
             return res;
         }
 
-        public int RegistrarSalida(ProductoDTO producto, String fecha, int cantidad)
+        public int RegistrarSalida(Producto producto, String fecha, int cantidad)
         {
             int res = Inventario.ValidarStock(producto.ID, cantidad);
             try

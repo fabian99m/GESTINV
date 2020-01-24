@@ -8,7 +8,7 @@ namespace Modelo.DAO
     public interface InventarioDAO 
     {
 
-         Boolean GuardarProducto(ProductoDTO producto);
+         Boolean GuardarProducto(Producto producto);
 
          List<String[]> ConsultarProducto();
 
@@ -20,11 +20,11 @@ namespace Modelo.DAO
 
          Boolean ComprobarExistencia(String id);
 
-         ProductoDTO BuscarProducto(String id);
+         Producto BuscarProducto(String id);
 
          Boolean EliminarProductos(String id);
 
-         Boolean ModificarProductos(ProductoDTO producto, String id);
+         Boolean ModificarProductos(Producto producto, String id);
        
          void ModificarStock(String id, int Stocknuevo, String tipo);
              

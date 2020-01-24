@@ -17,7 +17,7 @@ namespace Controlador
         }
 
 
-        public void GuardarProovedor(ProveedorDTO proveedor)
+        public void GuardarProovedor(Proveedor proveedor)
         {
              Boolean res = this.ProveedorImpl.GuardarProveedor(proveedor);
             if(res)

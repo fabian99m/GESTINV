@@ -19,7 +19,7 @@ namespace Controlador
             this.registroImpl = new RegistroImplDAO();
         }
 
-        public void RegistrarEntrada(ProductoDTO producto, String fecha, int cantidad, String proveedor)
+        public void RegistrarEntrada(Producto producto, String fecha, int cantidad, String proveedor)
         {
             Boolean res = registroImpl.RegistrarEntrada(producto, fecha, cantidad, proveedor);
             if (res)
@@ -32,7 +32,7 @@ namespace Controlador
             }
         }
 
-        public int RegistrarSalida(ProductoDTO producto, String fecha, int cantidad)
+        public int RegistrarSalida(Producto producto, String fecha, int cantidad)
         {
             int res = registroImpl.RegistrarSalida(producto, fecha, cantidad);
             if (res == 1 || res == 2)

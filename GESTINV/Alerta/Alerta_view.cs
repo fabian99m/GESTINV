@@ -7,7 +7,7 @@ namespace Vista.Alerta
 {
     public partial class Alerta : MaterialForm
     {
-        public Alerta(ProductoDTO producto)
+        public Alerta(Producto producto)
         {
             InitializeComponent();
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;

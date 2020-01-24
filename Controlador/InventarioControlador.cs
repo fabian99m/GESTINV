@@ -19,7 +19,7 @@ namespace Controlador
 
         public void GuardarProductos(String id, String nombre, float precio, int stock, int stockMin, String categoria)
         {
-           Boolean res = InventarioImpl.GuardarProducto(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria));
+           Boolean res = InventarioImpl.GuardarProducto(new Producto(id, nombre, precio, stock, stockMin, categoria));
             if(res)
             {
                 MessageBox.Show("Producto insertado satisfactoriamente!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -60,7 +60,7 @@ namespace Controlador
             return this.InventarioImpl.ComprobarExistencia(id);
         }
 
-        public ProductoDTO BuscarProducto(String id)
+        public Producto BuscarProducto(String id)
         {
             return this.InventarioImpl.BuscarProducto(id);
         }
@@ -79,7 +79,7 @@ namespace Controlador
 
         public void ModificarProductos(String id, String nombre, float precio, int stock, int stockMin, String categoria,String IdOld)
         {
-          Boolean res = InventarioImpl.ModificarProductos(new ProductoDTO(id, nombre, precio, stock, stockMin, categoria),IdOld);
+          Boolean res = InventarioImpl.ModificarProductos(new Producto(id, nombre, precio, stock, stockMin, categoria),IdOld);
             if (res)
             {
                 MessageBox.Show("Producto modificado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

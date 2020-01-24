@@ -53,11 +53,11 @@
     <Compile Include="DAO\RegistroDAO.cs" />
     <Compile Include="DAO\ProveedorDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
-    <Compile Include="DTO\InventarioDTO.cs" />
-    <Compile Include="DTO\TransferenciaDTO.cs" />
-    <Compile Include="DTO\ProductoDTO.cs" />
-    <Compile Include="DTO\ProveedorDTO.cs" />
-    <Compile Include="DTO\UsuarioDTO.cs" />
+    <Compile Include="Modelo\Inventario.cs" />
+    <Compile Include="Modelo\Transferencia.cs" />
+    <Compile Include="Modelo\Producto.cs" />
+    <Compile Include="Modelo\Proveedor.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="ImplDAO\ConexionBD.cs" />
     <Compile Include="ImplDAO\InventarioImplDAO.cs" />
     <Compile Include="ImplDAO\ProveedorImplDAO.cs" />

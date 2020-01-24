@@ -9,14 +9,14 @@ namespace Modelo.ImplDAO
 {
     public class InventarioImplDAO : ConexionBD,InventarioDAO
     {
-        public InventarioDTO inventarioDTO = new InventarioDTO();
+        public Inventario inventarioDTO = new Inventario();
 
         public InventarioImplDAO()
         {
             this.ConsultarProducto();
         }
 
-        public Boolean GuardarProducto(ProductoDTO producto)
+        public Boolean GuardarProducto(Producto producto)
         {
             Boolean res = false;
             string query = "INSERT INTO Producto(id, nombre,precio,stock,stockMin,categoria) VALUES ('" + producto.ID + "','" + producto.Nombre + "'," +
@@ -59,7 +59,7 @@ namespace Modelo.ImplDAO
                         datos.Add(row);
 
                         inventarioDTO.ProductoList.Add(
-                        new ProductoDTO(reader.GetString(0), reader.GetString(1), float.Parse(reader.GetString(2)), Convert.ToInt32(reader.GetString(3)), Convert.ToInt32(reader.GetString(4)), reader.GetString(5)));
+                        new Producto(reader.GetString(0), reader.GetString(1), float.Parse(reader.GetString(2)), Convert.ToInt32(reader.GetString(3)), Convert.ToInt32(reader.GetString(4)), reader.GetString(5)));
                     }
                 }
                 databaseConnection.Close();
@@ -114,7 +114,7 @@ namespace Modelo.ImplDAO
         public int ValidarStock(String id, int Stocknuevo)
         {
             int aux = 0;
-            ProductoDTO producto = BuscarProducto(id);
+            Producto producto = BuscarProducto(id);
 
             if ((producto.Stock - Stocknuevo) > 0)
             {
@@ -141,7 +141,7 @@ namespace Modelo.ImplDAO
         public String BuscarNombreProducto(String id)
         {
             String nombre = "";
-            foreach (ProductoDTO i in inventarioDTO.ProductoList)
+            foreach (Producto i in inventarioDTO.ProductoList)
             {
                 if (id.Equals(i.ID))
                 {
@@ -176,9 +176,9 @@ namespace Modelo.ImplDAO
             return aux;
         }
 
-        public ProductoDTO BuscarProducto(String id)
+        public Producto BuscarProducto(String id)
         {
-            ProductoDTO producto = null;
+            Producto producto = null;
             string query = "SELECT * FROM Producto WHERE id=" + id + "";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -192,7 +192,7 @@ namespace Modelo.ImplDAO
                     while (reader.Read())
                     {
                         producto =
-                            new ProductoDTO(reader.GetString(0), reader.GetString(1), float.Parse(reader.GetString(2)), Convert.ToInt32(reader.GetString(3)), Convert.ToInt32(reader.GetString(4)), reader.GetString(5));
+                            new Producto(reader.GetString(0), reader.GetString(1), float.Parse(reader.GetString(2)), Convert.ToInt32(reader.GetString(3)), Convert.ToInt32(reader.GetString(4)), reader.GetString(5));
                     }
                 }
                 databaseConnection.Close();
@@ -224,7 +224,7 @@ namespace Modelo.ImplDAO
             return res;
         }
 
-        public Boolean ModificarProductos(ProductoDTO producto, String id)
+        public Boolean ModificarProductos(Producto producto, String id)
         {
             Boolean res = false;
             string query = "UPDATE Producto SET id=" + producto.ID + ", nombre='" + producto.Nombre + "' , precio=" + producto.Precio + "" +

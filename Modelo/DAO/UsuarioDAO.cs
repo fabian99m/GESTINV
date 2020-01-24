@@ -7,6 +7,6 @@ namespace Modelo.DAO
 {
     public interface UsuarioDAO
     {
-      void IniciarSesion(UsuarioDTO user, Form login_form);        
+      void IniciarSesion(Usuario user, Form login_form);        
     }
 }

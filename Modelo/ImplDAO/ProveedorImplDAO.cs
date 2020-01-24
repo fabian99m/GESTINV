@@ -8,7 +8,7 @@ namespace Modelo.ImplDAO
 {
    public class ProveedorImplDAO : ConexionBD,ProveedorDAO
     {
-        public Boolean GuardarProveedor(ProveedorDTO proveedor)
+        public Boolean GuardarProveedor(Proveedor proveedor)
         {
             Boolean res = false;
             String query = "INSERT INTO Proveedor(nombre,telefono,email) VALUES ('" + proveedor.Nombre + "','" + proveedor.Telefono + "','" + proveedor.Email + "')";

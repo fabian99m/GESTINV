@@ -3,7 +3,7 @@
 
 namespace Modelo.DTO
 {
-    public class ProductoDTO
+    public class Producto
     {
         String id;
         String nombre;
@@ -12,11 +12,11 @@ namespace Modelo.DTO
         int stockMin;
         String categoria;
 
-        public ProductoDTO()
+        public Producto()
         {
         }
 
-        public ProductoDTO(String id, String nombre, float precio, int stock, int stockMin, string categoria)
+        public Producto(String id, String nombre, float precio, int stock, int stockMin, string categoria)
         {
             this.id = id;
             this.nombre = nombre;
@@ -26,7 +26,7 @@ namespace Modelo.DTO
             this.categoria = categoria;
         }
 
-        public ProductoDTO(String id, String nombre)
+        public Producto(String id, String nombre)
         {
             this.id = id;
             this.nombre = nombre;

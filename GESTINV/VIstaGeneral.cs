@@ -339,7 +339,7 @@ namespace GESTINV
             {
                 if (inventario_controlador.BuscarExistenciaProducto(TextID2.Text))
                 {
-                    registro_controlador.RegistrarEntrada(new ProductoDTO(TextID2.Text, inventario_controlador.BuscarProducto(TextID2.Text).Nombre),Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text), cbProveedor.SelectedItem.ToString());                  
+                    registro_controlador.RegistrarEntrada(new Producto(TextID2.Text, inventario_controlador.BuscarProducto(TextID2.Text).Nombre),Time.Value.ToString(), Convert.ToInt32(TextCantidad.Text), cbProveedor.SelectedItem.ToString());                  
                     RefrescaraTablaEntrada();
                     LImpiarentrada();
                     RefrescarTablaInvetario();
@@ -397,7 +397,7 @@ namespace GESTINV
             {
                 if (inventario_controlador.BuscarExistenciaProducto(TextID3.Text))
                 {
-                   int res = registro_controlador.RegistrarSalida(new ProductoDTO(TextID3.Text,  inventario_controlador.BuscarProducto(TextID3.Text).Nombre ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
+                   int res = registro_controlador.RegistrarSalida(new Producto(TextID3.Text,  inventario_controlador.BuscarProducto(TextID3.Text).Nombre ), Time.Value.ToString(), Convert.ToInt32(TextCantidad2.Text));
                     RefrescarTablaInvetario();
                     refrescarTablaSalida();
                     CargarGraficaSalida();
@@ -457,7 +457,7 @@ namespace GESTINV
         private void Alerta2_BalloonTipClicked(object sender, EventArgs e)
         {
 
-             ProductoDTO producto =  inventario_controlador.BuscarProducto(TextID3.Text);
+             Producto producto =  inventario_controlador.BuscarProducto(TextID3.Text);
              Alerta a = new Alerta(producto);
              a.ShowDialog();
              LimpiarSalida();

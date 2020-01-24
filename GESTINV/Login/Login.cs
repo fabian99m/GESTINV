@@ -33,7 +33,7 @@ namespace Vista.Login
         {
             if (!String.IsNullOrEmpty(TextNombre.Text) && !String.IsNullOrEmpty(TextContrasena.Text))
             {
-                user_controlador.IniciarSesion(new UsuarioDTO(TextNombre.Text, TextContrasena.Text), this);
+                user_controlador.IniciarSesion(new Usuario(TextNombre.Text, TextContrasena.Text), this);
             } else
             {
                 MessageBox.Show("Ingrese todos los datos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);             

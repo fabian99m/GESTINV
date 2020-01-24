@@ -3,7 +3,7 @@
 
 namespace Modelo.DTO
 {
-    public class UsuarioDTO
+    public class Usuario
     {
         
         private String id;
@@ -12,7 +12,7 @@ namespace Modelo.DTO
         private String tipo;
         private String contrasena;
 
-        public UsuarioDTO(string id, string nombre, string apellido, string tipo, string contrasena)
+        public Usuario(string id, string nombre, string apellido, string tipo, string contrasena)
         {
             this.id = id;
             this.nombre = nombre;
@@ -21,7 +21,7 @@ namespace Modelo.DTO
             this.contrasena = contrasena;
         }
 
-        public UsuarioDTO(string nombre, string contrasena)
+        public Usuario(string nombre, string contrasena)
         {
             this.nombre= nombre;
             this.contrasena = contrasena;

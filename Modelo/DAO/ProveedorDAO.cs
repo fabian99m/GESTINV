@@ -7,7 +7,7 @@ namespace Modelo.DAO
 {
     public interface ProveedorDAO 
     {
-        Boolean GuardarProveedor(ProveedorDTO proveedor);
+        Boolean GuardarProveedor(Proveedor proveedor);
 
         List<String> ConsultarProveedores();
       

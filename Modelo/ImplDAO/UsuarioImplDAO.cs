@@ -9,7 +9,7 @@ namespace Modelo.ImplDAO
    public class UsuarioImplDAO : ConexionBD, UsuarioDAO
     {
 
-        public void IniciarSesion(UsuarioDTO user, Form login_form)
+        public void IniciarSesion(Usuario user, Form login_form)
         {
 
             string query = "SELECT * FROM Usuario WHERE nombre='" + user.Nombre + "' and contrasena='" + user.Contrasena + "'";
@@ -46,7 +46,7 @@ namespace Modelo.ImplDAO
             catch (Exception ex)
             {
                 login_form.DialogResult = DialogResult.Retry;
-                //MessageBox.Show("Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
         }
     }

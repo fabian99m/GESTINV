@@ -2,14 +2,14 @@
 
 namespace Modelo.DTO
 {
-    public class ProveedorDTO
+    public class Proveedor
     {
         String id;
         String nombre;
         String telefono;
         String email;
 
-        public ProveedorDTO( string nombre, string telefono, string email)
+        public Proveedor( string nombre, string telefono, string email)
         {    
             this.nombre = nombre;
             this.telefono = telefono;
