@@ -39,7 +39,7 @@
             // 
             this.TextNombre.Depth = 0;
             this.TextNombre.Hint = "Nombre";
-            this.TextNombre.Location = new System.Drawing.Point(128, 118);
+            this.TextNombre.Location = new System.Drawing.Point(63, 112);
             this.TextNombre.MaxLength = 32767;
             this.TextNombre.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextNombre.Name = "TextNombre";
@@ -47,7 +47,7 @@
             this.TextNombre.SelectedText = "";
             this.TextNombre.SelectionLength = 0;
             this.TextNombre.SelectionStart = 0;
-            this.TextNombre.Size = new System.Drawing.Size(130, 28);
+            this.TextNombre.Size = new System.Drawing.Size(274, 28);
             this.TextNombre.TabIndex = 0;
             this.TextNombre.TabStop = false;
             this.TextNombre.UseSystemPasswordChar = false;
@@ -56,7 +56,7 @@
             // 
             this.TextTel.Depth = 0;
             this.TextTel.Hint = "Teléfono";
-            this.TextTel.Location = new System.Drawing.Point(128, 194);
+            this.TextTel.Location = new System.Drawing.Point(63, 190);
             this.TextTel.MaxLength = 32767;
             this.TextTel.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextTel.Name = "TextTel";
@@ -64,7 +64,7 @@
             this.TextTel.SelectedText = "";
             this.TextTel.SelectionLength = 0;
             this.TextTel.SelectionStart = 0;
-            this.TextTel.Size = new System.Drawing.Size(130, 28);
+            this.TextTel.Size = new System.Drawing.Size(274, 28);
             this.TextTel.TabIndex = 1;
             this.TextTel.TabStop = false;
             this.TextTel.UseSystemPasswordChar = false;
@@ -74,7 +74,7 @@
             // 
             this.TextEmail.Depth = 0;
             this.TextEmail.Hint = "Email";
-            this.TextEmail.Location = new System.Drawing.Point(128, 269);
+            this.TextEmail.Location = new System.Drawing.Point(63, 259);
             this.TextEmail.MaxLength = 32767;
             this.TextEmail.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextEmail.Name = "TextEmail";
@@ -82,7 +82,7 @@
             this.TextEmail.SelectedText = "";
             this.TextEmail.SelectionLength = 0;
             this.TextEmail.SelectionStart = 0;
-            this.TextEmail.Size = new System.Drawing.Size(130, 28);
+            this.TextEmail.Size = new System.Drawing.Size(274, 28);
             this.TextEmail.TabIndex = 2;
             this.TextEmail.TabStop = false;
             this.TextEmail.UseSystemPasswordChar = false;
@@ -93,7 +93,7 @@
             this.btnGuardar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnGuardar.Depth = 0;
             this.btnGuardar.Icon = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Icon")));
-            this.btnGuardar.Location = new System.Drawing.Point(128, 343);
+            this.btnGuardar.Location = new System.Drawing.Point(112, 338);
             this.btnGuardar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Primary = true;
@@ -107,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 445);
+            this.ClientSize = new System.Drawing.Size(366, 465);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.TextEmail);
             this.Controls.Add(this.TextTel);

@@ -51,6 +51,9 @@ namespace Vista.Login
             TextContrasena.Text = "";
         }
 
-        
+        private void TextNombre_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

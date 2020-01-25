@@ -39,7 +39,7 @@
             // 
             this.TextNombre.Depth = 0;
             this.TextNombre.Hint = "Usuario";
-            this.TextNombre.Location = new System.Drawing.Point(184, 131);
+            this.TextNombre.Location = new System.Drawing.Point(164, 125);
             this.TextNombre.MaxLength = 32767;
             this.TextNombre.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextNombre.Name = "TextNombre";
@@ -47,16 +47,17 @@
             this.TextNombre.SelectedText = "";
             this.TextNombre.SelectionLength = 0;
             this.TextNombre.SelectionStart = 0;
-            this.TextNombre.Size = new System.Drawing.Size(215, 28);
+            this.TextNombre.Size = new System.Drawing.Size(272, 28);
             this.TextNombre.TabIndex = 0;
             this.TextNombre.TabStop = false;
             this.TextNombre.UseSystemPasswordChar = false;
+            this.TextNombre.Click += new System.EventHandler(this.TextNombre_Click);
             // 
             // TextContrasena
             // 
             this.TextContrasena.Depth = 0;
             this.TextContrasena.Hint = "Contraseña";
-            this.TextContrasena.Location = new System.Drawing.Point(184, 216);
+            this.TextContrasena.Location = new System.Drawing.Point(164, 198);
             this.TextContrasena.MaxLength = 32767;
             this.TextContrasena.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextContrasena.Name = "TextContrasena";
@@ -64,7 +65,7 @@
             this.TextContrasena.SelectedText = "";
             this.TextContrasena.SelectionLength = 0;
             this.TextContrasena.SelectionStart = 0;
-            this.TextContrasena.Size = new System.Drawing.Size(215, 28);
+            this.TextContrasena.Size = new System.Drawing.Size(272, 28);
             this.TextContrasena.TabIndex = 1;
             this.TextContrasena.TabStop = false;
             this.TextContrasena.UseSystemPasswordChar = true;
@@ -76,7 +77,7 @@
             this.materialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton1.Depth = 0;
             this.materialRaisedButton1.Icon = ((System.Drawing.Image)(resources.GetObject("materialRaisedButton1.Icon")));
-            this.materialRaisedButton1.Location = new System.Drawing.Point(184, 305);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(181, 284);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
@@ -92,7 +93,7 @@
             this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton2.Depth = 0;
             this.materialRaisedButton2.Icon = ((System.Drawing.Image)(resources.GetObject("materialRaisedButton2.Icon")));
-            this.materialRaisedButton2.Location = new System.Drawing.Point(218, 384);
+            this.materialRaisedButton2.Location = new System.Drawing.Point(220, 366);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
             this.materialRaisedButton2.Primary = true;
@@ -106,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 526);
+            this.ClientSize = new System.Drawing.Size(543, 481);
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.TextContrasena);
