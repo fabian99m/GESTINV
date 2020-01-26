@@ -10,7 +10,9 @@ namespace Modelo.DAO
         Boolean GuardarProveedor(Proveedor proveedor);
 
         List<String> ConsultarProveedores();
-      
+        List<String[]> ConsultarProveedor( String valor, string tipo);
+
+
     }
 
 }

@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Controlador;
-using Modelo.DTO;
 
 namespace Vista.Proveedor
 {
@@ -18,24 +17,36 @@ namespace Vista.Proveedor
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
-                (Primary)6732650, (Primary)9268835,
+                (Primary)6732650, (Primary)1793568,
                 (Primary)6732650, (Accent)6732650,
                 TextShade.BLACK
             );
             TextTel.Select();
+
+            tbproveedor.HideSelection = true;
+            refrescartabla();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-        if(!String.IsNullOrEmpty(TextNombre.Text) && !String.IsNullOrEmpty(TextTel.Text) && !String.IsNullOrEmpty(TextEmail.Text))
+            if (!String.IsNullOrEmpty(TextNombre.Text) && !String.IsNullOrEmpty(TextTel.Text) && !String.IsNullOrEmpty(TextEmail.Text))
             {
-                proveedor_controlador.GuardarProovedor(new Modelo.DTO.Proveedor(TextNombre.Text, TextTel.Text, TextEmail.Text) );
+                proveedor_controlador.GuardarProovedor(new Modelo.DTO.Proveedor(TextNombre.Text, TextTel.Text, TextEmail.Text));
                 LimpiarPantalla();
-            } else
-            {
-              MessageBox.Show("Ingrese todos los datos!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                refrescartabla();            
             }
-            this.Dispose();
+            else
+            {
+                MessageBox.Show("Ingrese todos los datos!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        
+
+        public void LimpiarPantalla()
+        {
+            TextNombre.Text = "";
+            TextTel.Text = "";
+            TextEmail.Text = "";
         }
 
         private void TextTel_KeyPress(object sender, KeyPressEventArgs e)
@@ -47,11 +58,28 @@ namespace Vista.Proveedor
             }
         }
 
-        public void LimpiarPantalla()
+        private void refrescartabla()
         {
-            TextNombre.Text = "";
-            TextTel.Text = "";
-            TextEmail.Text = "";
+            proveedor_controlador.ConsultarProvedor(tbproveedor, TextConsulta.Text, "1");
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+        if(!String.IsNullOrEmpty(TextConsulta.Text))
+            {
+                proveedor_controlador.ConsultarProvedor(tbproveedor, TextConsulta.Text,"2");
+            }   
+         else
+            {
+                MessageBox.Show("Ingrese la consulta!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            refrescartabla();
+            LimpiarPantalla();
+            TextConsulta.Text = "";
         }
     }
 }

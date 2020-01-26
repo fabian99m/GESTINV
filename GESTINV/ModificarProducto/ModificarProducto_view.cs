@@ -19,15 +19,15 @@ namespace Vista.ModificarProducto
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
             materialSkinManager.ColorScheme = new ColorScheme(
-                (Primary)6732650, (Primary)9268835,
+                (Primary)6732650, (Primary)1793568,
                 (Primary)6732650, (Accent)6732650,
                 TextShade.BLACK
             );
-            TextID.Text = id;
+           // TextID.Text = id;
             aux = id;
             TextNombre.Text = nombre;
             TextPrecio.Text = precio;
-            TextStock.Text = stock;
+            //TextStock.Text = stock;
             TextStockMin.Text = stockMin;
             TextCategoria.Text = categoria;
         }
@@ -39,11 +39,11 @@ namespace Vista.ModificarProducto
 
         private void btnModificarProducto_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(TextID.Text) && !String.IsNullOrEmpty(TextNombre.Text) && !String.IsNullOrEmpty(TextPrecio.Text)
-              && !String.IsNullOrEmpty(TextStock.Text) && !String.IsNullOrEmpty(TextStockMin.Text) && !String.IsNullOrEmpty(TextCategoria.Text))
+            if ( !String.IsNullOrEmpty(TextNombre.Text) && !String.IsNullOrEmpty(TextPrecio.Text)
+              && !String.IsNullOrEmpty(TextStockMin.Text) && !String.IsNullOrEmpty(TextCategoria.Text))
             {
-                inv_controlador.ModificarProductos(TextID.Text, TextNombre.Text, float.Parse(TextPrecio.Text)
-                 , Convert.ToInt32(TextStock.Text), Convert.ToInt32(TextStockMin.Text), TextCategoria.Text,aux);
+                inv_controlador.ModificarProductos( TextNombre.Text, float.Parse(TextPrecio.Text)
+                 , Convert.ToInt32(TextStockMin.Text), TextCategoria.Text,aux);
                 
                 this.Dispose();
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Modelo.DAO;
 using Modelo.DTO;
 using MySql.Data.MySqlClient;
@@ -52,6 +53,49 @@ namespace Modelo.ImplDAO
             catch (Exception ex)
             { }
             return lista;
+        }
+
+        public List<String[]> ConsultarProveedor(String valor,string tipo)
+        {
+            string query =  string.Empty;
+            if (tipo.Equals("1"))
+            {
+                query = "SELECT * FROM Proveedor";
+            } else
+            {
+                query = "SELECT * FROM Proveedor WHERE nombre='" + valor + "' ";
+            }
+             
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            List<String[]> datos = new List<string[]>();
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+
+                // Si se encontraron datos
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        
+                        string[] row = { reader.GetString(1), reader.GetString(2),reader.GetString(3)};
+                        datos.Add(row);
+                    }
+                    databaseConnection.Close();
+                }
+                else
+                {
+                    databaseConnection.Close();
+                    MessageBox.Show("Proveedor no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //this.ConsultarProducto();
+                }
+            }
+            catch (Exception ex)
+            { }
+            return datos;
         }
 
     }

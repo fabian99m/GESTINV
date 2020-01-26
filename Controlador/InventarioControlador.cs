@@ -77,9 +77,9 @@ namespace Controlador
             }
         }
 
-        public void ModificarProductos(String id, String nombre, float precio, int stock, int stockMin, String categoria,String IdOld)
+        public void ModificarProductos( String nombre, float precio,  int stockMin, String categoria,String IdOld)
         {
-          Boolean res = InventarioImpl.ModificarProductos(new Producto(id, nombre, precio, stock, stockMin, categoria),IdOld);
+          Boolean res = InventarioImpl.ModificarProductos(new Producto( nombre, precio,  stockMin, categoria),IdOld);
             if (res)
             {
                 MessageBox.Show("Producto modificado con éxito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

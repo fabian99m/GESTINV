@@ -227,8 +227,7 @@ namespace Modelo.ImplDAO
         public Boolean ModificarProductos(Producto producto, String id)
         {
             Boolean res = false;
-            string query = "UPDATE Producto SET id=" + producto.ID + ", nombre='" + producto.Nombre + "' , precio=" + producto.Precio + "" +
-                ",stock=" + producto.Stock + ",stockMin=" + producto.StockMin + " ,Categoria='" + producto.Categoria + "' WHERE id=" + id + "";
+            string query = "UPDATE Producto SET nombre='" + producto.Nombre + "' , precio=" + producto.Precio + "" +", stockMin=" + producto.StockMin + " ,Categoria='" + producto.Categoria + "' WHERE id=" + id + "";
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             MySqlDataReader reader;

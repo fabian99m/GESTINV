@@ -42,14 +42,12 @@ namespace GESTINV
 
         public void IniciarVista()
         {
-            Thread t = new Thread(new ThreadStart(Splash));
-            t.Start();  
-            InitializeComponent();     
+            InitializeComponent();
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
-                (Primary)6732650, (Primary)9268835,
+                (Primary)6732650, (Primary)1793568,
                 (Primary)6732650, (Accent)6732650,
                 TextShade.BLACK
             );
@@ -58,15 +56,9 @@ namespace GESTINV
             TablaEntrada.HideSelection = true;
             TablaSalida.HideSelection = true;
             CargarDatos();
-            t.Abort();
         }
 
-        void Splash()
-        {
-            SplashScreen.SplashForm form = new SplashScreen.SplashForm();
-            form.AppName = "GESTINV";
-            Application.Run(form);           
-        }
+       
 
         public void CargarDatos()
         {
@@ -300,6 +292,8 @@ namespace GESTINV
                 RefrescarTablaInvetario();
                 CargarGraficaSalida();
                 CargarGraficaEntrada();
+                RefrescaraTablaEntrada();
+                refrescarTablaSalida();
             }
             else
             {
@@ -326,6 +320,8 @@ namespace GESTINV
                   RefrescarTablaInvetario();
                   CargarGraficaSalida();
                   CargarGraficaEntrada();
+                  RefrescaraTablaEntrada();
+                  refrescarTablaSalida();  
                 }
             } else
             {

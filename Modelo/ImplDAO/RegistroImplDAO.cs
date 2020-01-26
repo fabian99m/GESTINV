@@ -9,7 +9,7 @@ namespace Modelo.ImplDAO
    public class RegistroImplDAO : ConexionBD,RegistroDAO 
     {
 
-        InventarioImplDAO Inventario = new InventarioImplDAO();
+        InventarioImplDAO inventario = new InventarioImplDAO();
 
         public Boolean RegistrarEntrada(Producto producto, String fecha, int cantidad, String proveedor)
         {
@@ -24,7 +24,7 @@ namespace Modelo.ImplDAO
                 res = true;
                 databaseConnection.Close();
 
-                Inventario.ModificarStock(producto.ID, cantidad, "Entrada");
+                inventario.ModificarStock(producto.ID, cantidad, "Entrada");
 
             }
             catch (Exception ex)
@@ -34,7 +34,7 @@ namespace Modelo.ImplDAO
 
         public int RegistrarSalida(Producto producto, String fecha, int cantidad)
         {
-            int res = Inventario.ValidarStock(producto.ID, cantidad);
+            int res = inventario.ValidarStock(producto.ID, cantidad);
             try
             {
                 if (res != 3)
@@ -45,17 +45,17 @@ namespace Modelo.ImplDAO
                     databaseConnection.Open();
                     MySqlDataReader myReader = commandDatabase.ExecuteReader();
                     databaseConnection.Close();
-                    Inventario.ModificarStock(producto.ID, cantidad, "Salida");
+                    inventario.ModificarStock(producto.ID, cantidad, "Salida");
                 }
                 else
                 {
-                    string query = "INSERT INTO Salida(id,nombre,fecha,cantidad) VALUES ('" + producto.ID + "', '" + producto.Nombre + "',  '" + fecha + "', " + Inventario.BuscarProducto(producto.ID).Stock + ") ";
+                    string query = "INSERT INTO Salida(id,nombre,fecha,cantidad) VALUES ('" + producto.ID + "', '" + producto.Nombre + "',  '" + fecha + "', " + inventario.BuscarProducto(producto.ID).Stock + ") ";
                     MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
                     commandDatabase.CommandTimeout = 60;
                     databaseConnection.Open();
                     MySqlDataReader myReader = commandDatabase.ExecuteReader();
                     databaseConnection.Close();
-                    Inventario.ModificarStock(producto.ID, Inventario.BuscarProducto(producto.ID).Stock, "Salida");
+                    inventario.ModificarStock(producto.ID, inventario.BuscarProducto(producto.ID).Stock, "Salida");
                 }
 
             }
@@ -137,8 +137,8 @@ namespace Modelo.ImplDAO
 
                     while (reader.Read())
                     {
-                        // x.Add(inventario.BuscarProducto(reader.GetString(0)).Nombre);
-                        x.Add(Inventario.BuscarNombreProducto(reader.GetString(0)));
+                         x.Add(inventario.BuscarProducto(reader.GetString(0)).Nombre);
+                       // x.Add(Inventario.BuscarNombreProducto(reader.GetString(0)));
                         y.Add(reader.GetString(1));
                     }
                 }
@@ -172,7 +172,7 @@ namespace Modelo.ImplDAO
 
                     while (reader.Read())
                     {
-                        x.Add(Inventario.BuscarNombreProducto(reader.GetString(0)));
+                        x.Add(inventario.BuscarProducto(reader.GetString(0)).Nombre);
                         // Console.WriteLine(reader.GetString(0));
                         //x.Add(reader.GetString(0));
                         y.Add(reader.GetString(1));

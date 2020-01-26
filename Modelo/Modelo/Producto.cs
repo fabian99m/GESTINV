@@ -25,6 +25,13 @@ namespace Modelo.DTO
             this.stockMin = stockMin;
             this.categoria = categoria;
         }
+        public Producto(String nombre, float precio, int stockMin, string categoria)
+        {         
+            this.nombre = nombre;
+            this.precio = precio;           
+            this.stockMin = stockMin;
+            this.categoria = categoria;
+        }
 
         public Producto(String id, String nombre)
         {
