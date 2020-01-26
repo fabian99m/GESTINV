@@ -52,7 +52,7 @@
             this.TextNombre.SelectedText = "";
             this.TextNombre.SelectionLength = 0;
             this.TextNombre.SelectionStart = 0;
-            this.TextNombre.Size = new System.Drawing.Size(164, 28);
+            this.TextNombre.Size = new System.Drawing.Size(229, 28);
             this.TextNombre.TabIndex = 1;
             this.TextNombre.TabStop = false;
             this.TextNombre.UseSystemPasswordChar = false;
@@ -69,7 +69,7 @@
             this.TextPrecio.SelectedText = "";
             this.TextPrecio.SelectionLength = 0;
             this.TextPrecio.SelectionStart = 0;
-            this.TextPrecio.Size = new System.Drawing.Size(136, 28);
+            this.TextPrecio.Size = new System.Drawing.Size(191, 28);
             this.TextPrecio.TabIndex = 2;
             this.TextPrecio.TabStop = false;
             this.TextPrecio.UseSystemPasswordChar = false;
@@ -87,7 +87,7 @@
             this.TextCategoria.SelectedText = "";
             this.TextCategoria.SelectionLength = 0;
             this.TextCategoria.SelectionStart = 0;
-            this.TextCategoria.Size = new System.Drawing.Size(164, 28);
+            this.TextCategoria.Size = new System.Drawing.Size(197, 28);
             this.TextCategoria.TabIndex = 4;
             this.TextCategoria.TabStop = false;
             this.TextCategoria.UseSystemPasswordChar = false;
@@ -104,7 +104,7 @@
             this.TextStockMin.SelectedText = "";
             this.TextStockMin.SelectionLength = 0;
             this.TextStockMin.SelectionStart = 0;
-            this.TextStockMin.Size = new System.Drawing.Size(158, 28);
+            this.TextStockMin.Size = new System.Drawing.Size(191, 28);
             this.TextStockMin.TabIndex = 5;
             this.TextStockMin.TabStop = false;
             this.TextStockMin.UseSystemPasswordChar = false;
